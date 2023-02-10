@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MatchController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [MatchController::class, 'index']);
+Route::get('/contoh', [MatchController::class, 'seed']);
+Route::get('/migrate', [MatchController::class, 'migrate']);
