@@ -13,7 +13,7 @@ class MatchController extends Controller
     {
         $players = Player::orderBy('elo', 'desc')->get()->toArray();
         
-        return Inertia::render('Match', [
+        return Inertia::render('NewMatch', [
             'players' => $players
         ]);
     }
