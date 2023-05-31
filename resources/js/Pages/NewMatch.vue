@@ -1,12 +1,12 @@
 <template>
-    <header id="up" class="bg-center bg-fixed bg-no-repeat bg-cover h-screen relative">
+    <header class="relative min-h-screen bg-fixed bg-center bg-no-repeat bg-cover">
             <!-- Overlay Background + Center Control -->
-        <div class="h-screen bg-opacity-50 bg-black flex flex-col items-center" >
-            <h1 class="text-white font-bold text-lg p-7">Age Of Empires Indonesia - Match Making</h1>
-            <form class="max-w-xl lg:w-1/3 p-5 bg-white border border-gray-200 text-center rounded-lg shadow " v-if="teams.a.length == 0" @submit.prevent="findPlayer">
+        <div class="flex flex-col items-center min-h-screen bg-black bg-opacity-50" >
+            <h1 class="text-lg font-bold text-white p-7">Age Of Empires Indonesia - Match Making</h1>
+            <form class="max-w-xl p-5 text-center bg-white border border-gray-200 rounded-lg shadow lg:w-full " v-if="teams.a.length == 0" @submit.prevent="findPlayer">
                 <div class="flex flex-col items-center gap-5">
                     <h2 class="font-semibold ">Select Player</h2>
-                    <div class="w-full p-6 bg-white border border-gray-200 text-center rounded-lg shadow">
+                    <div class="w-full p-6 text-center bg-white border border-gray-200 rounded-lg shadow">
                         <label for="simple-search " class="sr-only">Search</label>
                         <div class="relative w-full ">
                             <input v-model="filter" type="text" id="simple-search" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search Player" required>
@@ -16,8 +16,8 @@
                                 </svg>
                             </div>
                         </div>
-                        <div class="players pt-2">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 max-h-[calc(100vh-700px)] overflow-y-auto">
+                        <div class="pt-2 players">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 max-h-[calc(100vh-550px)] overflow-y-auto">
                                 <div class="" v-for="(p, k) in filteredEntries" :key="k">
                                     <player :player="p" @player-selected="selectedPlayer" :key="p.aoe2net_id"></player>
                                 </div>
@@ -25,39 +25,42 @@
                         </div>
                     </div>
                     <div v-if="selectedPlayers.length > 0" class="w-full p-6 bg-gradient-to-r from-gray-300 to-[#8997B0] border border-gray-200 text-center rounded-lg shadow">
-                        <h2 class="font-semibold pb-5">Selected Player</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-2 max-h-[calc(100vh-900px)] overflow-y-auto">
-                            <div class="" v-for="(p, k) in selectedPlayers" :key="k">
+                        <h2 class="pb-5 font-semibold">Selected Player</h2>
+                        <div class="grid h-full grid-cols-1 gap-2 md:grid-cols-2">
+                            <div class="relative" v-for="(p, k) in selectedPlayers" :key="k">
                                 <player class="bg-white" :player="p" :key="p.aoe2net_id"></player>
+                                <button class="absolute -translate-y-1/2 right-4 top-1/2" @click="cancelSelection(k)"><svg width="16" height="16" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11.7465 10.5349C11.9074 10.6958 11.9979 10.9141 11.9979 11.1417C11.9979 11.3694 11.9074 11.5877 11.7465 11.7486C11.5855 11.9096 11.3672 12 11.1396 12C10.912 12 10.6937 11.9096 10.5327 11.7486L5.99964 7.21412L1.46515 11.7472C1.30419 11.9081 1.08589 11.9986 0.858264 11.9986C0.630638 11.9986 0.412335 11.9081 0.25138 11.7472C0.0904241 11.5862 2.39843e-09 11.3679 0 11.1403C-2.39843e-09 10.9127 0.0904241 10.6944 0.25138 10.5334L4.78587 6.00036L0.252807 1.46586C0.0918518 1.30491 0.00142799 1.0866 0.001428 0.858978C0.001428 0.631352 0.0918518 0.413049 0.252807 0.252094C0.413763 0.0911379 0.632066 0.000713864 0.859692 0.000713861C1.08732 0.000713859 1.30562 0.0911379 1.46658 0.252094L5.99964 4.78659L10.5341 0.251379C10.6951 0.0904238 10.9134 -3.79225e-09 11.141 0C11.3686 3.79225e-09 11.5869 0.0904238 11.7479 0.251379C11.9089 0.412335 11.9993 0.630638 11.9993 0.858263C11.9993 1.08589 11.9089 1.30419 11.7479 1.46515L7.21341 6.00036L11.7465 10.5349Z" fill="#F24E1E"/>
+                                    </svg></button>
                             </div>
                         </div>
                     </div>
-                    <div class=" w-full">
+                    <div class="w-full ">
                         <button type="button" @click.prevent="buildTeamButtonPressed" class=" inline-flex items-center justify-center w-full py-4 text-sm font-medium text-center text-white bg-[#4FAF2F] rounded-lg hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-green-200">
                             <span class="font-bold">GENERATE TEAM</span> 
                         </button>
                     </div>
                 </div>
             </form> 
-            <div class="bg-white text-center p-5 rounded-lg" v-if="teams.a.length > 0">
-                <h1 class="font-bold pb-4 text-lg">Team Results</h1>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+            <div class="p-5 text-center bg-white rounded-lg" v-if="teams.a.length > 0">
+                <h1 class="pb-4 text-lg font-bold">Team Results</h1>
+                <div class="grid grid-cols-1 gap-2 md:grid-cols-2">
                     <div class="bg-gradient-to-r from-red-300 to-[#F67878] rounded-lg shadow p-4 text-center">
-                        <h3 class="text-lg font-semibold mb-2">Team 1</h3>
+                        <h3 class="mb-2 text-lg font-semibold">Team 1</h3>
                         <div class="pb-2" v-for="(p, k) in teams.a" :key="k">
                             <player class="bg-white" :player="p" :key="p.aoe2net_id" :inMatch="true"></player>
                         </div>
                         <p class="pt-4 font-bold">Total Elo : {{ countElo(teams.a) }}</p>
                     </div>
                     <div class="bg-gradient-to-r from-blue-300 to-[#79A2F3] rounded-lg shadow p-4 text-center">
-                        <h3 class="text-lg font-semibold mb-2">Team 2</h3>
+                        <h3 class="mb-2 text-lg font-semibold">Team 2</h3>
                         <div class="pb-2" v-for="(p, k) in teams.b" :key="k">
                             <player class="bg-white" :player="p" :key="p.aoe2net_id" :inMatch="true"></player>
                         </div>
                         <p class="pt-4 font-bold">Total Elo : {{ countElo(teams.b) }}</p>
                     </div>
                 </div>
-                <div class="flex pt-5 gap-2 items-center">
+                <div class="flex items-center gap-2 pt-5">
                     <button @click.prevent="buildTeamButtonPressed" class=" inline-flex gap-1 items-center justify-center px-5 py-3 text-sm font-medium text-center text-white bg-[#4FAF2F] rounded-lg hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-green-200">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path opacity="0.2" d="M20.25 4.5V9H15.75L20.25 4.5ZM3.75 19.5L8.25 15H3.75V19.5Z" fill="white"/>
@@ -108,6 +111,7 @@ export default {
   props: ['players'],
   data() {
     return {
+        
       selectedPlayers: [],
       filter: "",
       teams: {
@@ -128,7 +132,7 @@ export default {
       return this.players.filter((el) => { return el.name.toLowerCase().includes(this.filter.toLowerCase()) });
     }
   },
-  
+
   methods: {
     copyMatch() {
       let text = "";
@@ -144,7 +148,12 @@ export default {
       // this.audio.play();
     },
     selectedPlayer(player) {
-      this.selectedPlayers.push(player);
+      if (this.selectedPlayers.indexOf(player) == -1)
+        this.selectedPlayers.push(player);
+    },
+    cancelSelection(index) {
+        this.selectedPlayers.splice(index, 1);
+        
     },
     findPlayer() {
       // fetch(`https://legacy.aoe2companion.com/api/leaderboard?game=aoe2de&leaderboard_id=0&start=1&count=50&country=${this.country}&search=${this.filter}`)

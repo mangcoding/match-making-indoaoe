@@ -1,5 +1,5 @@
 <template>
-    <div @click="onPlayerSelected" class="flex border border-gray-200 pointer rounded p-1"
+    <div @click="onPlayerSelected" class="flex p-1 border border-gray-200 rounded pointer"
         :class="{ 'glow-border': inMatch }">
         <div class="flex items-center pr-1 text-xs "><img class="w-16 rounded-md" :src="avatar || 'profile.png'" :alt="player.name"></div>
         <div class="w-full ">
@@ -77,10 +77,7 @@ export default {
     },
     methods: {
         onPlayerSelected() {
-            if (!this.selected) {
-                this.selected = true;
-                this.$emit('player-selected', this.player)
-            }
+            this.$emit('player-selected', this.player)
         },
         fetchProfile() {
             const cachedProfile = localStorage.getItem(this.player.aoe2net_id);
@@ -100,8 +97,10 @@ export default {
             })
                 .then(response => response.json())
                 .then(json => {
-                    localStorage.setItem(this.player.aoe2net_id, json.user.avatarUrl);
-                    this.avatar = json.user.avatarUrl;
+                    if (json.user && json.user.hasOwnProperty("avatarUrl")) {
+                        localStorage.setItem(this.player.aoe2net_id, json.user.avatarUrl);
+                        this.avatar = json.user.avatarUrl;
+                    }
                 });
         }
     }
