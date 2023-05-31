@@ -2,8 +2,7 @@
 
 import Vue from 'vue'
 import { createInertiaApp } from '@inertiajs/vue2'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
+
 // import '../css/app.css'
 
 createInertiaApp({
