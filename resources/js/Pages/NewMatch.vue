@@ -4,7 +4,7 @@
         <div class="flex flex-col items-center min-h-screen bg-black bg-opacity-50">
             <h1 class="text-lg font-bold text-white p-7">Age Of Empires Indonesia - Match Making</h1>
             <form class="max-w-xl p-5 text-center bg-white border border-gray-200 rounded-lg shadow lg:w-full "
-                v-if="teams.a.length == 0" @submit.prevent="findPlayer">
+                v-if="!selectedTeams" @submit.prevent="findPlayer">
                 <div class="flex flex-col items-center gap-5">
                     <h2 class="font-semibold ">Select Player</h2>
                     <div class="w-full p-6 text-center bg-white border border-gray-200 rounded-lg shadow">
@@ -24,7 +24,7 @@
                         </div>
                         <div class="pt-2 players">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-2 max-h-[calc(100vh-550px)] overflow-y-auto">
-                                <div class="" v-for="(p, k) in filteredEntries" :key="k">
+                                <div class="" v-for="(p, k) in filteredEntries.sort((a,b)=> b.newElo - a.newElo)" :key="k">
                                     <player :player="p" @player-selected="selectedPlayer" :key="p.aoe2net_id"></player>
                                 </div>
                             </div>
@@ -54,26 +54,33 @@
                     </div>
                 </div>
             </form>
-            <div class="p-5 text-center bg-white rounded-lg" v-if="teams.a.length > 0">
-                <h1 class="pb-4 text-lg font-bold">Team Results</h1>
+            <div class="p-5 text-center bg-white rounded-lg" v-if="selectedTeams && selectedTeams[teamIndex].team_a.length > 0">
+                <div class="flex justify-between">
+                    <h1 class="pb-4 text-lg font-bold">Team Results ({{ teamIndex+1 }})</h1>
+                    <span>Total Team Generated: {{ selectedTeams.length }}</span>
+                </div>
                 <div class="grid grid-cols-1 gap-2 md:grid-cols-2">
                     <div class="bg-gradient-to-r from-red-300 to-[#F67878] rounded-lg shadow p-4 text-center">
                         <h3 class="mb-2 text-lg font-semibold">Team 1</h3>
-                        <div class="pb-2" v-for="(p, k) in teams.a" :key="k">
+                        <div class="pb-2" v-for="(p, k) in selectedTeams[teamIndex].team_a" :key="k">
                             <player class="bg-white" :player="p" :key="p.aoe2net_id" :inMatch="true"></player>
                         </div>
-                        <p class="pt-4 font-bold">Total Elo : {{ teams.a.reduce((sum, player) => parseInt(sum) + parseInt(player.elo), 0) }}</p>
+                        <p class="pt-4 font-bold">Total Elo : {{ selectedTeams[teamIndex].elo_a }}</p>
                     </div>
                     <div class="bg-gradient-to-r from-blue-300 to-[#79A2F3] rounded-lg shadow p-4 text-center">
                         <h3 class="mb-2 text-lg font-semibold">Team 2</h3>
-                        <div class="pb-2" v-for="(p, k) in teams.b" :key="k">
+                        <div class="pb-2" v-for="(p, k) in selectedTeams[teamIndex].team_b" :key="k">
                             <player class="bg-white" :player="p" :key="p.aoe2net_id" :inMatch="true"></player>
                         </div>
-                        <p class="pt-4 font-bold">Total Elo : {{ teams.b.reduce((sum, player) => parseInt(sum) + parseInt(player.elo), 0) }}</p>
+                        <p class="pt-4 font-bold">Total Elo : {{ selectedTeams[teamIndex].elo_b }}</p>
                     </div>
                 </div>
+                <div class="flex items-end pt-5 justify-between">
+                    <span class="font-semibold">Total Selisih Elo</span>
+                    <span class="font-bold text-lg">{{ selectedTeams[teamIndex].diff }} poin</span>
+                </div>
                 <div class="flex items-center gap-2 pt-5">
-                    <button @click.prevent="buildTeamButtonPressed"
+                    <button @click.prevent="regeneratePressed"
                         class=" inline-flex gap-1 items-center justify-center px-5 py-3 text-sm font-medium text-center text-white bg-[#4FAF2F] rounded-lg hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-green-200">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path opacity="0.2" d="M20.25 4.5V9H15.75L20.25 4.5ZM3.75 19.5L8.25 15H3.75V19.5Z"
@@ -143,7 +150,10 @@ export default {
                 b: [],
             },
             country: 'ID',
-            audio: null
+            audio: null,
+            selectedTeams: null,
+            teamIndex: 0,
+            matchTeam: [],
         };
     },
     mounted() {
@@ -156,17 +166,17 @@ export default {
             return this.players.filter((el) => { return el.name.toLowerCase().includes(this.filter.toLowerCase()) });
         }
     },
-
     methods: {
         copyMatch() {
-            let text = "";
-            this.teams.a.forEach((p) => {
+            let text = (this.teamIndex+1)+").";
+            this.selectedTeams[this.teamIndex].team_a.forEach((p) => {
                 text += p.name + ", ";
             });
             text += "vs ";
-            this.teams.b.forEach((p) => {
+            this.selectedTeams[this.teamIndex].team_b.forEach((p) => {
                 text += p.name + ", ";
             });
+            text += "selisih poin: " + this.selectedTeams[this.teamIndex].diff;
             console.log(text);
             navigator.clipboard.writeText(text);
             // this.audio.play();
@@ -187,20 +197,15 @@ export default {
         resetTeam() {
             // Clear Teams
             this.selectedPlayers = [];
-            this.teams.a = [];
-            this.teams.b = [];
+            this.selectedTeams = null;
+        },
+        regeneratePressed() {
+            this.teamIndex = (this.selectedTeams.length > this.teamIndex+1) ? this.teamIndex+1 : 0;
+            console.log(this.selectedTeams.length, this.teamIndex);
+            // Play sound
+            this.audio.play();
         },
         buildTeamButtonPressed() {
-            // Clear Teams
-            this.teams.a = [];
-            this.teams.b = [];
-
-            // Randomize
-            this.selectedPlayers = this.selectedPlayers.sort(() => Math.random() - 0.5);
-
-            // Sort By Elo
-            this.selectedPlayers = this.selectedPlayers.sort(dynamicSort("-elo"));
-
             function getCombinations(array, n) {
                 const combinations = [];
                 function backtrack(startIndex, currentCombination) {
@@ -218,34 +223,36 @@ export default {
                 return combinations;
             }
 
-            const teamSize = Math.floor(this.selectedPlayers.length / 2);
-            let minDiff = Number.MAX_VALUE;
-            let selectedCombination = null;
-
-            for (let i = teamSize; i <= this.selectedPlayers.length - teamSize; i++) {
-                const combinations = getCombinations(this.selectedPlayers, i);
-                combinations.forEach(combination => {
-                    const teamA = combination;
-                    const teamB = this.selectedPlayers.filter(player => !teamA.includes(player));
-                    const teamAElo = teamA.reduce((sum, player) => parseInt(sum) + parseInt(player.elo), 0);
-                    const teamBElo = teamB.reduce((sum, player) => parseInt(sum) + parseInt(player.elo), 0);
-                    const diff = Math.abs(teamAElo - teamBElo);
-                    if (diff < minDiff) {
-                        minDiff = diff;
-                        selectedCombination = combination;
-                    }
-                });
+            function compareByEloSum(balanceElo, a, b) {
+                const aSum = Math.abs(a.map(player => parseInt(player.newElo)).reduce((total, elo) => parseInt(total) + parseInt(elo)) - parseInt(balanceElo));
+                const bSum = Math.abs(b.map(player => parseInt(player.newElo)).reduce((total, elo) => parseInt(total) + parseInt(elo)) - parseInt(balanceElo));
+                return aSum > bSum ? 1 : -1;
             }
 
-            const maxAllowedDiff = 50; // Set the maximum allowed Elo difference
-            if (minDiff > maxAllowedDiff) {
-                alert("Selisih peringkat Elo antara tim terlalu besar!");
-                return;
+            function filterByEloSum(array, targetSum) {
+                return array.filter(element => element.map(player => parseInt(player.newElo)).reduce((total, elo) => parseInt(total) + parseInt(elo)) === targetSum);
             }
 
-            this.teams.a = selectedCombination;
-            this.teams.b = this.selectedPlayers.filter(player => !selectedCombination.includes(player));
-
+            const combinationPlayers = getCombinations(this.selectedPlayers, Math.floor(this.selectedPlayers.length / 2));
+            const totalElo = this.selectedPlayers.map(player => player.newElo).reduce((total, elo) => parseInt(total) + parseInt(elo));
+            const balanceElo = Math.floor(totalElo / 2);
+            combinationPlayers.sort((a, b) => compareByEloSum(balanceElo, a, b));
+            const targetElo = combinationPlayers[0].map(player => player.newElo).reduce((total, elo) => parseInt(total) + parseInt(elo));
+            let selectedTeams = filterByEloSum(combinationPlayers, targetElo);
+            /* group by sum oriElo */
+            selectedTeams = selectedTeams.map(team => {
+                const elo_a = team.map(player => player.oriElo).reduce((total, elo) => parseInt(total) + parseInt(elo));
+                const elo_b = this.selectedPlayers.filter(player => !team.includes(player)).map(player => player.oriElo).reduce((total, elo) => parseInt(total) + parseInt(elo));
+                return {
+                    team_a: team,
+                    team_b: this.selectedPlayers.filter(player => !team.includes(player)),
+                    elo_a: elo_a,
+                    elo_b: elo_b,
+                    diff: Math.abs(elo_a - elo_b),
+                };
+            });
+            this.selectedTeams = selectedTeams.sort((a, b) => a.diff > b.diff ? 1 : -1);
+            this.teamIndex = 0;
             // Play sound
             this.audio.play();
         },

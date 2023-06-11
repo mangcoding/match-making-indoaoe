@@ -15,5 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [MatchController::class, 'index']);
-Route::get('/contoh', [MatchController::class, 'seed']);
 Route::get('/migrate', [MatchController::class, 'migrate']);
