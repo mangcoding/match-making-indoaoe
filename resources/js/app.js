@@ -1,10 +1,12 @@
 // import './bootstrap';
 
+import Alpine from 'alpinejs';
 import Vue from 'vue'
 import { createInertiaApp } from '@inertiajs/vue2'
 
-// import '../css/app.css'
+window.Alpine = Alpine;
 
+Alpine.start();
 createInertiaApp({
     resolve: name => {
         const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
