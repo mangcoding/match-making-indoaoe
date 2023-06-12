@@ -19,9 +19,5 @@
 </svg> --}}
 
 
-<img {{ $attributes }} src="Logo-Age.webp" alt="" class="">
-
-
-
-
+{{-- <img {{ $attributes }} src="Logo-Age.webp" alt="" class=""> --}}
 
