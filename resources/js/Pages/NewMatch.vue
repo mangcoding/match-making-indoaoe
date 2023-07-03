@@ -65,19 +65,19 @@
                         <div class="pb-2" v-for="(p, k) in selectedTeams[teamIndex].team_a" :key="k">
                             <player class="bg-white" :player="p" :key="p.aoe2net_id" :inMatch="true"></player>
                         </div>
-                        <p class="pt-4 font-bold">Total Elo : {{ selectedTeams[teamIndex].elo_a }}</p>
+                        <p class="pt-4 font-bold">Total Elo : {{ selectedTeams[teamIndex].elo_a.toFixed(1) }}</p>
                     </div>
                     <div class="bg-gradient-to-r from-blue-300 to-[#79A2F3] rounded-lg shadow p-4 text-center">
                         <h3 class="mb-2 text-lg font-semibold">Team 2</h3>
                         <div class="pb-2" v-for="(p, k) in selectedTeams[teamIndex].team_b" :key="k">
                             <player class="bg-white" :player="p" :key="p.aoe2net_id" :inMatch="true"></player>
                         </div>
-                        <p class="pt-4 font-bold">Total Elo : {{ selectedTeams[teamIndex].elo_b }}</p>
+                        <p class="pt-4 font-bold">Total Elo : {{ selectedTeams[teamIndex].elo_b.toFixed(1) }}</p>
                     </div>
                 </div>
                 <div class="flex items-end pt-5 justify-between">
                     <span class="font-semibold">Total Selisih Elo</span>
-                    <span class="font-bold text-lg">{{ selectedTeams[teamIndex].diff }} poin</span>
+                    <span class="font-bold text-lg">{{ selectedTeams[teamIndex].diff.toFixed(1) }} poin</span>
                 </div>
                 <div class="flex items-center gap-2 pt-5">
                     <button @click.prevent="regeneratePressed"
@@ -169,14 +169,14 @@ export default {
     methods: {
         copyMatch() {
             let text = (this.teamIndex+1)+").";
-            this.selectedTeams[this.teamIndex].team_a.forEach((p) => {
-                text += p.name + ", ";
-            });
-            text += "vs ";
-            this.selectedTeams[this.teamIndex].team_b.forEach((p) => {
-                text += p.name + ", ";
-            });
-            text += "selisih poin: " + this.selectedTeams[this.teamIndex].diff;
+            text += this.selectedTeams[this.teamIndex].team_a.map((p) => {
+                return p.name;
+            }).join(",");
+            text += " vs ";
+            text += this.selectedTeams[this.teamIndex].team_b.map((p) => {
+                return p.name;
+            }).join(",");
+            text += " DIFF: " + this.selectedTeams[this.teamIndex].diff.toFixed(1)+ " point";
             console.log(text);
             navigator.clipboard.writeText(text);
             // this.audio.play();
@@ -241,8 +241,8 @@ export default {
             let selectedTeams = filterByEloSum(combinationPlayers, targetElo);
             /* group by sum oriElo */
             selectedTeams = selectedTeams.map(team => {
-                const elo_a = team.map(player => player.oriElo).reduce((total, elo) => parseInt(total) + parseInt(elo));
-                const elo_b = this.selectedPlayers.filter(player => !team.includes(player)).map(player => player.oriElo).reduce((total, elo) => parseInt(total) + parseInt(elo));
+                const elo_a = team.map(player => player.oriElo).reduce((total, elo) => parseFloat(total) + parseFloat(elo));
+                const elo_b = this.selectedPlayers.filter(player => !team.includes(player)).map(player => player.oriElo).reduce((total, elo) => parseFloat(total) + parseFloat(elo));
                 return {
                     team_a: team,
                     team_b: this.selectedPlayers.filter(player => !team.includes(player)),

@@ -30,7 +30,11 @@ class MatchController extends Controller
             if (count($unrankEloPlayer) == 0) return $player;
             $unrankEloPlayer = array_values($unrankEloPlayer);
             $unrankEloPlayer = $unrankEloPlayer[0];
-            $number = ($player['elo']*70)/100 + ($unrankEloPlayer['rating']-900)/700*30;
+            if ($player['elo'] > 35) {
+                $number = ($player['elo']*70)/100 + ($unrankEloPlayer['rating']-900)/700*30;
+            }else{
+                $number = $player['elo'];
+            }
             $player['oriElo'] = number_format((float)$number, 1, '.', '');
             $player['newElo'] = round($player['oriElo'] / 5) * 5;
             $player['unrankRate'] = $unrankEloPlayer['rating'];
