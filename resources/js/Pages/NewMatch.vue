@@ -65,14 +65,14 @@
                         <div class="pb-2" v-for="(p, k) in selectedTeams[teamIndex].team_a" :key="k">
                             <player class="bg-white" :player="p" :key="p.aoe2net_id" :inMatch="true"></player>
                         </div>
-                        <p class="pt-4 font-bold">Total Elo : {{ selectedTeams[teamIndex].elo_a.toFixed(1) }}</p>
+                        <p class="pt-4 font-bold">Total Elo : {{ parseFloat(selectedTeams[teamIndex].elo_a).toFixed(1) }}</p>
                     </div>
                     <div class="bg-gradient-to-r from-blue-300 to-[#79A2F3] rounded-lg shadow p-4 text-center">
                         <h3 class="mb-2 text-lg font-semibold">Team 2</h3>
                         <div class="pb-2" v-for="(p, k) in selectedTeams[teamIndex].team_b" :key="k">
                             <player class="bg-white" :player="p" :key="p.aoe2net_id" :inMatch="true"></player>
                         </div>
-                        <p class="pt-4 font-bold">Total Elo : {{ selectedTeams[teamIndex].elo_b.toFixed(1) }}</p>
+                        <p class="pt-4 font-bold">Total Elo : {{ parseFloat(selectedTeams[teamIndex].elo_b).toFixed(1) }}</p>
                     </div>
                 </div>
                 <div class="flex items-end pt-5 justify-between">
@@ -201,7 +201,6 @@ export default {
         },
         regeneratePressed() {
             this.teamIndex = (this.selectedTeams.length > this.teamIndex+1) ? this.teamIndex+1 : 0;
-            console.log(this.selectedTeams.length, this.teamIndex);
             // Play sound
             this.audio.play();
         },
@@ -224,21 +223,39 @@ export default {
             }
 
             function compareByEloSum(balanceElo, a, b) {
-                const aSum = Math.abs(a.map(player => parseInt(player.newElo)).reduce((total, elo) => parseInt(total) + parseInt(elo)) - parseInt(balanceElo));
-                const bSum = Math.abs(b.map(player => parseInt(player.newElo)).reduce((total, elo) => parseInt(total) + parseInt(elo)) - parseInt(balanceElo));
+                const aSum = Math.abs(a.map(player => parseFloat(player.oriElo)).reduce((total, elo) => parseFloat(total) + parseFloat(elo)) - parseFloat(balanceElo));
+                const bSum = Math.abs(b.map(player => parseFloat(player.oriElo)).reduce((total, elo) => parseFloat(total) + parseFloat(elo)) - parseFloat(balanceElo));
                 return aSum > bSum ? 1 : -1;
             }
 
             function filterByEloSum(array, targetSum) {
-                return array.filter(element => element.map(player => parseInt(player.newElo)).reduce((total, elo) => parseInt(total) + parseInt(elo)) === targetSum);
+                let totalSum = array.map(team => team.map(player => parseFloat(player.oriElo)).reduce((total, elo) => parseFloat(total) + parseFloat(elo)));
+                let nearest =  array.filter((team, index) => {
+                    return totalSum[index] >= targetSum-2 && totalSum[index] <= targetSum+2;
+                });
+
+                if (nearest.length > 0) {
+                    return nearest;
+                } else {
+                    return array.filter((team, index) => {
+                        return totalSum[index] >= targetSum-5 && totalSum[index] <= targetSum+5;
+                    });
+                }
             }
 
             const combinationPlayers = getCombinations(this.selectedPlayers, Math.floor(this.selectedPlayers.length / 2));
-            const totalElo = this.selectedPlayers.map(player => player.newElo).reduce((total, elo) => parseInt(total) + parseInt(elo));
+            const totalElo = this.selectedPlayers.map(player => player.oriElo).reduce((total, elo) => parseFloat(total) + parseFloat(elo));
             const balanceElo = Math.floor(totalElo / 2);
             combinationPlayers.sort((a, b) => compareByEloSum(balanceElo, a, b));
-            const targetElo = combinationPlayers[0].map(player => player.newElo).reduce((total, elo) => parseInt(total) + parseInt(elo));
+            const targetElo = combinationPlayers[0].map(player => player.oriElo).reduce((total, elo) => parseFloat(total) + parseFloat(elo));
             let selectedTeams = filterByEloSum(combinationPlayers, targetElo);
+            if (selectedTeams.length == 0) {
+                alert("Selisih elo terlalu jauh, tidak bisa dibuat tim");
+                return false;
+            }
+            if (selectedTeams.length >10) {
+                selectedTeams = selectedTeams.slice(0, 10);
+        }
             /* group by sum oriElo */
             selectedTeams = selectedTeams.map(team => {
                 const elo_a = team.map(player => player.oriElo).reduce((total, elo) => parseFloat(total) + parseFloat(elo));
