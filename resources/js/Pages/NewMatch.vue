@@ -25,7 +25,7 @@
                         <div class="pt-2 players">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-2 max-h-[calc(100vh-550px)] overflow-y-auto">
                                 <div class="" v-for="(p, k) in filteredEntries.sort((a,b)=> b.oriElo - a.oriElo)" :key="k">
-                                    <player :player="p" @player-selected="selectedPlayer" :key="p.aoe2net_id"></player>
+                                    <player :player="p" :rank="k" @player-selected="selectedPlayer" :key="p.aoe2net_id"></player>
                                 </div>
                             </div>
                         </div>

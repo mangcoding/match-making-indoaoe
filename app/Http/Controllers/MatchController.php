@@ -16,9 +16,17 @@ class MatchController extends Controller
         
         /* fetch using guzzle to https://legacy.aoe2companion.com/api/leaderboard?game=aoe2de&leaderboard_id=0&start=1&count=200&country=id */
         $client = new Client();
-        $res = $client->request('GET', 'https://legacy.aoe2companion.com/api/leaderboard?game=aoe2de&leaderboard_id=0&start=1&count=200&country=id');
+        $res = $client->request('GET', 'https://legacy.aoe2companion.com/api/leaderboard?game=aoe2de&leaderboard_id=0&start=1&count=500&country=id');
         $res = json_decode($res->getBody()->getContents(), true);
-        $unrankEloPlayers = $res['leaderboard'];
+
+        $res2 = $client->request('GET', 'https://legacy.aoe2companion.com/api/leaderboard?game=aoe2de&leaderboard_id=0&start=1&count=200&country=jp');
+        $res2 = json_decode($res2->getBody()->getContents(), true);
+
+        $res3 = $client->request('GET', 'https://legacy.aoe2companion.com/api/leaderboard?game=aoe2de&leaderboard_id=0&start=1&count=30&country=sg');
+        $res3 = json_decode($res3->getBody()->getContents(), true);
+
+        $unrankEloPlayers = array_merge($res['leaderboard'], $res2['leaderboard']);
+        $unrankEloPlayers = array_merge($unrankEloPlayers, $res3['leaderboard']);
         $players = array_map(function($player) use ($unrankEloPlayers) {
             $player['oriElo'] = $player['elo'];
             $player['newElo'] = round($player['elo'] / 5) * 5;
@@ -30,7 +38,7 @@ class MatchController extends Controller
             if (count($unrankEloPlayer) == 0) return $player;
             $unrankEloPlayer = array_values($unrankEloPlayer);
             $unrankEloPlayer = $unrankEloPlayer[0];
-            if ($player['elo'] > 35) {
+            if ($player['elo'] >= 45) {
                 $eloTemp = ($unrankEloPlayer['rating']-900)/700*30;
                 $eloTemp = $eloTemp > 30 ? 30 : $eloTemp;
                 $number = ($player['elo']*70)/100 + $eloTemp;
