@@ -12,21 +12,26 @@ class MatchController extends Controller
 {
     public function index()
     {
-        $players = Player::orderBy('elo', 'desc')->get()->toArray();
+        $players = Player::where("status","1")->orderBy('elo', 'desc')->get()->toArray();
+        // print_r($players);die();
         
         /* fetch using guzzle to https://legacy.aoe2companion.com/api/leaderboard?game=aoe2de&leaderboard_id=0&start=1&count=200&country=id */
         $client = new Client();
-        $res = $client->request('GET', 'https://legacy.aoe2companion.com/api/leaderboard?game=aoe2de&leaderboard_id=0&start=1&count=500&country=id');
+        $res = $client->request('GET', 'https://legacy.aoe2companion.com/api/leaderboard?game=aoe2de&leaderboard_id=0&start=1&count=1000&country=id');
         $res = json_decode($res->getBody()->getContents(), true);
 
         $res2 = $client->request('GET', 'https://legacy.aoe2companion.com/api/leaderboard?game=aoe2de&leaderboard_id=0&start=1&count=200&country=jp');
         $res2 = json_decode($res2->getBody()->getContents(), true);
 
-        $res3 = $client->request('GET', 'https://legacy.aoe2companion.com/api/leaderboard?game=aoe2de&leaderboard_id=0&start=1&count=30&country=sg');
+        $res3 = $client->request('GET', 'https://legacy.aoe2companion.com/api/leaderboard?game=aoe2de&leaderboard_id=0&start=1&count=100&country=sg');
         $res3 = json_decode($res3->getBody()->getContents(), true);
+
+        $res4 = $client->request('GET', 'https://legacy.aoe2companion.com/api/leaderboard?game=aoe2de&leaderboard_id=0&start=1000&count=1500&country=us');
+        $res4 = json_decode($res4->getBody()->getContents(), true);
 
         $unrankEloPlayers = array_merge($res['leaderboard'], $res2['leaderboard']);
         $unrankEloPlayers = array_merge($unrankEloPlayers, $res3['leaderboard']);
+        $unrankEloPlayers = array_merge($unrankEloPlayers, $res4['leaderboard']);
         $players = array_map(function($player) use ($unrankEloPlayers) {
             $player['oriElo'] = $player['elo'];
             $player['newElo'] = round($player['elo'] / 5) * 5;
