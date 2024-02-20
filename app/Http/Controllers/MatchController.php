@@ -20,7 +20,7 @@ class MatchController extends Controller
         $res = $client->request('GET', 'https://legacy.aoe2companion.com/api/leaderboard?game=aoe2de&leaderboard_id=0&start=1&count=1000&country=id');
         $res = json_decode($res->getBody()->getContents(), true);
 
-        $res2 = $client->request('GET', 'https://legacy.aoe2companion.com/api/leaderboard?game=aoe2de&leaderboard_id=0&start=1&count=200&country=jp');
+        $res2 = $client->request('GET', 'https://legacy.aoe2companion.com/api/leaderboard?game=aoe2de&leaderboard_id=0&start=1&count=500&country=jp');
         $res2 = json_decode($res2->getBody()->getContents(), true);
 
         $res3 = $client->request('GET', 'https://legacy.aoe2companion.com/api/leaderboard?game=aoe2de&leaderboard_id=0&start=1&count=100&country=sg');
