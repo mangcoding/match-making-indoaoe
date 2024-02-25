@@ -163,7 +163,7 @@ export default {
     },
     computed: {
         filteredEntries() {
-            return this.players.filter((el) => { return el.name.toLowerCase().includes(this.filter.toLowerCase()) });
+            return this.players.filter((el) => { return ( el.name + el.alias ).toLowerCase().includes(this.filter.toLowerCase()) });
         }
     },
     methods: {
