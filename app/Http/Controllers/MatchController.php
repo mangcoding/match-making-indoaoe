@@ -14,12 +14,10 @@ class MatchController extends Controller
     public function index()
     {
         // Cache players in 1 hour
-        $players = Cache::remember('players', 60 * 60, function () {
-            return Player::where("status", "1")
-                ->whereNotNull('aoe2net_id')
-                ->orderBy('elo', 'desc')
-                ->get()->toArray();
-        });
+        $players = Player::where("status", "1")
+            ->whereNotNull('aoe2net_id')
+            ->orderBy('elo', 'desc')
+            ->get()->toArray();
 
 
         $players = array_map(function ($player) use ($players) {
