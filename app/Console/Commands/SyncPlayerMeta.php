@@ -5,23 +5,22 @@ namespace App\Console\Commands;
 use App\Models\Player;
 use App\Services\ApiService;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Log;
 
-class SyncPlayerElo extends Command
+class SyncPlayerMeta extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'app:sync-player-elo';
+    protected $signature = 'app:sync-player-meta';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Sync player elo from API to database';
+    protected $description = 'Sync player meta from API to database';
 
     /**
      * Execute the console command.
@@ -34,19 +33,19 @@ class SyncPlayerElo extends Command
 
         foreach ($players as $player) {
             try {
-                $elo = $service->getPlayerElo($player->aoe2net_id);
-                // Update player elo
-                $player->elo_unranked = $elo['unranked'];
-                $player->elo_1v1 = $elo['1v1'];
-                $player->elo_team = $elo['team'];
+                $metaData = $service->getPlayerMetaData($player->aoe2net_id);
+                $player->meta_data = $metaData;
+                $player->avatar_url = $metaData['user']['avatarUrl'];
+                $player->alias = $metaData['user']['userName'];
                 $player->save();
 
-                $this->info("Synced player elo and meta data for {$player->name}");
+                $this->info("Synced player meta data for {$player->name}");
             } catch (\Exception $e) {
-                $this->error("Failed to sync player elo for {$player->name}");
+                $this->error("Failed to sync player meta for {$player->name}");
                 $this->error($e->getMessage());
-                Log::error($e);
             }
+
+            sleep(1);
 
         }
     }

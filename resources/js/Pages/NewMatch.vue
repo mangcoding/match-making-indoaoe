@@ -5,9 +5,10 @@
             <h1 class="text-lg font-bold text-white p-7">Age Of Empires Indonesia - Match Making</h1>
             <form class="max-w-xl p-5 text-center bg-white border border-gray-200 rounded-lg shadow lg:w-full "
                 v-if="!selectedTeams" @submit.prevent="findPlayer">
-                <div class="flex flex-col items-center gap-5">
+                <div class="flex flex-col items-center">
                     <h2 class="font-semibold ">Select Player</h2>
-                    <div class="w-full p-6 text-center bg-white border border-gray-200 rounded-lg shadow">
+                    <small class="self-start mt-5 text-gray-400">Last data updated : {{ lastUpdate | formatDate }}</small>
+                    <div class="mb-5 w-full p-6 text-center bg-white border border-gray-200 rounded-lg shadow">
                         <label for="simple-search " class="sr-only">Search</label>
                         <div class="relative w-full ">
                             <input v-model="filter" type="text" id="simple-search"
@@ -120,6 +121,7 @@
 </template>
 <script>
 import Player from '../components/Player.vue';
+import moment from 'moment';
 
 function dynamicSort(property) {
     var sortOrder = 1;
@@ -139,7 +141,7 @@ function dynamicSort(property) {
 
 export default {
     components: { Player },
-    props: ['players'],
+    props: ['players', 'lastUpdate'],
     data() {
         return {
 
@@ -164,6 +166,11 @@ export default {
     computed: {
         filteredEntries() {
             return this.players.filter((el) => { return ( el.name + el.alias ).toLowerCase().includes(this.filter.toLowerCase()) });
+        }
+    },
+    filters: {
+        formatDate: function (value) {
+            return moment(value).fromNow();
         }
     },
     methods: {

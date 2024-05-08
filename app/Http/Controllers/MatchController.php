@@ -48,8 +48,13 @@ class MatchController extends Controller
 
             return $player;
         }, $players);
+
+        // Last updated data
+        $lastUpdate = $players[0]['updated_at'];
+        
         return Inertia::render('NewMatch', [
-            'players' => $players
+            'players' => $players,
+            'lastUpdate' => $lastUpdate
         ]);
     }
 }
