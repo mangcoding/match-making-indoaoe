@@ -21,8 +21,6 @@ class MatchController extends Controller
 
 
         $players = array_map(function ($player) use ($players) {
-            // get player rank based order 
-            $player['rank'] = array_search($player['id'], array_column($players, 'id')) + 1;
             $player['oriElo'] = $player['elo'];
             $player['newElo'] = round($player['elo'] / 5) * 5;
             $player['unrankRate'] = 0;
@@ -37,7 +35,7 @@ class MatchController extends Controller
                 } else {
                     $number = $player['elo'];
                 }
-                $player['oriElo'] = number_format((float) $number, 1, '.', '');
+                $player['oriElo'] = round($number, 1);
                 $player['newElo'] = round($player['oriElo'] / 5) * 5;
                 $player['unrankRate'] = $unrankEloPlayer;
             } else {
@@ -48,6 +46,18 @@ class MatchController extends Controller
 
             return $player;
         }, $players);
+
+        // sort players by oriElo key desc
+        usort($players, function ($a, $b) {
+            return $b['oriElo'] <=> $a['oriElo'];
+        });
+
+
+        // add rank key using map
+        $players = array_map(function ($player, $index) {
+            $player['rank'] = $index + 1;
+            return $player;
+        }, $players, array_keys($players));
 
         // Last updated data
         $lastUpdate = Player::whereNotNull('updated_at')->orderBy('updated_at', 'desc')->first()->updated_at;
