@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Player extends Model
 {
     protected $hidden = ['meta_data'];
+    protected $guarded = [];
     use HasFactory;
 }
