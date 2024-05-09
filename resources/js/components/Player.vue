@@ -3,7 +3,7 @@
         :class="{ 'glow-border': inMatch }">
         <div class="flex items-center pr-1 text-xs "><img class="w-16 rounded-md" :src="player.avatar_url || 'profile.png'" :alt="player.name"></div>
         <div class="w-full ">
-            <p class="text-sm font-semibold text-left">{{ rank+1 }}. {{ player.name }}</p>
+            <p class="text-sm font-semibold text-left">{{ player.rank }}. {{ player.name }}</p>
             <p class="text-xs text-left">{{ player.alias }}</p>
             <p class="text-left"><span class="text-base font-semibold text-[#F2AC4B]">{{ player.newElo }}</span> ({{ player.oriElo }}) <small style="color:green; font-size:10px">-- {{ player.elo }}</small></p>
         </div>
@@ -25,10 +25,6 @@
 export default {
     name: "Player",
     props: {
-        rank: {
-            type: Number,
-            default: 0
-        },
         player: {
             type: Object
         },
@@ -44,7 +40,7 @@ export default {
         };
     },
     mounted() {
-        console.log(this.player);
+       
     },
     methods: {
         onPlayerSelected() {
