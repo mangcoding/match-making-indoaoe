@@ -50,7 +50,7 @@ class MatchController extends Controller
         }, $players);
 
         // Last updated data
-        $lastUpdate = Player::orderBy('updated_at', 'desc')->first()->updated_at;
+        $lastUpdate = Player::whereNotNull('updated_at')->orderBy('updated_at', 'desc')->first()->updated_at;
 
         return Inertia::render('NewMatch', [
             'players' => $players,
