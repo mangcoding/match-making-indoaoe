@@ -50,4 +50,14 @@ class User extends Authenticatable implements FilamentUser
     {
         return true;
     }
+
+    public function panel(Panel $panel): Panel
+    {
+        return $panel
+            ->login()
+            ->registration()
+            ->passwordReset()
+            ->emailVerification()
+            ->profile();
+    }
 }

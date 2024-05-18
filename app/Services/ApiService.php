@@ -21,6 +21,8 @@ class ApiService {
             'unranked' => $unranked['rating'] ?? 0,
             '1v1' => $oneVsOne['rating'] ?? 0,
             'team' => $team['rating'] ?? 0,
+            'drops' => $unranked['drops'] ?? 0,
+            'streak' => $unranked['streak'] ?? 0
         ];
     }
 

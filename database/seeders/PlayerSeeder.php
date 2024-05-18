@@ -16,15 +16,15 @@ class PlayerSeeder extends Seeder
     public function run()
     {
         $httpClient = new Client();
-        $response = $httpClient->get('https://legacy.aoe2companion.com/api/leaderboard?game=aoe2de&leaderboard_id=0&start=1&count=100&country=ID');
+        $response = $httpClient->get('https://data.aoe2companion.com/api/leaderboards/unranked?leaderboard_id=unranked&page=1&profile_id=undefined&country=ID&language=en');
         $response = json_decode($response->getBody()->getContents());
 
-        foreach($response->leaderboard as $player)
+        foreach($response->players as $player)
         {
             \App\Models\Player::create([
                 'name' => $player->name,
-                'aoe2net_id' => $player->profile_id,
-                'elo' => 0
+                'aoe2net_id' => $player->profileId,
+                'elo' => $player->rating,
             ]);
         }
     }

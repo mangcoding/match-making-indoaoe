@@ -39,8 +39,12 @@ class SyncPlayerElo extends Command
                 $player->elo_unranked = $elo['unranked'];
                 $player->elo_1v1 = $elo['1v1'];
                 $player->elo_team = $elo['team'];
+                $player->drops = $elo['drops'];
+                $player->streak = $elo['streak'];
                 $player->updated_at = now();
                 $player->save();
+
+
 
                 $this->info("Synced player elo and meta data for {$player->name}");
             } catch (\Exception $e) {
