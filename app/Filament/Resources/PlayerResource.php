@@ -50,13 +50,12 @@ class PlayerResource extends Resource
                 TextColumn::make('name')->searchable(),
                 TextColumn::make('alias')->searchable(),
                 TextColumn::make('elo'),
-                TextColumn::make('elo'),
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
