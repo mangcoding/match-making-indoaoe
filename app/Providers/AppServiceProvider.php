@@ -32,5 +32,9 @@ class AppServiceProvider extends ServiceProvider
         Event::listen(function (Login $event) {
             ActivityLog::log("User {$event->user->name} logged in.");
         });
+
+        if(\App::environment('production')) {
+            \URL::forceScheme('https');
+        }
     }
 }
