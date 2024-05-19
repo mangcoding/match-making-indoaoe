@@ -50,7 +50,6 @@ class PlayerResource extends Resource
                 TextColumn::make('name')->searchable(),
                 TextColumn::make('alias')->searchable(),
                 TextColumn::make('elo'),
-                TextColumn::make('elo'),
             ])
             ->filters([
                 //
