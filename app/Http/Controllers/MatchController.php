@@ -26,6 +26,12 @@ class MatchController extends Controller
             $player['unrankRate'] = 0;
 
             $unrankEloPlayer = $player['elo_unranked'];
+            if ($unrankEloPlayer <= 1200) {
+                // unrank must be 1300 or more, need to add from unrank elo
+                $lessElo = 1400 - $unrankEloPlayer;
+                $unrankEloPlayer = $unrankEloPlayer + $lessElo;
+
+            }
             // hanya player yang memiliki unrank yang dihitung
             if ($unrankEloPlayer) {
                 if ($player['elo'] >= 45) {
@@ -43,6 +49,7 @@ class MatchController extends Controller
                 $player['newElo'] = $player['elo'];
                 $player['unrankRate'] = $unrankEloPlayer;
             }
+
 
             return $player;
         }, $players);

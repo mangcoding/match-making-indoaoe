@@ -305,12 +305,18 @@ export default {
       let text = this.teamIndex + 1 + ").";
       text += this.selectedTeams[this.teamIndex].team_a
         .map((p) => {
+          if (p.streak <= -3) {
+            return p.name + "*";
+          }
           return p.name;
         })
         .join(",");
       text += " vs ";
       text += this.selectedTeams[this.teamIndex].team_b
         .map((p) => {
+          if (p.streak <= -3) {
+            return p.name + "*";
+          }
           return p.name;
         })
         .join(",");
