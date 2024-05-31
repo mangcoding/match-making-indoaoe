@@ -36,4 +36,47 @@ class ApiService {
         }
         return $httpRequest->json();
     }
+
+    public function getMatch(int $playerId) {
+        $httpRequest = Http::get("https://data.aoe2companion.com/api/matches?profile_ids=$playerId&page=1&language=en");
+
+        if ($httpRequest->failed()) {
+            throw new \Exception('Failed to fetch player match for player ' . $playerId);
+        }
+        $matches = Collection::make($httpRequest->json()['matches']);
+        // filter only match contains "indo"
+        $matches = $matches->filter(function ($match) {
+            return strpos(strtolower($match['name']), 'indo') !== false;
+        });
+
+        // take 17 matches
+        $matches = $matches->take(17);
+
+        // count win and lose match from teams array
+        // the teams contains player and won attribute, if the won true then calculated as win
+        $win = 0;
+        $lose = 0;
+        foreach ($matches as $match) {
+            // loop through teams
+            foreach ($match['teams'] as $team) {
+                // loop through players
+                foreach ($team['players'] as $player) {
+                    // if player id is same with player id from parameter
+                    if ($player['profileId'] == $playerId) {
+                        // if player won the match
+                        if ($player['won']) {
+                            $win++;
+                        } else {
+                            $lose++;
+                        }
+                    }
+                }
+            }
+        }
+
+        return [
+            'win' => $win,
+            'lose' => $lose
+        ];
+    }
 }

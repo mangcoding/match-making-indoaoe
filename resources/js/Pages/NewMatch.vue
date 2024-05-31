@@ -235,10 +235,12 @@
                 fill="white"
               />
             </svg>
-            <span class="font-bold">RESET</span>
+            <span class="font-bold">RESETS</span>
           </button>
         </div>
       </div>
+      <!-- Supporter -->
+      <a href="https://saweria.co/aoeid" target="_blank" class="mt-5 inline-flex gap-1 items-center justify-center px-5 py-3 text-sm font-medium text-center text-white bg-[#F2AC4B] rounded-lg hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-200">Click here for donation</a>
     </div>
   </header>
 </template>
@@ -372,13 +374,13 @@ export default {
       function compareByEloSum(balanceElo, a, b) {
         const aSum = Math.abs(
           a
-            .map((player) => parseFloat(player.oriElo))
+            .map((player) => parseFloat(player.final_elo))
             .reduce((total, elo) => parseFloat(total) + parseFloat(elo)) -
             parseFloat(balanceElo)
         );
         const bSum = Math.abs(
           b
-            .map((player) => parseFloat(player.oriElo))
+            .map((player) => parseFloat(player.final_elo))
             .reduce((total, elo) => parseFloat(total) + parseFloat(elo)) -
             parseFloat(balanceElo)
         );
@@ -388,7 +390,7 @@ export default {
       function filterByEloSum(array, targetSum) {
         let totalSum = array.map((team) =>
           team
-            .map((player) => parseFloat(player.oriElo))
+            .map((player) => parseFloat(player.final_elo))
             .reduce((total, elo) => parseFloat(total) + parseFloat(elo))
         );
         let nearest = array.filter((team, index) => {
@@ -414,12 +416,12 @@ export default {
         Math.floor(this.selectedPlayers.length / 2)
       );
       const totalElo = this.selectedPlayers
-        .map((player) => player.oriElo)
+        .map((player) => player.final_elo)
         .reduce((total, elo) => parseFloat(total) + parseFloat(elo));
       const balanceElo = Math.floor(totalElo / 2);
       combinationPlayers.sort((a, b) => compareByEloSum(balanceElo, a, b));
       const targetElo = combinationPlayers[0]
-        .map((player) => player.oriElo)
+        .map((player) => player.final_elo)
         .reduce((total, elo) => parseFloat(total) + parseFloat(elo));
       let selectedTeams = filterByEloSum(combinationPlayers, targetElo);
       if (selectedTeams.length == 0) {
@@ -432,11 +434,11 @@ export default {
       /* group by sum oriElo */
       selectedTeams = selectedTeams.map((team) => {
         const elo_a = team
-          .map((player) => player.oriElo)
+          .map((player) => player.final_elo)
           .reduce((total, elo) => parseFloat(total) + parseFloat(elo));
         const elo_b = this.selectedPlayers
           .filter((player) => !team.includes(player))
-          .map((player) => player.oriElo)
+          .map((player) => player.final_elo)
           .reduce((total, elo) => parseFloat(total) + parseFloat(elo));
         return {
           team_a: team,

@@ -49,14 +49,9 @@
                 </h3>
                 <div class="mt-2 text-left">
                   <p class="text-sm text-gray-500">
-                    <strong>2024/05/18</strong> Show the latest win/lose streak
-                    by Hakuna Matata
+                    <strong>2024/05/31</strong> New rating calculation using last 17 matches. Only room contains "indo" keyword will be calculated. 
                   </p>
-                  <p class="text-sm text-gray-500">
-                    <strong>2024/05/18</strong> If the player has a lose streak
-                    by -3 point or more, skull icon will show. It's mean the
-                    player can choose the Civ to play by Hakuna Matata
-                  </p>
+
                 </div>
               </div>
             </div>
@@ -85,11 +80,12 @@ export default {
     };
   },
   mounted() {
+    const update_version = 2;
     // the modal should be shown when the component is mounted once, after that it should be hidden
     // we store the data on local storage
-    if (!localStorage.getItem("modal_shown")) {
+    if (!localStorage.getItem("modal_shown_" + update_version)) {
       this.show = true;
-        localStorage.setItem("modal_shown", true);
+        localStorage.setItem("modal_shown_" + update_version, true);
     }
   },
 

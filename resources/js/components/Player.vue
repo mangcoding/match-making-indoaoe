@@ -17,7 +17,7 @@
       </p>
       <p class="text-xs text-left">{{ player.alias }}</p>
       <p class="text-left">
-        {{ player.oriElo }}
+        {{ player.final_elo }}
         <sup
           v-bind:class="{
             'text-green-500': player.streak > 0,
