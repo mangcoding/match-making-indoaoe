@@ -30,7 +30,7 @@ class SyncPlayerElo extends Command
     {
         $players = Player::where('status', '1')
             ->whereNotNull('aoe2net_id')
-            ->where('aoe2net_id', 2991308)
+            // ->where('aoe2net_id', 2991308)
             ->get();
         $movement_point = 0.5;
         foreach ($players as $player) {
@@ -55,7 +55,6 @@ class SyncPlayerElo extends Command
 
 
                 $this->info("Synced player elo and meta data for {$player->name}. new elo : ". $player->final_elo);
-                dump($match);
             } catch (\Exception $e) {
                 $this->error("Failed to sync player elo for {$player->name}");
                 $this->error($e->getMessage());
