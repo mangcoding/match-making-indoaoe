@@ -47,6 +47,9 @@ class SyncPlayerElo extends Command
                 $player->last_win_count = $match['win'];
                 $player->last_lose_count = $match['lose'];
                 $player->final_elo = ($match['lose'] * -$movement_point) + ($match['win'] * $movement_point) + $player->elo;
+                if ($player->final_elo == 0) {
+                    $player->final_elo = $player->elo;
+                }
                 $player->save();
 
 
