@@ -15,7 +15,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('app:sync-player-elo')->everyFiveMinutes();
+        $schedule->command('app:sync-match')->everyFiveMinutes();
         $schedule->command('app:sync-player-meta')->everyThirtyMinutes();
     }
 

@@ -79,4 +79,21 @@ class ApiService {
             'lose' => $lose
         ];
     }
+
+
+    public function getMatch2(int $playerId, $page = 1) {
+        $httpRequest = Http::get("https://data.aoe2companion.com/api/matches?profile_ids=$playerId&page=$page&language=en");
+
+        if ($httpRequest->failed()) {
+            throw new \Exception('Failed to fetch player match for player ' . $playerId);
+        }
+        $matches = Collection::make($httpRequest->json()['matches']);
+        // filter only match contains "indo"
+        $matches = $matches->filter(function ($match) {
+            return strpos(strtolower($match['name']), 'indo') !== false;
+        });
+
+        // take 5 matches
+        return $matches;
+    }
 }
