@@ -49,7 +49,7 @@
                 </h3>
                 <div class="mt-2 text-left">
                   <p class="text-sm text-gray-500">
-                    <strong>2024/05/31</strong> New rating calculation using last 17 matches. Only room contains "indo" keyword will be calculated. 
+                    <strong>2024/06/08</strong> Rating akan dihitung dari pertandingan yang dimulai sejak 2024/06/01. setiap pertandingan akan di record ke dalam database sehingga perhitungan rating akan lebih akurat 
                   </p>
 
                 </div>
@@ -80,7 +80,7 @@ export default {
     };
   },
   mounted() {
-    const update_version = 2;
+    const update_version = 3;
     // the modal should be shown when the component is mounted once, after that it should be hidden
     // we store the data on local storage
     if (!localStorage.getItem("modal_shown_" + update_version)) {
