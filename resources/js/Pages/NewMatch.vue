@@ -52,7 +52,7 @@
             </div>
             <div class="pt-2 players">
               <div
-                class="grid grid-cols-1 md:grid-cols-2 gap-2 max-h-[calc(100vh-550px)] overflow-y-auto"
+                class="grid grid-cols-1 md:grid-cols-2 gap-2 max-h-[calc(100vh-550px)] overflow-y-auto p-5"
               >
                 <div class="" v-for="(p, k) in filteredEntries" :key="k">
                   <player

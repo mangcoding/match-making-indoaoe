@@ -2,7 +2,9 @@
   <div @click="onPlayerSelected" class="flex flex-col p-1 border border-gray-200 rounded pointer"
     :class="{ 'glow-border': inMatch }">
     <div class="flex">
-      <div class="flex items-center pr-1 text-xs">
+      <div class="flex items-center pr-1 text-xs relative">
+        <img v-show="player.streak >= 5"  class="absolute -rotate-45 -top-6 -left-5" width="50" src="https://i.giphy.com/fRaFhz7PtRH5vdfCGL.webp"/>
+        <img v-show="player.streak <= -5"  class="absolute -top-6 -left-5" width="50" src="https://i.giphy.com/iD7KUaMRuug5vS4Mn6.webp"/>
         <img class="w-16 rounded-md" :src="player.avatar_url || 'profile.png'" :alt="player.name" />
       </div>
       <div class="w-full">

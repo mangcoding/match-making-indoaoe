@@ -45,6 +45,7 @@ where
 	and g.started_at is not null) as gm on gm.aoe2net_id = p.aoe2net_id
 	where
 		p.aoe2net_id is not null
+		and p.status = '1'
 	group by
 		p.id) as tbl order by final_elo desc;";
         $players = DB::select($sql);
