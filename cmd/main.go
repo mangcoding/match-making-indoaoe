@@ -6,10 +6,12 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"strings"
 	"sync"
 	"time"
 
+	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
 )
 
@@ -39,7 +41,7 @@ type MatchTeam struct {
 type ApiService struct{}
 
 func (api *ApiService) GetMatches(playerID, page int) ([]map[string]interface{}, error) {
-	url := fmt.Sprintf("https://data.aoe2companion.com/api/matches?profile_ids=%d&page=%d&language=en", playerID, page)
+	url := fmt.Sprintf("https://data.aoe2companion.com/api/matches?profile_ids=%d&page=%d&language=en&leaderboard_ids=unranked", playerID, page)
 	resp, err := http.Get(url)
 	if err != nil {
 		return nil, err
@@ -152,6 +154,11 @@ func saveMatches(db *sql.DB, matches []map[string]interface{}) {
 			continue
 		}
 
+		// skip if finished is null
+		if match["finished"] == nil {
+			continue
+		}
+
 		stmt, err := db.Prepare("INSERT INTO game_matches (match_id, started_at, finished_at, name, map, server) VALUES ($1, $2, $3, $4, $5, $6)")
 		if err != nil {
 			log.Fatal(err)
@@ -187,7 +194,12 @@ func saveMatches(db *sql.DB, matches []map[string]interface{}) {
 }
 
 func main() {
-	connStr := "user=postgres password=Mugen1996@@ dbname=aoe host=192.168.88.6 sslmode=disable"
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+
+	connStr := os.Getenv("DATABASE_URL")
 	db, err := sql.Open("postgres", connStr)
 	if err != nil {
 		log.Fatal(err)

@@ -82,7 +82,7 @@ class ApiService {
 
 
     public function getMatch2(int $playerId, $page = 1) {
-        $httpRequest = Http::get("https://data.aoe2companion.com/api/matches?profile_ids=$playerId&page=$page&language=en");
+        $httpRequest = Http::get("https://data.aoe2companion.com/api/matches?profile_ids=$playerId&page=$page&language=en&leaderboard_ids=unranked");
 
         if ($httpRequest->failed()) {
             throw new \Exception('Failed to fetch player match for player ' . $playerId);
@@ -93,7 +93,12 @@ class ApiService {
             return strpos(strtolower($match['name']), 'indo') !== false;
         });
 
-        // take 5 matches
+        // filter only match with finished status
+        $matches = $matches->filter(function ($match) {
+            return $match['finished'] !== null;
+        });
+
+        // return matches
         return $matches;
     }
 }
