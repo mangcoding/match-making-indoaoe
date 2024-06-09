@@ -23,6 +23,7 @@ from
 	select
 		p.aoe2net_id,
 		p.name,
+		p.alias,
 		p.elo,
 		p.avatar_url,
 		p.streak,
