@@ -15,8 +15,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('app:sync-match')->everyFiveMinutes();
-        $schedule->command('app:sync-player-meta')->everyThirtyMinutes();
+        $schedule->command('app:sync-match')->everyFiveMinutes()->withoutOverlapping();
+        $schedule->command('app:sync-player-meta')->everyThirtyMinutes()->withoutOverlapping();
     }
 
     /**
