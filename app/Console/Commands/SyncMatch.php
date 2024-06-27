@@ -38,7 +38,6 @@ class SyncMatch extends Command
 
         foreach ($players as $player) {
             try {
-                DB::beginTransaction();
                 $page = 1;
                 $playerMatchs = collect([]);
                 $elo = $apiService->getPlayerElo($player->aoe2net_id);
@@ -115,12 +114,10 @@ class SyncMatch extends Command
                     }
 
                     $this->info("Synced match for {$player->name} with match id {$playerMatch['matchId']}");
-                    DB::commit();
                 }
             } catch (\Throwable $th) {
                 Log::error($th);
                 $this->error("Failed to sync match for {$player->name}");
-                DB::rollBack();
             }
         }
     }
