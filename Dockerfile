@@ -29,6 +29,12 @@ RUN apt-get update && apt-get -y install --no-install-recommends \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+
+# Install Node.js and npm
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
+&& apt-get install -y nodejs \
+&& npm install -g npm@latest
+
 # Set working directory
 WORKDIR /var/www
 
@@ -37,6 +43,12 @@ COPY . /var/www
 
 # Install Composer dependencies
 RUN composer install --no-dev --optimize-autoloader
+
+
+# Install Node.js dependencies
+RUN npm install -g yarn
+RUN yarn install
+RUN yarn build
 
 # Copy the rest of the application code
 COPY . /var/www

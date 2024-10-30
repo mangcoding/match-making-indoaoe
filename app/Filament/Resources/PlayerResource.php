@@ -7,6 +7,7 @@ use App\Filament\Resources\PlayerResource\RelationManagers;
 use App\Models\Player;
 use Filament\Forms;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -34,6 +35,10 @@ class PlayerResource extends Resource
                     ->required(),
                 TextInput::make('aoe2net_id')
                     ->label('aoe2net_id')
+                    ->required(),
+                FileUpload::make('crown')
+                    ->label('Crown')
+                    ->image()
                     ->required(),
             ]);
     }

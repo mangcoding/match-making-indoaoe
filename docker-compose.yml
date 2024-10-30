@@ -8,6 +8,7 @@ services:
     volumes:
       - ./:/var/www
       - indoaoe_vendor:/var/www/vendor
+      - ./storage/app:/var/www/storage/app:ro
     ports:
       - "8000:8000"
     # working_dir: /var/www
