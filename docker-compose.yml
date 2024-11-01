@@ -1,0 +1,27 @@
+services:
+  idkibackend:
+    image: indoaoe-img
+    container_name: indoaoe-container
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/var/www
+      - indoaoe_vendor:/var/www/vendor
+      - ./storage/app:/var/www/storage/app:ro
+    ports:
+      - "8000:8000"
+    # working_dir: /var/www
+    networks:
+      - nginx
+      - postgres
+
+volumes:
+  indoaoe_vendor:
+    name: indoaoe_vendor
+
+networks:
+  postgres:
+    external: true
+  nginx:
+    external: true
