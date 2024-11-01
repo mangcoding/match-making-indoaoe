@@ -27,6 +27,7 @@ from
 		p.elo,
 		p.avatar_url,
 		p.streak,
+		p.crown,
 		count(*) as total_matches,
 		count(*) filter (
 		where gm.won = true) as win,

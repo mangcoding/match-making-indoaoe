@@ -3,7 +3,8 @@
     :class="{ 'glow-border': inMatch }">
     <div class="flex">
       <div class="flex items-center pr-1 text-xs relative">
-        <img v-show="player.streak >= 5"  class="absolute -rotate-45 -top-6 -left-5" width="50" src="https://i.giphy.com/fRaFhz7PtRH5vdfCGL.webp"/>
+        <img v-if="player.crown!==null" v-show="player.streak >= 5"  class="absolute -rotate-45 -top-6 -left-5" width="50" :src="'/storage/'+player.crown"/>
+        <img v-else v-show="player.streak >= 5"  class="absolute -rotate-45 -top-6 -left-5" width="50" src="https://i.giphy.com/fRaFhz7PtRH5vdfCGL.webp"/>
         <img v-show="player.streak <= -5"  class="absolute -top-6 -left-5" width="50" src="https://i.giphy.com/iD7KUaMRuug5vS4Mn6.webp"/>
         <img class="w-16 rounded-md" :src="player.avatar_url || 'profile.png'" :alt="player.name" />
       </div>
@@ -58,7 +59,10 @@ export default {
       avatar: null,
     };
   },
-  mounted() { },
+  mounted() { 
+    console.log("dari file player");
+    console.log(this.player);
+  },
   methods: {
     onPlayerSelected() {
       this.$emit("player-selected", this.player);

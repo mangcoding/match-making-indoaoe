@@ -284,6 +284,7 @@ export default {
     };
   },
   mounted() {
+    console.log(this.players);
     // Fetch all players
     // this.findPlayer();
     this.audio = new Audio("/ready.ogg");

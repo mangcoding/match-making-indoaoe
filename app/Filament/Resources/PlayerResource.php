@@ -55,6 +55,11 @@ class PlayerResource extends Resource
                 TextColumn::make('name')->searchable(),
                 TextColumn::make('alias')->searchable(),
                 TextColumn::make('elo'),
+                ImageColumn::make('crown')
+                    ->label('Mahkota')
+                    ->width(100)
+                    ->height(100)
+                    ->circular(),
             ])
             ->filters([
                 //
