@@ -38,8 +38,7 @@ class PlayerResource extends Resource
                     ->required(),
                 FileUpload::make('crown')
                     ->label('Crown')
-                    ->image()
-                    ->required(),
+                    ->image(),
             ]);
     }
 
