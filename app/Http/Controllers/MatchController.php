@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\Group;
 use App\Models\Player;
 use Inertia\Inertia;
 
@@ -12,8 +13,40 @@ use Illuminate\Support\Facades\DB;
 
 class MatchController extends Controller
 {
+
+    public function home () {
+        // Ambil data dengan relasi `contents`
+    $data = Group::where('page', 'home')->with('contents')->get();
+
+    // Susun ulang data ke format yang diinginkan
+    $formattedData = [];
+    foreach ($data as $group) {
+        $groupData = [];
+
+        foreach ($group->contents as $content) {
+            if ($content->field_type === 'text') {
+                $groupData['title'] = $content->field_value;
+            } elseif ($content->field_type === 'description') {
+                $groupData['description'] = $content->field_value;
+            } elseif ($content->field_type === 'link' || $content->field_type === 'embed' || $content->field_type === 'button') {
+                $groupData['link'] = $content->link;
+                $groupData['label'] = $content->label; // Jika Anda memerlukan label
+            }
+            $groupData['type'] = $content->field_type;
+            // Tambahkan kondisi lain untuk field_type lain jika diperlukan
+        }
+
+        // Tambahkan array grup ke dalam array berindeks dengan nama grup
+        $formattedData[$group->name] = $groupData;
+    }
+    // return $formattedData;
+    return view('home', compact('formattedData'));
+    }
+
     public function index()
     {
+
+
         // Cache players in 1 hour
         $sql = "select
 	tbl.*,

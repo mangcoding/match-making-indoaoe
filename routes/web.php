@@ -16,3 +16,4 @@ use App\Http\Controllers\MatchController;
 */
 
 Route::get('/', [MatchController::class, 'index']);
+Route::get('/home', [MatchController::class, 'home']);
