@@ -42,9 +42,9 @@
                 <!-- Page Heading -->
                 <header>
                     <div class="p-4 sm:p-6">
-
+                        ini header saya
                     </div>
-                
+
                 </header>
 
                 <!-- Page Content -->
@@ -55,7 +55,7 @@
                 <!-- Page Footer -->
                 {{-- <x-footer /> --}}
                 <footer>
-
+                    ini footer saya edit
                 </footer>
         </div>
     </div>

@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\DB;
 
 class MatchController extends Controller
 {
+    public function insight () {
+        return view('insight');
+    }
 
     public function home () {
         // Ambil data dengan relasi `contents`

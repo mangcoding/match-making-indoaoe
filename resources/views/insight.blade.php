@@ -1,6 +1,5 @@
 @extends('layouts.frontend')
 
-
 @section('content')
-    <h2>ini home page</h2>
+    <h2>ini page insight</h2>
 @endsection
