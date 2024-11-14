@@ -1,16 +1,10 @@
 <div class="flex items-center justify-between flex-shrink-0 px-3">
-    <!-- Logo -->
-    <a
-        href="{{ route('dashboard') }}"
-        class="inline-flex items-center gap-2"
-    >
-        <x-application-logo aria-hidden="true" class="w-20" />
 
         <span class="sr-only">Dashboard</span>
     </a>
 
     <!-- Toggle button -->
-    <x-button
+    {{-- <x-button
         type="button"
         icon-only
         sr-text="Toggle sidebar"
@@ -34,5 +28,5 @@
             aria-hidden="true"
             class="w-6 h-6 lg:hidden"
         />
-    </x-button>
+    </x-button> --}}
 </div>
