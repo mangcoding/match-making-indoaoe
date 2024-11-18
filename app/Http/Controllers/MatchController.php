@@ -42,7 +42,7 @@ class MatchController extends Controller
         // Tambahkan array grup ke dalam array berindeks dengan nama grup
         $formattedData[$group->name] = $groupData;
     }
-    // return $formattedData;
+    return $formattedData;
     return view('home', compact('formattedData'));
     }
 
