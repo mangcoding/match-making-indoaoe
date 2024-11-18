@@ -13,8 +13,27 @@ use Illuminate\Support\Facades\DB;
 
 class MatchController extends Controller
 {
+
+    public function player () {
+        return view('player');
+    }
+    public function about () {
+        return view('about');
+    }
+    public function matchmaking () {
+        return view('matchmaking');
+    }
+    public function saweria () {
+        return view('saweria');
+    }
+    public function event () {
+        return view('event');
+    }
     public function insight () {
         return view('insight');
+    }
+    public function insight_detail () {
+        return view('insight_detail');
     }
 
     public function home () {
