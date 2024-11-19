@@ -14,6 +14,8 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ImageColumn;
 
 class SponsorResource extends Resource
 {
@@ -47,7 +49,11 @@ class SponsorResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('name')
+                    ->searchable()
+                    ->sortable(),
+                ImageColumn::make('thumbnail')
+                    ->alignCenter()
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
