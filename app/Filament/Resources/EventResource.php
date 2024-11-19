@@ -17,6 +17,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Section;
+use Filament\Tables\Columns\TextColumn;
 
 class EventResource extends Resource
 {
@@ -59,7 +60,14 @@ class EventResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('title')
+                    ->searchable()
+                    ->sortable()
+                    ->wrap(),
+                TextColumn::make('description')->wrap(),
+                TextColumn::make('link')->wrap(),
+                TextColumn::make('from_date')->sortable(),
+                TextColumn::make('to_date')->sortable(),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
