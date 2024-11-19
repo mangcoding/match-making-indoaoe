@@ -16,7 +16,7 @@
     </style> --}}
     @yield('styles')
 </head>
-<body class="bg-blue-500">
+<body class="">
     <!-- Header atau Navbar -->
     <header class="bg-white">
       <div class="container p-4 sm:p-6 w-full flex justify-between items-center">
