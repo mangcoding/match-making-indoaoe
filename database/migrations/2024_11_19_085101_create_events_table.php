@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string("link", 100)->nullable();
             $table->dateTime("from_date");
             $table->dateTime("to_date");
+            $table->softDeletes();
             $table->timestamps();
         });
     }
