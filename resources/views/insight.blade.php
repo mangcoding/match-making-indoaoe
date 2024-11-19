@@ -1,5 +1,9 @@
 @extends('layouts.frontend')
-
+@section('styles')
+    <style>
+    
+    </style>
+@endsection
 @section('content')
 <div class="container flex flex-col items-center justify-center  min-h-screen w-full">
     <div class="flex items-center justify-center ">
@@ -9,7 +13,7 @@
 <div class="container w-full flex flex-col top-[480px] pt-[80px] pr-[36px] pb-[80px] pl-[36px] gap-[40px]">
     <ul class="w-full flex gap-[16px]">
        <li>
-        <a href="#" class="bg-white border-[1px] border-black rounded-[60px] flex text-lg font-lato font-normal hover:bg-black hover:text-white py-[12px] px-[24px]">
+        <a href="#" class="btn-primary ">
             ALL
         </a>
        </li>
@@ -121,7 +125,8 @@
 
 </div>
 
-
+@section('scripts')
+@parent
 <script>
     const totalPages = 8;
     let currentPage = 1;
@@ -215,6 +220,8 @@
 
 
 </script>
+
+@endsection
 
 
 @endsection
