@@ -5,10 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website</title>
     <!-- Link ke CSS dan JS -->
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-    <script src="{{ mix('js/app.js') }}" defer></script>
+    {{-- <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <script src="{{ mix('js/app.js') }}" defer></script> --}}
+    <link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    {{-- <style>
+        @import url('https://fonts.googleapis.com/css2?family=Satoshi:wght@100;300;400;700;900&display=swap');
+    </style> --}}
 </head>
-<body>
+<body class="">
     <!-- Header atau Navbar -->
     <header class="bg-white ">
       <div class="container p-4 sm:p-6 w-full flex justify-between items-center">
@@ -37,52 +42,15 @@
           </div>
         </nav>
       </div>
-      {{-- <nav class="border-gray-200 dark:bg-gray-500 dark:border-gray-400">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 relative">
-            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="{{ asset('image/logo-1 1.png') }}" class="h-8" alt="Logo" />
-            </a>
-                       
-            <button data-collapse-toggle="navbar-hamburger" type="button" class="inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-hamburger" aria-expanded="false" id="hamburgerButton">
-                <span class="sr-only">Open main menu</span>
-                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-                </svg>
-            </button>
-            
-            <div class="hidden w-40 absolute bg-white shadow-lg mt-2 rounded-lg z-10 right-0 -top-2" id="navbar-hamburger">
-                <ul class="flex flex-col font-medium mt-1 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-                    <li>
-                        <a href="#" class="block py-2 px-3 text-white bg-blue-700 rounded dark:bg-blue-600">Home</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700">Services</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700">Pricing</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-     --}}
-    
-    
-    
     </header>
-    
-    
 
     <!-- Konten spesifik halaman -->
     <main class="flex-grow">
-        @yield('content') 
+        @yield('content')
     </main>
 
     <!-- Footer -->
-    <footer class="bg-black py-6">
+    <footer class="bg-black py-6 mt-auto">
         <div class="container mx-auto flex flex-col items-center gap-6">
             <div class="flex justify-between items-center flex-col sm:flex-row">
                 <img src="{{ asset('image/logo 1.png') }}" class="w-[304px] pt-12 pl-0 pr-10" alt="Logo" />
@@ -106,9 +74,9 @@
                 </div>
             </div>
             <div class="w-full">
-                <span class="text-[290px] flex justify-center text-gray-500 font-medium m-0 p-0" style="line-height: 1;">
+                <span class="text-[290px] flex justify-center text-gray-500 font-medium m-0 p-0">
                     INDOAOE
-                </span>                
+                </span>
             </div>
         </div>
     </footer>
@@ -117,17 +85,17 @@
     <script>
       const button = document.getElementById('languageButton');
       const dropdownMenu = document.getElementById('dropdownMenu');
-  
+
       button.addEventListener('click', function(event) {
-          event.stopPropagation(); 
+          event.stopPropagation();
           dropdownMenu.classList.toggle('hidden');
-          
+
           dropdownMenu.classList.toggle('opacity-100');
           dropdownMenu.classList.toggle('scale-100');
           dropdownMenu.classList.toggle('opacity-0');
           dropdownMenu.classList.toggle('scale-95');
       });
-  
+
       window.addEventListener('click', function(event) {
           if (!button.contains(event.target) && !dropdownMenu.contains(event.target)) {
               dropdownMenu.classList.add('hidden');
@@ -141,7 +109,7 @@
   const navbarHamburger = document.getElementById("navbar-hamburger");
 
   hamburgerButton.addEventListener("click", (event) => {
-    event.stopPropagation(); 
+    event.stopPropagation();
     navbarHamburger.classList.toggle("hidden");
     const isExpanded = navbarHamburger.classList.contains("hidden");
     hamburgerButton.setAttribute("aria-expanded", !isExpanded);
@@ -155,8 +123,5 @@
     event.stopPropagation();
   });
 </script>
-
-  
-  
 </body>
 </html>

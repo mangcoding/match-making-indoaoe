@@ -1,12 +1,4 @@
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@100;300;400;700;900&display=swap" rel="stylesheet">
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Satoshi:wght@100;300;400;700;900&display=swap');
-</style>
-<title>Insights</title>
-
 @extends('layouts.frontend')
-
 @section('content')
 <div class="container w-full flex flex-col top-[480px] pt-[80px] pr-[36px] pb-[80px] pl-[36px] gap-[40px]">
     <div class="w-full flex gap-[16px]">
@@ -20,8 +12,8 @@
             <span class="w-[119px] text-[18px] leading-[24px] font-lato font-normal">TIPS & TRICK</span>
         </button>
     </div>
-    
-    
+
+
     <div class="w-full flex gap-[24px]">
         <div class="w-[672px] rounded-[12px] bg-gray-200 flex gap-[10px] p-[32px]">
             <div class="w-full max-w-[567px] flex flex-col gap-[32px] justify-start pt-[20px]">
@@ -61,7 +53,7 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="w-[672px] rounded-[12px] bg-gray-200 flex gap-[10px] p-[32px]">
             <div class="w-full max-w-[567px] flex flex-col gap-[32px] justify-start pt-[20px]">
                 <div class="flex gap-[32px] items-center">
@@ -101,8 +93,8 @@
             </div>
         </div>
     </div>
-    
-    
+
+
 
     <div class="w-full flex gap-[24px]">
         <div class="w-[672px] rounded-[12px] bg-gray-200 flex gap-[10px] p-[32px]">
@@ -143,7 +135,7 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="w-[672px] rounded-[12px] bg-gray-200 flex gap-[10px] p-[32px]">
             <div class="w-full max-w-[567px] flex flex-col gap-[32px] justify-start pt-[20px]">
                 <div class="flex gap-[32px] items-center">
@@ -184,7 +176,7 @@
         </div>
     </div>
 
-    
+
     <div class="w-full flex gap-[24px]">
         <div class="w-[672px] rounded-[12px] bg-gray-200 flex gap-[10px] p-[32px]">
             <div class="w-full max-w-[567px] flex flex-col gap-[32px] justify-start pt-[20px]">
@@ -224,7 +216,7 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="w-[672px] rounded-[12px] bg-gray-200 flex gap-[10px] p-[32px]">
             <div class="w-full max-w-[567px] flex flex-col gap-[32px] justify-start pt-[20px]">
                 <div class="flex gap-[32px] items-center">
@@ -265,7 +257,7 @@
         </div>
     </div>
 
-    
+
     <div class="w-full flex justify-between items-center">
         <span id="prevButton" class="text-[60px] leading-[68px] font-satoshi w-[161px] text-gray-400 font-medium cursor-pointer">
             PREV
@@ -276,14 +268,14 @@
             NEXT
         </span>
     </div>
-    
-    
-    
+
+
+
 </div>
 
 
 <script>
-    const totalPages = 8; 
+    const totalPages = 8;
     let currentPage = 1;
 
     function createButton(label, isActive = false, isDisabled = false) {
@@ -334,7 +326,7 @@
 
     function renderPagination() {
         const paginationContainer = document.getElementById("paginationContainer");
-        paginationContainer.innerHTML = ""; 
+        paginationContainer.innerHTML = "";
 
         const pages = generatePages(totalPages, currentPage);
 
