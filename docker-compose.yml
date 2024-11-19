@@ -15,6 +15,7 @@ services:
     networks:
       - nginx
       - postgres
+      - mariadb
 
 volumes:
   indoaoe_vendor:
@@ -24,4 +25,6 @@ networks:
   postgres:
     external: true
   nginx:
+    external: true
+  mariadb:
     external: true
