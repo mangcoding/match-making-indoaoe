@@ -64,7 +64,7 @@ class EventResource extends Resource
                     ->searchable()
                     ->sortable()
                     ->wrap(),
-                TextColumn::make('description')->wrap(),
+                TextColumn::make('description')->wrap()->limit(10),
                 TextColumn::make('link')->wrap(),
                 TextColumn::make('from_date')->sortable(),
                 TextColumn::make('to_date')->sortable(),
