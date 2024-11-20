@@ -15,7 +15,7 @@
 <div class="flex flex-col items-center gap-[32px] w-full mt-[80px]">
     <div class="flex justify-center items-center">
         <span class="text-[20px] leading-[28px] font-satoshi text-center">
-            Sponsors that have been partnered with us
+            SPONSORS THAT PARTNERED WITH US 
         </span>
     </div>
 
@@ -62,7 +62,7 @@
 </div>
 
 <div class="bg-black w-full flex justify-center items-center my-[16px] pt-[120px] pr-[36px] pb-[120px] pl-[36px]">
-    <h2 class="text-white text-[80px]">MORE THAN JUST A COMMUNITY</h2>
+    <h2 class="text-white text-[80px] font-satoshi font-bold text-center">MORE THAN JUST A COMMUNITY</h2>
 </div>
 
 <div class="w-full flex flex-col gap-[120px]">
@@ -116,21 +116,26 @@
             <h1 class="text-[60px] leading-[68px] text-gray-400">to split among players become balance.</h1>
             <div class="flex items-center">
                 <button class="bg-black rounded-[60px] flex items-center px-[32px] py-[16px] w-[300px]">
-                    <span class="text-[20px] leading-[28px] font-satoshi font-bold text-white">Get Started</span>
+                    <span class="text-[20px] leading-[28px] font-satoshi font-bold text-white">DONATE</span>
                     <span class="bg-red-700 w-[60px] h-[60px] rounded-full flex items-center justify-center ml-auto">
-                        <span class="text-white text-[30px]">→</span>
+                        <img src="{{ asset('image/Vector.png')}}" alt="">
                     </span>
                 </button>
             </div>
         </div>
     </div>
-    <div class="w-[788px] flex gap-[8px] flex-col">
-        <span class="text-[24px] leading-[32px] font-satoshi">
-            Thanks for your donation to IndoAoe.
+    <div class="w-full flex gap-[8px] flex-col items-center">
+        <span class="text-[60px] text-center leading-[68px] font-satoshi">
+            Support Indonesian Age of Empires community to continue to grow and develop by making your donation.       
         </span>
-        <p class="text-gray-400 text-[20px] leading-[28px]">
-            Your donation will be very meaningful for us to continue grow and develop by improving the quality of services, hosting more competitive and fun tournaments, and much more!
-        </p>
+        <div class="flex items-center">
+            <button class="bg-black rounded-[60px] flex items-center px-[32px] py-[16px] w-[186px] gap-[16px]">
+                <span class="text-[20px] leading-[28px] font-satoshi text-white">DONATE</span>
+                <span class="bg-red-700 w-[60px] h-[60px] rounded-full flex items-center justify-center ml-auto">
+                    <img src="{{ asset('image/Vector.png')}}" alt="">
+                </span>
+            </button>
+        </div>
     </div>
 </div>
 
