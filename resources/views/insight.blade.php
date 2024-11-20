@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 @section('styles')
     <style>
-    
+
     </style>
 @endsection
 @section('content')
@@ -52,16 +52,16 @@
                         Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
                     </p>
                     <div class="w-[576px] flex gap-[12px]">
-                        <button class="w-[123px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white">
+                        <button class="w-[123px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
                             <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Build Order</span>
                         </button>
-                        <button class="w-[125px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white">
+                        <button class="w-[125px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
                             <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Generic Civ</span>
                         </button>
-                        <button class="w-[85px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white">
+                        <button class="w-[85px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
                             <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Archer</span>
                         </button>
-                        <button class="w-[127px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white">
+                        <button class="w-[127px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
                             <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Team Game</span>
                         </button>
                     </div>
@@ -91,16 +91,16 @@
                         Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
                     </p>
                     <div class="w-[576px] flex gap-[12px]">
-                        <button class="w-[123px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white">
+                        <button class="w-[123px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
                             <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Build Order</span>
                         </button>
-                        <button class="w-[125px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white">
+                        <button class="w-[125px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
                             <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Generic Civ</span>
                         </button>
-                        <button class="w-[85px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white">
+                        <button class="w-[85px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
                             <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Archer</span>
                         </button>
-                        <button class="w-[127px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white">
+                        <button class="w-[127px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
                             <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Team Game</span>
                         </button>
                     </div>
@@ -108,7 +108,6 @@
             </div>
         </div>
     </div>
-
 
     <div class="w-full flex justify-between items-center">
         <span id="prevButton" class="text-[60px] leading-[68px] font-satoshi w-[161px] text-gray-400 font-medium cursor-pointer">
@@ -120,8 +119,6 @@
             NEXT
         </span>
     </div>
-
-
 
 </div>
 
