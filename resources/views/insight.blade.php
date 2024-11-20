@@ -5,9 +5,9 @@
     </style>
 @endsection
 @section('content')
-<div class="container flex flex-col items-center justify-center  min-h-screen w-full">
-    <div class="flex items-center justify-center ">
-        <h1 class="text-[280px] leading-[280px] font-black font-satoshi text-center">INSIGHTS</h1>
+<div class="lg:pb-20 lg:pt-5 w-full">
+    <div class="flex items-center justify-center container mx-auto">
+        <h1 class="md:text-9xl xl:text-[17.5rem] font-black font-satoshi text-center">INSIGHTS</h1>
     </div>
 </div>
 <div class="container w-full flex flex-col top-[480px] pt-[80px] pr-[36px] pb-[80px] pl-[36px] gap-[40px]">
