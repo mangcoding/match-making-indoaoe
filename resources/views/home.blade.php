@@ -2,5 +2,5 @@
 
 
 @section('content')
-    <h2>ini home page</h2>
+<h2>ini home page</h2>
 @endsection

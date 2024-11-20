@@ -1,10 +1,12 @@
 <?php
+
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use App\Models\Group;
 use App\Models\Player;
+use App\Models\Sponsor;
 use Inertia\Inertia;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use GuzzleHttp\Client;
@@ -13,37 +15,52 @@ use Illuminate\Support\Facades\DB;
 
 class MatchController extends Controller
 {
-    public function insight () {
+    public function insight()
+    {
         return view('insight');
     }
 
-    public function home () {
-        // Ambil data dengan relasi `contents`
-    $data = Group::where('page', 'home')->with('contents')->get();
+    public function home()
+    {
+        $data = Group::where('page', 'home')->with('contents')->get();
 
-    // Susun ulang data ke format yang diinginkan
-    $formattedData = [];
-    foreach ($data as $group) {
-        $groupData = [];
+        $formattedData = [];
+        foreach ($data as $group) {
+            $groupData = [
+                'title' => null,
+                'description' => null,
+                'links' => [],
+            ];
 
-        foreach ($group->contents as $content) {
-            if ($content->field_type === 'text') {
-                $groupData['title'] = $content->field_value;
-            } elseif ($content->field_type === 'description') {
-                $groupData['description'] = $content->field_value;
-            } elseif ($content->field_type === 'link' || $content->field_type === 'embed' || $content->field_type === 'button') {
-                $groupData['link'] = $content->link;
-                $groupData['label'] = $content->label; // Jika Anda memerlukan label
+            foreach ($group->contents as $content) {
+                if ($content->field_type === 'text') {
+                    $groupData['title'] = $content->field_value;
+                } elseif ($content->field_type === 'description') {
+                    $groupData['description'] = $content->field_value;
+                } elseif (in_array($content->field_type, ['link', 'embed', 'button'])) {
+                    $groupData['links'][] = [
+                        'url' => $content->link,
+                        'label' => $content->label,
+                        'type' => $content->field_type,
+                    ];
+                }
             }
-            $groupData['type'] = $content->field_type;
-            // Tambahkan kondisi lain untuk field_type lain jika diperlukan
+
+            $formattedData[$group->name] = $groupData;
         }
 
-        // Tambahkan array grup ke dalam array berindeks dengan nama grup
-        $formattedData[$group->name] = $groupData;
-    }
-    return $formattedData;
-    return view('home', compact('formattedData'));
+        // Fetch additional data
+        $sponsors = Sponsor::all()->toArray();
+        $players = Player::all()->toArray();
+        $events = Event::all()->toArray();
+
+        // Combine data
+        $formattedData['sponsors'] = $sponsors;
+        $formattedData['players'] = $players;
+        $formattedData['events'] = $events;
+
+        // Return the view
+        return view('home', compact('formattedData'));
     }
 
     public function index()
