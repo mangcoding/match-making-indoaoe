@@ -21,7 +21,7 @@ Route::get('/insight_detail', [MatchController::class, 'insight_detail'])->name(
 Route::get('/insight', [MatchController::class, 'insight'])->name('insight');
 Route::get('/player', [MatchController::class, 'player'])->name('player');
 Route::get('/event', [MatchController::class, 'event'])->name('event');
-Route::get('/saweria', [MatchController::class, 'saweria']);
+Route::get('/saweria', [MatchController::class, 'saweria'])->name('saweria');
 Route::get('/matchmaking', [MatchController::class, 'matchmaking'])->name('matchmaking');
 Route::get('/about', [MatchController::class, 'about'])->name('about');
 

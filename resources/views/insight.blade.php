@@ -27,6 +27,168 @@
     </div>
     
     
+    <div class="w-full flex gap-[24px]">
+        <div class="w-[672px] rounded-[12px] bg-gray-200 flex gap-[10px] p-[32px]">
+            <div class="w-full max-w-[567px] flex flex-col gap-[32px] justify-start pt-[20px]">
+                <div class="flex gap-[32px] items-center">
+                    <div class="flex-shrink-0">
+                        <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 11.png') }}" alt="Card image">
+                    </div>
+                    <div class="flex flex-col gap-[16px]">
+                        <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">Arabia Fast Feudal -> Archer Rush</h4>
+                        <div class="flex gap-[16px]">
+                            <img src="{{ asset('image/Rectangle 12.png') }}" class="rounded-[8px] w-[24px]" alt="Advanced">
+                            <span class="text-[18px] font-satoshi">Advanced</span>
+                            <img src="{{ asset('image/Rectangle 12 (2).png') }}" class="rounded-[8px] w-[24px]" alt="19 Pop">
+                            <span class="text-[18px] font-satoshi">19 Pop</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full">
+                    <p class="font-satoshi text-[18px] leading-[28px] mb-[16px] text-gray-500">
+                        Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
+                        Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
+                    </p>
+                    <div class="w-[576px] flex gap-[12px]">
+                        <button class="w-[123px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
+                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Build Order</span>
+                        </button>
+                        <button class="w-[125px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
+                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Generic Civ</span>
+                        </button>
+                        <button class="w-[85px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
+                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Archer</span>
+                        </button>
+                        <button class="w-[127px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
+                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Team Game</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="w-[672px] rounded-[12px] bg-gray-200 flex gap-[10px] p-[32px]">
+            <div class="w-full max-w-[567px] flex flex-col gap-[32px] justify-start pt-[20px]">
+                <div class="flex gap-[32px] items-center">
+                    <div class="flex-shrink-0">
+                        <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 113.png') }}" alt="Card image">
+                    </div>
+                    <div class="flex flex-col gap-[16px]">
+                        <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">Arabia Fast Feudal -> Scout Rush</h4>
+                        <div class="flex gap-[16px]">
+                            <img src="{{ asset('image/Rectangle 123.png') }}" class="rounded-[8px] w-[24px]" alt="Advanced">
+                            <span class="text-[18px] font-satoshi">Intermediate</span>
+                            <img src="{{ asset('image/Rectangle 12 (2).png') }}" class="rounded-[8px] w-[24px]" alt="19 Pop">
+                            <span class="text-[18px] font-satoshi">20 Pop</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full">
+                    <p class="font-satoshi text-[18px] leading-[28px] mb-[16px] text-gray-500">
+                        Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
+                        Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
+                    </p>
+                    <div class="w-[576px] flex gap-[12px]">
+                        <button class="w-[123px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
+                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Build Order</span>
+                        </button>
+                        <button class="w-[125px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
+                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Generic Civ</span>
+                        </button>
+                        <button class="w-[85px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
+                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Archer</span>
+                        </button>
+                        <button class="w-[127px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
+                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Team Game</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+
+    <div class="w-full flex gap-[24px]">
+        <div class="w-[672px] rounded-[12px] bg-gray-200 flex gap-[10px] p-[32px]">
+            <div class="w-full max-w-[567px] flex flex-col gap-[32px] justify-start pt-[20px]">
+                <div class="flex gap-[32px] items-center">
+                    <div class="flex-shrink-0">
+                        <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 11 (1).png') }}" alt="Card image">
+                    </div>
+                    <div class="flex flex-col gap-[16px]">
+                        <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">Land Nomad Fast Castle -> Knight Rush</h4>
+                        <div class="flex gap-[16px]">
+                            <img src="{{ asset('image/Rectangle 12 (1).png') }}" class="rounded-[8px] w-[24px]" alt="Advanced">
+                            <span class="text-[18px] font-satoshi">Beginner</span>
+                            <img src="{{ asset('image/Rectangle 12 (2).png') }}" class="rounded-[8px] w-[24px]" alt="19 Pop">
+                            <span class="text-[18px] font-satoshi">23 Pop</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full">
+                    <p class="font-satoshi text-[18px] leading-[28px] mb-[16px] text-gray-500">
+                        Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
+                        Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
+                    </p>
+                    <div class="w-[576px] flex gap-[12px]">
+                        <button class="w-[123px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
+                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Build Order</span>
+                        </button>
+                        <button class="w-[125px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
+                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Generic Civ</span>
+                        </button>
+                        <button class="w-[85px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
+                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Archer</span>
+                        </button>
+                        <button class="w-[127px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
+                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Team Game</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="w-[672px] rounded-[12px] bg-gray-200 flex gap-[10px] p-[32px]">
+            <div class="w-full max-w-[567px] flex flex-col gap-[32px] justify-start pt-[20px]">
+                <div class="flex gap-[32px] items-center">
+                    <div class="flex-shrink-0">
+                        <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 11 (2).png') }}" alt="Card image">
+                    </div>
+                    <div class="flex flex-col gap-[16px]">
+                        <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">Nomad Fast Feudal -> Galley</h4>
+                        <div class="flex gap-[16px]">
+                            <img src="{{ asset('image/Rectangle 123.png') }}" class="rounded-[8px] w-[24px]" alt="Advanced">
+                            <span class="text-[18px] font-satoshi">Intermediate</span>
+                            <img src="{{ asset('image/Rectangle 12 (2).png') }}" class="rounded-[8px] w-[24px]" alt="19 Pop">
+                            <span class="text-[18px] font-satoshi">18 Pop</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full">
+                    <p class="font-satoshi text-[18px] leading-[28px] mb-[16px] text-gray-500">
+                        Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
+                        Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
+                    </p>
+                    <div class="w-[576px] flex gap-[12px]">
+                        <button class="w-[123px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
+                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Build Order</span>
+                        </button>
+                        <button class="w-[125px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
+                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Generic Civ</span>
+                        </button>
+                        <button class="w-[85px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
+                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Archer</span>
+                        </button>
+                        <button class="w-[127px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
+                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Team Game</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     
     <div class="w-full flex gap-[24px]">
         <div class="w-[672px] rounded-[12px] bg-gray-200 flex gap-[10px] p-[32px]">
@@ -51,16 +213,16 @@
                         Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
                     </p>
                     <div class="w-[576px] flex gap-[12px]">
-                        <button class="w-[123px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white">
+                        <button class="w-[123px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
                             <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Build Order</span>
                         </button>
-                        <button class="w-[125px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white">
+                        <button class="w-[125px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
                             <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Generic Civ</span>
                         </button>
-                        <button class="w-[85px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white">
+                        <button class="w-[85px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
                             <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Archer</span>
                         </button>
-                        <button class="w-[127px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white">
+                        <button class="w-[127px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
                             <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Team Game</span>
                         </button>
                     </div>
@@ -90,16 +252,16 @@
                         Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
                     </p>
                     <div class="w-[576px] flex gap-[12px]">
-                        <button class="w-[123px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white">
+                        <button class="w-[123px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
                             <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Build Order</span>
                         </button>
-                        <button class="w-[125px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white">
+                        <button class="w-[125px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
                             <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Generic Civ</span>
                         </button>
-                        <button class="w-[85px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white">
+                        <button class="w-[85px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
                             <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Archer</span>
                         </button>
-                        <button class="w-[127px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white">
+                        <button class="w-[127px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
                             <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Team Game</span>
                         </button>
                     </div>
@@ -107,7 +269,6 @@
             </div>
         </div>
     </div>
-
     
     <div class="w-full flex justify-between items-center">
         <span id="prevButton" class="text-[60px] leading-[68px] font-satoshi w-[161px] text-gray-400 font-medium cursor-pointer">
@@ -119,8 +280,6 @@
             NEXT
         </span>
     </div>
-    
-    
     
 </div>
 
