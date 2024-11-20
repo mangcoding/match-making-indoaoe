@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('groups_id')->constrained('groups')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('field_types', 150);
-            $table->text('field_value');
-            $table->string('label', 150);
+            $table->text('field_value')->nullable();
+            $table->string('label', 150)->nullable();
             $table->string('link', 100)->nullable();
             $table->softDeletes();
             $table->timestamps();
