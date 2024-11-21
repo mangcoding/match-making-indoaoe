@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('contents', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('groups_id')->constrained('groups')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('groups_id')->constrained('groups')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->string('page', 150);
             $table->string('field_types', 150);
             $table->text('field_value')->nullable();
+            $table->string('image', 150)->nullable();
             $table->string('label', 150)->nullable();
             $table->string('link', 100)->nullable();
             $table->softDeletes();

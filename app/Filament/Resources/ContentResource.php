@@ -27,63 +27,101 @@ class ContentResource extends Resource
 {
     protected static ?string $model = Content::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'phosphor-scroll';
+
+    public static ?int $navigationSort = 4;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
+                Select::make('page')
+                    ->options(Group::pluck('page', 'page'))
+                    ->required()
+                    ->reactive()
+                    ->columnSpan(2),
                 Select::make('groups_id')
-                    ->relationship('group', 'name')
-                    ->required()->columnSpan(2),
+                    ->relationship(
+                        'group',
+                        'name',
+                        fn($query, $get) => $query->where('page', $get('page'))
+                    )
+                    ->required()
+                    ->columnSpan(2)
+                    ->default(fn($record) => $record?->groups_id),
                 Select::make('field_types')
                     ->options([
                         'text' => 'Text',
                         'description' => 'Description',
                         'image' => 'Image',
                         'link' => 'Link',
-                        'button' => "Button",
+                        'button' => 'Button',
                         'button_link' => 'Button Link',
-                        'embed' => 'Embed'
-                    ])
-                    ->required()->live()->columnSpan(2),
-
-                TextInput::make('field_value')->required()->columnSpan(2)
-                    ->hidden(fn(Get $get) => $get('field_types') !== 'text'),
-
-                Textarea::make('field_value')->required()->columnSpan(2)
-                    ->hidden(fn(Get $get) => $get('field_types') !== 'description'),
-
-                FileUpload::make('field_value')->image()
-                    ->imageEditor()
-                    ->panelLayout('integrated')
-                    ->imageEditorAspectRatios([
-                        '16:9',
-                        '4:3',
-                        '1:1',
+                        'embed' => 'Embed',
                     ])
                     ->required()
+                    ->reactive()
+                    ->columnSpan(2),
+
+                // Text input for 'text' type
+                TextInput::make('field_value')
+                    ->required()
+                    ->columnSpan(2)
+                    ->hidden(fn(Get $get) => $get('field_types') !== 'text'),
+
+                // Textarea for 'description' type
+                Textarea::make('field_value')
+                    ->required()
+                    ->columnSpan(2)
+                    ->hidden(fn(Get $get) => $get('field_types') !== 'description'),
+
+                // File upload for 'image' type
+                FileUpload::make('image')
+                    ->image()
+                    ->imageEditor()
+                    ->panelLayout('integrated')
+                    ->imageEditorAspectRatios(['16:9', '4:3', '1:1'])
                     ->disk('public')
                     ->directory('images/contents')
                     ->visibility('public')
+                    ->required()
                     ->columnSpan(2)
                     ->hidden(fn(Get $get) => $get('field_types') !== 'image'),
 
-                TextInput::make("link")->url()->required()->columnSpan(2)
+                // URL input for 'link' type
+                TextInput::make('link')
+                    ->required()
+                    ->url()
+                    ->columnSpan(2)
                     ->hidden(fn(Get $get) => $get('field_types') !== 'link'),
 
-                TextInput::make('label')->required()->columnSpan(2)
+                // Label input for 'button' type
+                TextInput::make('label')
+                    ->required()
+                    ->columnSpan(2)
                     ->hidden(fn(Get $get) => $get('field_types') !== 'button'),
 
-                TextInput::make('label')->required()->columnSpan(2)
+                // Label and link input for 'button_link' type
+                TextInput::make('label')
+                    ->required()
+                    ->columnSpan(2)
                     ->hidden(fn(Get $get) => $get('field_types') !== 'button_link'),
-                TextInput::make('link')->url()->required()->columnSpan(2)
+                TextInput::make('link')
+                    ->required()
+                    ->url()
+                    ->columnSpan(2)
                     ->hidden(fn(Get $get) => $get('field_types') !== 'button_link'),
 
-                TextInput::make("link")->label('Embed Link')->required()->columnSpan(2)
+                // URL input for 'embed' type
+                TextInput::make('link')
+                    ->required()
+                    ->label('Embed Link')
+                    ->url()
+                    ->columnSpan(2)
                     ->hidden(fn(Get $get) => $get('field_types') !== 'embed'),
             ]);
     }
+
 
     public static function table(Table $table): Table
     {

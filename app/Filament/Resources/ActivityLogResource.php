@@ -18,7 +18,9 @@ class ActivityLogResource extends Resource
 {
     protected static ?string $model = ActivityLog::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'tabler-notes';
+
+    public static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
     {

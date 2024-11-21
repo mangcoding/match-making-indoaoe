@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use App\Models\Group;
+use App\Models\Insight;
 use App\Models\Player;
 use App\Models\Sponsor;
 use Inertia\Inertia;
@@ -15,16 +16,10 @@ use Illuminate\Support\Facades\DB;
 
 class MatchController extends Controller
 {
-    public function insight()
+    public static function formattedData($data)
     {
-        return view('insight');
-    }
-
-    public function home()
-    {
-        $data = Group::where('page', 'home')->with('contents')->get();
-
         $formattedData = [];
+
         foreach ($data as $group) {
             $groupData = [
                 'title' => null,
@@ -33,15 +28,15 @@ class MatchController extends Controller
             ];
 
             foreach ($group->contents as $content) {
-                if ($content->field_type === 'text') {
+                if ($content->field_types === 'text') {
                     $groupData['title'] = $content->field_value;
-                } elseif ($content->field_type === 'description') {
+                } elseif ($content->field_types === 'description') {
                     $groupData['description'] = $content->field_value;
-                } elseif (in_array($content->field_type, ['link', 'embed', 'button'])) {
+                } elseif (in_array($content->field_types, ['link', 'embed', 'button', 'image', 'button_link'])) {
                     $groupData['links'][] = [
                         'url' => $content->link,
                         'label' => $content->label,
-                        'type' => $content->field_type,
+                        'type' => $content->field_types,
                     ];
                 }
             }
@@ -49,17 +44,41 @@ class MatchController extends Controller
             $formattedData[$group->name] = $groupData;
         }
 
-        // Fetch additional data
-        $sponsors = Sponsor::all()->toArray();
-        $players = Player::all()->toArray();
-        $events = Event::all()->toArray();
+        return $formattedData;
+    }
 
-        // Combine data
-        $formattedData['sponsors'] = $sponsors;
-        $formattedData['players'] = $players;
-        $formattedData['events'] = $events;
 
-        // Return the view
+    public function insight(Request $request)
+    {
+        $category = $request->query('category', 'all');
+
+        if ($category == 'all') {
+            $insights = Insight::paginate(10);
+        } else {
+            $insights = Insight::with('categoryInsights')
+                ->whereHas('categoryInsights', function ($query) use ($category) {
+                    $query->where('category_id', $category);
+                })
+                ->paginate(8);
+        }
+
+        $contents = Group::where('page', 'insights')->with('contents')->get();
+
+        $formattedData = MatchController::formattedData($contents);
+        $formattedData['insights'] = $insights;
+
+        return view('insight', compact('formattedData'));
+    }
+
+    public function home()
+    {
+        $data = Group::where('page', 'home')->with('contents')->get();
+
+        $formattedData = MatchController::formattedData($data);
+        $formattedData['sponsors'] = Sponsor::all()->toArray();
+        $formattedData['players'] = Player::all()->toArray();
+        $formattedData['events'] = Event::all()->toArray();
+
         return view('home', compact('formattedData'));
     }
 

@@ -20,7 +20,9 @@ class GroupResource extends Resource
 {
     protected static ?string $model = Group::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'fluentui-group-20-o';
+
+    public static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
     {

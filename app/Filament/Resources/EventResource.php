@@ -23,14 +23,16 @@ class EventResource extends Resource
 {
     protected static ?string $model = Event::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'uni-calender';
+
+    public static ?int $navigationSort = 6;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 TextInput::make('title')->required()->maxLength(150)->columnSpan(2),
-                TextArea::make('description')->columnSpan(2),
+                TextArea::make('body')->columnSpan(2),
                 TextInput::make('link')->maxLength(150)->columnSpan(2),
                 FileUpload::make('thumbnail')
                     ->image()
@@ -64,8 +66,6 @@ class EventResource extends Resource
                     ->searchable()
                     ->sortable()
                     ->wrap(),
-                TextColumn::make('description')->wrap()->limit(10),
-                TextColumn::make('link')->wrap(),
                 TextColumn::make('from_date')->sortable(),
                 TextColumn::make('to_date')->sortable(),
             ])

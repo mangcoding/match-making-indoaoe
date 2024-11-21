@@ -19,7 +19,9 @@ class CategoryInsightResource extends Resource
 {
     protected static ?string $model = CategoryInsight::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    public static ?int $navigationSort = 7;
+
+    protected static ?string $navigationIcon = 'bxs-category';
 
     public static function form(Form $form): Form
     {

@@ -24,7 +24,9 @@ class InsightResource extends Resource
 {
     protected static ?string $model = Insight::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    public static ?int $navigationSort = 8;
+
+    protected static ?string $navigationIcon = 'ri-brain-fill';
 
     public static function form(Form $form): Form
     {
@@ -55,12 +57,9 @@ class InsightResource extends Resource
                     ->columnSpan(2),
                 Select::make('difficulty')
                     ->options([
-                        "Easiest" => "Easiest",
-                        "Easy" => "Easy",
-                        "Moderate" => "Moderate",
-                        "Hard" => "Hard",
-                        "Hardest" => "Hardest",
-                        "Extreme" => "Extreme"
+                        "Beginner" => "Beginner",
+                        "Intermediate" => "Intermediate",
+                        "Advanced" => "Advanced"
                     ])->columnSpan(2),
                 TextInput::make('population')->integer()->columnSpan(2),
             ]);
@@ -81,12 +80,9 @@ class InsightResource extends Resource
                     ->relationship('categoryInsights', 'name')->options(CategoryInsight::all()->pluck('name', 'name')->toArray()),
                 SelectFilter::make('difficulty')
                     ->options([
-                        "Easiest" => "Easiest",
-                        "Easy" => "Easy",
-                        "Moderate" => "Moderate",
-                        "Hard" => "Hard",
-                        "Hardest" => "Hardest",
-                        "Extreme" => "Extreme"
+                        "Beginner" => "Beginner",
+                        "Intermediate" => "Intermediate",
+                        "Advanced" => "Advanced"
                     ])
             ])
             ->actions([

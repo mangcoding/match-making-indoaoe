@@ -21,7 +21,9 @@ class PlayerResource extends Resource
 {
     protected static ?string $model = Player::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'mdi-human-greeting-variant';
+
+    public static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
     {

@@ -14,7 +14,7 @@ class CreateContent extends CreateRecord
     protected function mutateFormDataBeforeCreate(array $data): array
     {
         if ($data['field_types'] == 'image') {
-            $data['link'] = $data['field_value'];
+            $data['link'] = $data['image'];
         }
 
         return $data;

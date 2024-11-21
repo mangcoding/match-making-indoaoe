@@ -13,6 +13,8 @@ class Content extends Model
 
     protected $fillable = [
         "groups_id",
+        "page",
+        "image",
         'field_types',
         'field_value',
         'label',
