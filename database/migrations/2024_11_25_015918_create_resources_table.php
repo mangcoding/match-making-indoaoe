@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('resources', function (Blueprint $table) {
             $table->id();
-            $table->name('name', 150)->unique();
-            $table->name('image', 150)->nullable();
+            $table->string('name', 150)->unique();
+            $table->string('image', 150)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
