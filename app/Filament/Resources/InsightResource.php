@@ -24,7 +24,7 @@ class InsightResource extends Resource
 {
     protected static ?string $model = Insight::class;
 
-    public static ?int $navigationSort = 8;
+    public static ?int $navigationSort = 9;
 
     protected static ?string $navigationIcon = 'ri-brain-fill';
 

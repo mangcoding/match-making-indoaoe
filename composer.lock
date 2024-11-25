@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d58e943dc1d0afdb708306865a974245",
+    "content-hash": "6006522785f366c26bfaea7066f015cf",
     "packages": [
         {
             "name": "andreiio/blade-remix-icon",
@@ -4465,6 +4465,68 @@
                 }
             ],
             "time": "2024-09-24T14:04:43+00:00"
+        },
+        {
+            "name": "owenvoke/blade-entypo",
+            "version": "v2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/owenvoke/blade-entypo.git",
+                "reference": "b3d05c30322e559f9cf191ace934b9ec309a550f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/owenvoke/blade-entypo/zipball/b3d05c30322e559f9cf191ace934b9ec309a550f",
+                "reference": "b3d05c30322e559f9cf191ace934b9ec309a550f",
+                "shasum": ""
+            },
+            "require": {
+                "blade-ui-kit/blade-icons": "^1.5",
+                "illuminate/support": "^10.0|^11.0",
+                "php": "^8.1",
+                "thecodingmachine/safe": "^2.5"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.15",
+                "orchestra/testbench": "^8.5|^9.0",
+                "pestphp/pest": "^2.34",
+                "phpstan/phpstan": "^1.10",
+                "symfony/var-dumper": "^6.4|^7.0",
+                "thecodingmachine/phpstan-safe-rule": "^1.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "OwenVoke\\BladeEntypo\\BladeEntypoServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "OwenVoke\\BladeEntypo\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A package to easily make use of Entypo in your Laravel Blade views",
+            "support": {
+                "issues": "https://github.com/owenvoke/blade-entypo/issues",
+                "source": "https://github.com/owenvoke/blade-entypo/tree/v2.2.0"
+            },
+            "funding": [
+                {
+                    "url": "https://ecologi.com/owenvoke?gift-trees",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/owenvoke",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-03-27T08:48:48+00:00"
         },
         {
             "name": "owenvoke/blade-fontawesome",

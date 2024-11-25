@@ -2,32 +2,48 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\CategoryInsightResource\Pages;
-use App\Filament\Resources\CategoryInsightResource\RelationManagers;
-use App\Models\CategoryInsight;
+use App\Filament\Resources\ResourceResource\Pages;
+use App\Filament\Resources\ResourceResource\RelationManagers;
+use App\Models\Resources;
 use Filament\Forms;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\FileUpload;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 
-class CategoryInsightResource extends Resource
+class ResourceResource extends Resource
 {
-    protected static ?string $model = CategoryInsight::class;
+    protected static ?string $model = Resources::class;
 
-    public static ?int $navigationSort = 8;
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $navigationIcon = 'bxs-category';
+    public static ?int $navigationSort = 7;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                TextInput::make('name')->required()->unique()->maxLength(150)->columnSpan(2),
+                TextInput::make('name')->required()->maxLength(150)->unique()->columnSpan(2),
+                FileUpload::make('image')
+                    ->image()
+                    ->imageEditor()
+                    ->panelLayout('integrated')
+                    ->imageEditorAspectRatios([
+                        '16:9',
+                        '4:3',
+                        '1:1',
+                    ])
+                    ->required()
+                    ->disk('public')
+                    ->directory('images/resources')
+                    ->visibility('public')
+                    ->columnSpan(2),
             ]);
     }
 
@@ -36,6 +52,7 @@ class CategoryInsightResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')->searchable()->sortable(),
+                ImageColumn::make('image')->alignCenter(),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
@@ -43,8 +60,6 @@ class CategoryInsightResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
-                Tables\Actions\ForceDeleteAction::make(),
-                Tables\Actions\RestoreAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -55,10 +70,19 @@ class CategoryInsightResource extends Resource
             ]);
     }
 
+    public static function getRelations(): array
+    {
+        return [
+            //
+        ];
+    }
+
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageCategoryInsights::route('/'),
+            'index' => Pages\ListResources::route('/'),
+            'create' => Pages\CreateResource::route('/create'),
+            'edit' => Pages\EditResource::route('/{record}/edit'),
         ];
     }
 
