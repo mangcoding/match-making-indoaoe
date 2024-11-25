@@ -53,7 +53,7 @@ class MatchController extends Controller
         $category = $request->query('category', 'all');
 
         if ($category == 'all') {
-            $insights = Insight::paginate(10);
+            $insights = Insight::paginate(8);
         } else {
             $insights = Insight::with('categoryInsights')
                 ->whereHas('categoryInsights', function ($query) use ($category) {
