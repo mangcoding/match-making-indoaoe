@@ -24,7 +24,7 @@ class InsightResource extends Resource
 {
     protected static ?string $model = Insight::class;
 
-    public static ?int $navigationSort = 9;
+    public static ?int $navigationSort = 10;
 
     protected static ?string $navigationIcon = 'ri-brain-fill';
 
@@ -38,8 +38,14 @@ class InsightResource extends Resource
                     ->preload(true)
                     ->required()
                     ->columnSpan(2),
-                TextInput::make('title')->required()->unique()->maxLength(150)->columnSpan(2),
+                TextInput::make('title')->required()->unique(ignoreRecord: true)->maxLength(150)->columnSpan(2),
                 Textarea::make('description')->columnSpan(2),
+                Select::make('age')
+                    ->relationship('ages', 'name')
+                    ->preload(true)
+                    ->multiple()
+                    ->required()
+                    ->columnSpan(2),
                 FileUpload::make('image')
                     ->image()
                     ->imageEditor()
@@ -87,6 +93,7 @@ class InsightResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ResourceResource\Pages;
-use App\Filament\Resources\ResourceResource\RelationManagers;
-use App\Models\Resources;
+use App\Filament\Resources\AgeResource\Pages;
+use App\Filament\Resources\AgeResource\RelationManagers;
+use App\Models\Age;
 use Filament\Forms;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
@@ -17,19 +17,24 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 
-class ResourceResource extends Resource
+class AgeResource extends Resource
 {
-    protected static ?string $model = Resources::class;
+    protected static ?string $model = Age::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'entypo-hour-glass';
 
-    public static ?int $navigationSort = 7;
+    public static ?int $navigationSort = 8;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                TextInput::make('name')->required()->maxLength(150)->unique(ignoreRecord: true)->columnSpan(2),
+                TextInput::make('name')
+                    ->unique(ignoreRecord: true)
+                    ->maxLength(150)
+                    ->required()
+                    ->columnSpan(2)
+                    ->required(),
                 FileUpload::make('image')
                     ->image()
                     ->imageEditor()
@@ -41,9 +46,14 @@ class ResourceResource extends Resource
                     ])
                     ->required()
                     ->disk('public')
-                    ->directory('images/resources')
+                    ->directory('images/ages')
                     ->visibility('public')
                     ->columnSpan(2),
+                TextInput::make('priority')
+                    ->integer()
+                    ->unique(ignoreRecord: true)
+                    ->required()
+                    ->columnSpan(2)
             ]);
     }
 
@@ -53,6 +63,7 @@ class ResourceResource extends Resource
             ->columns([
                 TextColumn::make('name')->searchable()->sortable(),
                 ImageColumn::make('image')->alignCenter(),
+                TextColumn::make('priority')->searchable()->sortable(),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
@@ -80,9 +91,9 @@ class ResourceResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListResources::route('/'),
-            'create' => Pages\CreateResource::route('/create'),
-            'edit' => Pages\EditResource::route('/{record}/edit'),
+            'index' => Pages\ListAges::route('/'),
+            'create' => Pages\CreateAge::route('/create'),
+            'edit' => Pages\EditAge::route('/{record}/edit'),
         ];
     }
 

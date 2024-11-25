@@ -3,10 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class InsightCategory extends Model
+class InsightCategory extends Pivot
 {
     use HasFactory;
 
@@ -16,14 +15,4 @@ class InsightCategory extends Model
         "insights_id",
         "category_insights_id"
     ];
-
-    public function insight(): BelongsTo
-    {
-        return $this->belongsTo(Insight::class, 'insights_id', 'id');
-    }
-
-    public function category(): BelongsTo
-    {
-        return $this->belongsTo(CategoryInsight::class, 'category_insights_id', 'id');
-    }
 }

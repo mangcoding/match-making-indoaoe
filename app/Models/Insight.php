@@ -24,4 +24,9 @@ class Insight extends Model
     {
         return $this->belongsToMany(CategoryInsight::class, 'insight_categories', 'insights_id', 'category_insights_id');
     }
+
+    public function ages(): BelongsToMany
+    {
+        return $this->belongsToMany(Age::class, 'insight_ages', 'insights_id', 'ages_id');
+    }
 }

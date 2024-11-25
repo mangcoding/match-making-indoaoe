@@ -19,7 +19,7 @@ class CategoryInsightResource extends Resource
 {
     protected static ?string $model = CategoryInsight::class;
 
-    public static ?int $navigationSort = 8;
+    public static ?int $navigationSort = 9;
 
     protected static ?string $navigationIcon = 'bxs-category';
 
@@ -27,7 +27,7 @@ class CategoryInsightResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('name')->required()->unique()->maxLength(150)->columnSpan(2),
+                TextInput::make('name')->required()->unique(ignoreRecord: true)->maxLength(150)->columnSpan(2),
             ]);
     }
 

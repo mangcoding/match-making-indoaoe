@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Age extends Model
@@ -15,4 +16,9 @@ class Age extends Model
         'image',
         'priority'
     ];
+
+    public function insights(): BelongsToMany
+    {
+        return $this->belongsToMany(Insight::class, 'insight_ages', 'ages_id', 'insights_id');
+    }
 }

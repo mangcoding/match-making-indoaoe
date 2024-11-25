@@ -29,7 +29,7 @@ class SponsorResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('name')->required()->unique()->maxLength(150)->columnSpan(2),
+                TextInput::make('name')->required()->unique(ignoreRecord: true)->maxLength(150)->columnSpan(2),
                 FileUpload::make('image')
                     ->image()
                     ->imageEditor()
