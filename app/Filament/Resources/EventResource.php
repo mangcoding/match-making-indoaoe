@@ -33,8 +33,8 @@ class EventResource extends Resource
             ->schema([
                 TextInput::make('title')->required()->maxLength(150)->columnSpan(2),
                 TextArea::make('body')->columnSpan(2),
-                TextInput::make('link')->maxLength(150)->columnSpan(2),
-                FileUpload::make('thumbnail')
+                TextInput::make('link')->url()->maxLength(150)->columnSpan(2),
+                FileUpload::make('image')
                     ->image()
                     ->imageEditor()
                     ->panelLayout('integrated')

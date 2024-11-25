@@ -10,20 +10,20 @@ class InsightCategory extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = ["insight_id", "category_id"];
+    protected $primaryKey = ["insights_id", "category_insights_id"];
 
     protected $fillable = [
-        "insight_id",
-        "category_id"
+        "insights_id",
+        "category_insights_id"
     ];
 
     public function insight(): BelongsTo
     {
-        return $this->belongsTo(Insight::class, 'insight_id', 'id');
+        return $this->belongsTo(Insight::class, 'insights_id', 'id');
     }
 
     public function category(): BelongsTo
     {
-        return $this->belongsTo(CategoryInsight::class, 'category_id', 'id');
+        return $this->belongsTo(CategoryInsight::class, 'category_insights_id', 'id');
     }
 }

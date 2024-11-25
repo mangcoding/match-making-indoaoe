@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('page', 150);
             $table->string('slug', 150);
             $table->string('name', 150);
+            $table->unique(['page', 'name']);
             $table->softDeletes();
             $table->timestamps();
         });

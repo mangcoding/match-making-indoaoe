@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('insights', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 150);
+            $table->string('title', 150)->unique();
             $table->string('image', 150)->nullable();
             $table->text('description')->nullable();
             $table->string('difficulty', 150)->nullable();

@@ -33,12 +33,12 @@ class InsightResource extends Resource
         return $form
             ->schema([
                 Select::make('category')
-                    ->relationship('categoryInsights', 'name')
+                    ->relationship('category', 'name')
                     ->multiple()
                     ->preload(true)
                     ->required()
                     ->columnSpan(2),
-                TextInput::make('title')->required()->maxLength(150)->columnSpan(2),
+                TextInput::make('title')->required()->unique()->maxLength(150)->columnSpan(2),
                 Textarea::make('description')->columnSpan(2),
                 FileUpload::make('image')
                     ->image()
@@ -77,7 +77,7 @@ class InsightResource extends Resource
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
                 SelectFilter::make('category')
-                    ->relationship('categoryInsights', 'name')->options(CategoryInsight::all()->pluck('name', 'name')->toArray()),
+                    ->relationship('category', 'name')->options(CategoryInsight::all()->pluck('name', 'name')->toArray()),
                 SelectFilter::make('difficulty')
                     ->options([
                         "Beginner" => "Beginner",

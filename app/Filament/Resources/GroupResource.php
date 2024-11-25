@@ -29,7 +29,17 @@ class GroupResource extends Resource
         return $form
             ->schema([
                 TextInput::make('page')->required()->maxLength(150)->columnSpan(2),
-                TextInput::make('name')->required()->maxLength(150)->columnSpan(2),
+                TextInput::make('name')
+                    ->required()
+                    ->maxLength(150)
+                    ->columnSpan(2)
+                    ->rules([
+                        function (callable $get, $record) {
+                            $recordId = $record?->id ?? 'NULL';
+                            $page = $get('page') ?? 'NULL';
+                            return "unique:groups,name,{$recordId},id,page,{$page}";
+                        },
+                    ]),
             ]);
     }
 

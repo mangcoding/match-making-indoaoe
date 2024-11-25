@@ -16,6 +16,6 @@ class CategoryInsight extends Model
 
     public function insights(): BelongsToMany
     {
-        return $this->belongsToMany(Insight::class, 'insight_categories', 'category_id', 'insight_id');
+        return $this->belongsToMany(Insight::class, 'insight_categories', 'category_insights_id', 'insights_id');
     }
 }

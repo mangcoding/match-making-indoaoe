@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('insight_categories', function (Blueprint $table) {
-            $table->foreignId('insight_id')->constrained('insights')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignId('category_id')->constrained('category_insights')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->primary(['insight_id', 'category_id']);
+            $table->foreignId('insights_id')->constrained('insights')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('category_insights_id')->constrained('category_insights')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->primary(['insights_id', 'category_insights_id']);
             $table->timestamps();
         });
     }

@@ -20,8 +20,8 @@ class Insight extends Model
         'population',
     ];
 
-    public function categoryInsights(): BelongsToMany
+    public function category(): BelongsToMany
     {
-        return $this->belongsToMany(CategoryInsight::class, 'insight_categories', 'insight_id', 'category_id');
+        return $this->belongsToMany(CategoryInsight::class, 'insight_categories', 'insights_id', 'category_insights_id');
     }
 }
