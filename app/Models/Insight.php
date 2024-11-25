@@ -29,4 +29,9 @@ class Insight extends Model
     {
         return $this->belongsToMany(Age::class, 'insight_ages', 'insights_id', 'ages_id');
     }
+
+    public function build_orders(): HasMany
+    {
+        return $this->hasMany(BuildOrder::class, 'insights_id', 'id');
+    }
 }
