@@ -145,8 +145,6 @@ class SyncMatch extends Command
 
         foreach ($players as $player) {
             $streak = 0;
-            $win = 0;
-            $lose = 0;
             $lastGame = null;
 
             $matches = DB::table('match_teams')
@@ -162,17 +160,13 @@ class SyncMatch extends Command
                 if ($match->won) {
                     $lastGame == 'won' ? $streak++ : $streak = 1;
                     $lastGame = 'won';
-                    $win++;
                 } else {
                     $lastGame == 'lose' ? $streak-- : $streak = -1;
                     $lastGame = 'lose';
-                    $lose++;
                 }
             }
 
             $player->streak = $streak;
-            $player->last_win_count = $win;
-            $player->last_lose_count = $lose;
             $player->save();
 
             $this->info("Player: {$player->name} | Streak: {$streak}");
