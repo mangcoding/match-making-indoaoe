@@ -47,7 +47,7 @@ class SyncMatch extends Command
                 $player->elo_1v1 = $elo['1v1'];
                 $player->elo_team = $elo['team'];
                 $player->drops = $elo['drops'];
-                $player->streak = 0;
+                $player->streak = $player->streak;
                 $player->updated_at = now();
                 $player->save();
 
