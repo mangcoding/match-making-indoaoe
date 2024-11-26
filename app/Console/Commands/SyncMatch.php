@@ -47,27 +47,46 @@ class SyncMatch extends Command
                 $player->elo_1v1 = $elo['1v1'];
                 $player->elo_team = $elo['team'];
                 $player->drops = $elo['drops'];
-                $player->streak = $elo['streak'];
+                $player->streak = 0;
                 $player->updated_at = now();
                 $player->save();
 
                 // filter only match not contains AI
                 // the filter must be check on teams -> players array
                 $playerMatchs = $playerMatchs->filter(function ($match) {
+                    $totalPlayer = 0;
+
                     foreach ($match['teams'] as $team) {
                         foreach ($team['players'] as $teamPlayer) {
                             if ($teamPlayer['profileId'] === -1) {
                                 return false;
+                            } else {
+                                $totalPlayer++;
                             }
                         }
                     }
+
+                    if ($totalPlayer <= 2) {
+                        $this->info("Filtered out match due to insufficient players (total players: {$totalPlayer} match_id: {$match['matchId']})");
+                        return false;
+                    }
+
+                    // Check match duration (must be greater than 15 minutes)
+                    $matchDuration = isset($match['finished'])
+                        ? (strtotime($match['finished']) - strtotime($match['started'])) / 60
+                        : 0;
+
+                    if ($matchDuration < 15) {
+                        $this->info("Filtered out match due to insufficient duration (duration: {$matchDuration} minutes, match_id : {$match['matchId']})");
+                        return false;
+                    }
+
                     return true;
                 });
 
 
                 // save player match
                 foreach ($playerMatchs as $playerMatch) {
-
                     if (GameMatch::where('match_id', $playerMatch['matchId'])->exists()) {
                         $this->info("Match already exists for {$player->name} with match id {$playerMatch['matchId']}");
                         continue;
@@ -86,8 +105,8 @@ class SyncMatch extends Command
                         foreach ($team['players'] as $teamPlayer) {
                             if (
                                 MatchTeam::where('match_id', $playerMatch['matchId'])
-                                    ->where('aoe2net_id', $teamPlayer['profileId'])
-                                    ->exists()
+                                ->where('aoe2net_id', $teamPlayer['profileId'])
+                                ->exists()
                             ) {
                                 $this->info("Match team already exists for {$player->name} with match id {$playerMatch['matchId']}");
                                 continue;
@@ -109,7 +128,6 @@ class SyncMatch extends Command
                                 'won' => $teamPlayer['won'],
                                 'civ' => $teamPlayer['civ'],
                             ]);
-
                         }
                     }
 
@@ -119,6 +137,45 @@ class SyncMatch extends Command
                 Log::error($th);
                 $this->error("Failed to sync match for {$player->name}");
             }
+        }
+
+        $players = Player::where('status', '1')
+            ->whereNotNull('aoe2net_id')
+            ->get();
+
+        foreach ($players as $player) {
+            $streak = 0;
+            $win = 0;
+            $lose = 0;
+            $lastGame = null;
+
+            $matches = DB::table('match_teams')
+                ->join('game_matches', 'game_matches.match_id', '=', 'match_teams.match_id')
+                ->where('match_teams.aoe2net_id', $player->aoe2net_id) // Filter berdasarkan aoe2net_id pemain di match_teams
+                ->latest('game_matches.started_at') // Urutkan berdasarkan waktu pertandingan di game_matches
+                ->limit(10)
+                ->get(['match_teams.won', 'game_matches.match_id']);
+
+            $matches = array_reverse($matches->toArray());
+
+            foreach ($matches as $match) {
+                if ($match->won) {
+                    $lastGame == 'won' ? $streak++ : $streak = 1;
+                    $lastGame = 'won';
+                    $win++;
+                } else {
+                    $lastGame == 'lose' ? $streak-- : $streak = -1;
+                    $lastGame = 'lose';
+                    $lose++;
+                }
+            }
+
+            $player->streak = $streak;
+            $player->last_win_count = $win;
+            $player->last_lose_count = $lose;
+            $player->save();
+
+            $this->info("Player: {$player->name} | Streak: {$streak}");
         }
     }
 }
