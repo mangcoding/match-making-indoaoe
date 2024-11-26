@@ -149,8 +149,8 @@ class SyncMatch extends Command
 
             $matches = DB::table('match_teams')
                 ->join('game_matches', 'game_matches.match_id', '=', 'match_teams.match_id')
-                ->where('match_teams.aoe2net_id', $player->aoe2net_id) // Filter berdasarkan aoe2net_id pemain di match_teams
-                ->latest('game_matches.started_at') // Urutkan berdasarkan waktu pertandingan di game_matches
+                ->where('match_teams.aoe2net_id', $player->aoe2net_id) 
+                ->latest('game_matches.started_at') 
                 ->limit(10)
                 ->get(['match_teams.won', 'game_matches.match_id']);
 

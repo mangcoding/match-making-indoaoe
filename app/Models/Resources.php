@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 
 class Resources extends Model
 {
@@ -14,4 +15,13 @@ class Resources extends Model
         'name',
         'image'
     ];
+
+    protected static function booted()
+    {
+        static::forceDeleting(function ($resource) {
+            if (Storage::disk('public')->exists($resource->image)) {
+                Storage::disk('public')->delete($resource->image);
+            }
+        });
+    }
 }

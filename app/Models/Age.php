@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
+
+use function PHPUnit\Framework\fileExists;
 
 class Age extends Model
 {
@@ -16,6 +19,15 @@ class Age extends Model
         'image',
         'priority'
     ];
+
+    protected static function booted()
+    {
+        static::forceDeleting(function ($age) {
+            if (Storage::disk('public')->exists($age->image)) {
+                Storage::disk('public')->delete($age->image);
+            }
+        });
+    }
 
     public function insights(): BelongsToMany
     {

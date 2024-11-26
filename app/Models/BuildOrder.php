@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\Storage;
 
 class BuildOrder extends Model
 {
@@ -20,6 +21,15 @@ class BuildOrder extends Model
         'step',
         'priority'
     ];
+
+    protected static function booted()
+    {
+        static::forceDeleting(function ($buildOrder) {
+            if (Storage::disk('public')->exists($buildOrder->image)) {
+                Storage::disk('public')->delete($buildOrder->image);
+            }
+        });
+    }
 
     public function insight(): BelongsTo
     {

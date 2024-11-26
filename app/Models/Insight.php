@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 
 class Insight extends Model
 {
@@ -19,6 +20,22 @@ class Insight extends Model
         'difficulty',
         'population',
     ];
+
+    protected static function booted()
+    {
+        static::forceDeleting(function ($insight) {
+            if ($insight->image && Storage::disk('public')->exists($insight->image)) {
+                Storage::disk('public')->delete($insight->image);
+            }
+
+            $insight->build_orders()->each(function ($buildOrder) {
+                if ($buildOrder->image && Storage::disk('public')->exists($buildOrder->image)) {
+                    Storage::disk('public')->delete($buildOrder->image);
+                    info($buildOrder->image);
+                }
+            });
+        });
+    }
 
     public function category(): BelongsToMany
     {

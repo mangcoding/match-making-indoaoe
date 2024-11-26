@@ -54,7 +54,7 @@ class SponsorResource extends Resource
                 TextColumn::make('name')
                     ->searchable()
                     ->sortable(),
-                ImageColumn::make('thumbnail')
+                ImageColumn::make('image')
                     ->alignCenter()
             ])
             ->filters([
