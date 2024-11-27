@@ -23,5 +23,11 @@ class Sponsor extends Model
                 Storage::disk('public')->delete($sponsor->image);
             }
         });
+
+        static::updated(function ($sponsor) {
+            if ($sponsor->isDirty('image') && $sponsor->getOriginal('image')) {
+                Storage::disk('public')->delete($sponsor->getOriginal('image'));
+            }
+        });
     }
 }

@@ -29,6 +29,12 @@ class Content extends Model
                 Storage::disk('public')->delete($content->image);
             }
         });
+
+        static::updated(function ($content) {
+            if ($content->isDirty('image') && $content->getOriginal('image')) {
+                Storage::disk('public')->delete($content->getOriginal('image'));
+            }
+        });
     }
 
 

@@ -62,13 +62,51 @@ class MatchController extends Controller
                 ->paginate(8);
         }
 
-        $contents = Group::where('page', 'insights')->with('contents')->get();
+        $contents = Group::where('page', 'insight')->with('contents')->get();
 
         $formattedData = MatchController::formattedData($contents);
         $formattedData['insights'] = $insights;
+        $formattedData['contents'] = $contents;
 
         return view('insight', compact('formattedData'));
     }
+
+    public function insight_detail(Request $request, Insight $insight)
+    {
+        $body = $insight->with('ages', 'build_orders', 'resources', 'category')->first();
+
+        $groupedData = [];
+        $groupedData['title'] = $body->title;
+        $groupedData['image'] = $body->image;
+        $groupedData['description'] = $body->description;
+        $groupedData['difficulty'] = $body->difficulty;
+        foreach ($body->category as $category) {
+            $groupedData['category'][] = $category->name;
+        }
+
+        foreach ($body->ages as $key => $age) {
+            $groupedData['body'][$key] = [
+                'name' => $age->name,
+                'image' => $age->image,
+                'build_orders' => [],
+                'resources' => []
+            ];
+
+            $buildOrders = $body->build_orders->filter(function ($buildOrder) use ($age) {
+                return $buildOrder->age === $age->name;
+            });
+
+            $resources = $body->resources->filter(function ($resource) use ($age) {
+                return $resource->age === $age->name;
+            });
+
+            $groupedData['body'][$key]['build_orders'] = $buildOrders->values()->all();
+            $groupedData['body'][$key]['resources'] = $resources->values()->all();
+        }
+
+        dd($groupedData);
+    }
+
 
     public function home()
     {

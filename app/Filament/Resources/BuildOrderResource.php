@@ -19,6 +19,8 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\FileUpload;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
+use App\Models\Age;
 
 class BuildOrderResource extends Resource
 {
@@ -89,12 +91,15 @@ class BuildOrderResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('title')->searchable()->sortable(),
+                TextColumn::make('insight.title')->searchable()->sortable()->limit(10),
+                TextColumn::make('title')->searchable()->sortable()->limit(10),
                 TextColumn::make('description')->limit(50)->searchable()->sortable(),
                 ImageColumn::make('image')->alignCenter(),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
+                SelectFilter::make('age')
+                    ->options(Age::all()->pluck('name', 'name')->toArray()),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

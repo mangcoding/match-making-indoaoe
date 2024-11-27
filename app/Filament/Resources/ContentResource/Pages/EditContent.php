@@ -5,6 +5,8 @@ namespace App\Filament\Resources\ContentResource\Pages;
 use App\Filament\Resources\ContentResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class EditContent extends EditRecord
 {

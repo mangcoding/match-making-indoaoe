@@ -20,5 +20,11 @@ class Event extends Model
                 Storage::disk('public')->delete($event->image);
             }
         });
+
+        static::updated(function ($event) {
+            if ($event->isDirty('image') && $event->getOriginal('image')) {
+                Storage::disk('public')->delete($event->getOriginal('image'));
+            }
+        });
     }
 }

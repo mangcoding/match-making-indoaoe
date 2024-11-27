@@ -27,6 +27,12 @@ class Age extends Model
                 Storage::disk('public')->delete($age->image);
             }
         });
+
+        static::updated(function ($age) {
+            if ($age->isDirty('image') && $age->getOriginal('image')) {
+                Storage::disk('public')->delete($age->getOriginal('image'));
+            }
+        });
     }
 
     public function insights(): BelongsToMany

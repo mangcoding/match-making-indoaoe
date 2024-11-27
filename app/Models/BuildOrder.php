@@ -29,6 +29,12 @@ class BuildOrder extends Model
                 Storage::disk('public')->delete($buildOrder->image);
             }
         });
+
+        static::updated(function ($buildOrder) {
+            if ($buildOrder->isDirty('image') && $buildOrder->getOriginal('image')) {
+                Storage::disk('public')->delete($buildOrder->getOriginal('image'));
+            }
+        });
     }
 
     public function insight(): BelongsTo

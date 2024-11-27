@@ -35,6 +35,12 @@ class Insight extends Model
                 }
             });
         });
+
+        static::updated(function ($insight) {
+            if ($insight->isDirty('image') && $insight->getOriginal('image')) {
+                Storage::disk('public')->delete($insight->getOriginal('image'));
+            }
+        });
     }
 
     public function category(): BelongsToMany
@@ -50,5 +56,10 @@ class Insight extends Model
     public function build_orders(): HasMany
     {
         return $this->hasMany(BuildOrder::class, 'insights_id', 'id');
+    }
+
+    public function resources(): HasMany
+    {
+        return $this->hasMany(InsightAgeResource::class, 'insights_id', 'id');
     }
 }
