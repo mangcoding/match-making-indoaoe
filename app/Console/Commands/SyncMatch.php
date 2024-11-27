@@ -143,26 +143,32 @@ class SyncMatch extends Command
             ->whereNotNull('aoe2net_id')
             ->get();
 
+        $playerIds = $players->pluck('aoe2net_id')->toArray();
+
+        $matches = DB::table('match_teams')
+            ->join('game_matches', 'game_matches.match_id', '=', 'match_teams.match_id')
+            ->whereIn('match_teams.aoe2net_id', $playerIds)
+            ->orderByDesc('game_matches.started_at')
+            ->get(['match_teams.aoe2net_id', 'match_teams.won', 'game_matches.started_at', 'game_matches.match_id']);
+
+
+        $matchesGrouped = $matches->groupBy('aoe2net_id');
+
         foreach ($players as $player) {
             $streak = 0;
             $lastGame = null;
 
-            $matches = DB::table('match_teams')
-                ->join('game_matches', 'game_matches.match_id', '=', 'match_teams.match_id')
-                ->where('match_teams.aoe2net_id', $player->aoe2net_id) 
-                ->latest('game_matches.started_at') 
-                ->limit(10)
-                ->get(['match_teams.won', 'game_matches.match_id']);
+            if (isset($matchesGrouped[$player->aoe2net_id])) {
+                $playerMatches = $matchesGrouped[$player->aoe2net_id]->take(10)->reverse();
 
-            $matches = array_reverse($matches->toArray());
-
-            foreach ($matches as $match) {
-                if ($match->won) {
-                    $lastGame == 'won' ? $streak++ : $streak = 1;
-                    $lastGame = 'won';
-                } else {
-                    $lastGame == 'lose' ? $streak-- : $streak = -1;
-                    $lastGame = 'lose';
+                foreach ($playerMatches as $match) {
+                    if ($match->won) {
+                        $lastGame == 'won' ? $streak++ : $streak = 1;
+                        $lastGame = 'won';
+                    } else {
+                        $lastGame == 'lose' ? $streak-- : $streak = -1;
+                        $lastGame = 'lose';
+                    }
                 }
             }
 
