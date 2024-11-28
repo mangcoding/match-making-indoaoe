@@ -12,17 +12,17 @@
 
 
 <div class="container w-full flex flex-col top-[480px] pt-[80px] pr-[36px] pb-[80px] pl-[36px] gap-[40px]">
-    <div class="w-full flex gap-[16px]">
-        <button class="bg-white border-[1px] border-black rounded-[60px] w-[79px] flex pt-[12px] pr-[24px] pb-[12px] pl-[24px] gap-[10px] hover:bg-black hover:text-white">
-            <span class="w-[119px] text-[18px] leading-[24px] font-lato font-normal">ALL h</span>
-        </button>
-        <button class="bg-white border-[1px] border-black rounded-[60px] w-[167px] flex pt-[12px] pr-[24px] pb-[12px] pl-[24px] gap-[10px] hover:bg-black hover:text-white">
-            <span class="w-[119px] text-[18px] leading-[24px] font-lato font-normal">BUILD ORDER</span>
-        </button>
-        <button class="bg-white border-[1px] border-black rounded-[60px] w-[157px] flex pt-[12px] pr-[24px] pb-[12px] pl-[24px] gap-[10px] hover:bg-black hover:text-white">
-            <span class="w-[119px] text-[18px] leading-[24px] font-lato font-normal">TIPS & TRICK</span>
-        </button>
-    </div>
+    <ul class="w-full flex gap-[16px]">
+        <li class="bg-white border-[1px] text-lg  font-lato font-normal border-black rounded-[60px] flex py-3 px-6 hover:bg-black hover:text-white">
+           <a href="#"> ALL</a>
+        </li>
+        <li class="bg-white border-[1px] text-lg  font-lato font-normal border-black rounded-[60px] flex py-3 px-6 hover:bg-black hover:text-white">
+            <a href="#">BUILD ORDER</a>
+        </li>
+        <li class="bg-white border-[1px] text-lg  font-lato font-normal border-black rounded-[60px] flex py-3 px-6 hover:bg-black hover:text-white">
+            <a href="#">TIPS & TRICK</a>
+        </li>
+    </ul>
 
 
     <div class="w-full flex gap-[24px]">
