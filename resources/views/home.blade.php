@@ -2,6 +2,6 @@
 
 
 @section('content')
-@dd($formattedData)
+@dd($data)
 <h2>ini home page</h2>
 @endsection
