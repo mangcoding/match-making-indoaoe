@@ -9,9 +9,14 @@
 
 @section('content')
 <div class="relative w-full h-[500px]">
-    <div class="absolute inset-0 bg-[url('image/Hero.png')] bg-cover bg-center"></div>
-    dgdf
+    <div class="absolute inset-0 w-full h-full" 
+         style="background-image: url('/image/Hero21.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    </div>
 </div>
+
+
+
+
 <div class="flex flex-col items-center gap-[32px] w-full mt-[80px]">
     <div class="flex justify-center items-center">
         <span class="text-[20px] leading-[28px] font-satoshi text-center">
@@ -19,11 +24,44 @@
         </span>
     </div>
 
-    <div class="container mx-auto px-6 w-full overflow-x-auto">
-        <div class="flex gap-[16px]">
-            <div class="flex justify-center items-center bg-gray-200 p-[8px] rounded-[8px] w-[304px] h-[100px]">
-                <img class="w-auto h-[60px]" src="{{ asset('image/logo 2.png') }}" alt="Sponsor 1">
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper mb-28 mt-10">
+            <div class="swiper-slide">
+                <div class="flex justify-center items-center bg-gray-200 p-[8px] rounded-[8px] w-[304px] h-[100px]">
+                    <img class="w-full h-full object-contain" src="{{ asset('image/logo 2.png') }}" alt="Sponsor">
+                </div>
             </div>
+            <div class="swiper-slide">
+                <div class="flex justify-center items-center bg-gray-200 p-[8px] rounded-[8px] w-[304px] h-[100px]">
+                    <img class="w-full h-full object-contain" src="{{ asset('image/logo 2.png') }}" alt="Sponsor">
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="flex justify-center items-center bg-gray-200 p-[8px] rounded-[8px] w-[304px] h-[100px]">
+                    <img class="w-full h-full object-contain" src="{{ asset('image/logo 2.png') }}" alt="Sponsor">
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="flex justify-center items-center bg-gray-200 p-[8px] rounded-[8px] w-[304px] h-[100px]">
+                    <img class="w-full h-full object-contain" src="{{ asset('image/logo 2.png') }}" alt="Sponsor">
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="flex justify-center items-center bg-gray-200 p-[8px] rounded-[8px] w-[304px] h-[100px]">
+                    <img class="w-full h-full object-contain" src="{{ asset('image/logo 2.png') }}" alt="Sponsor">
+                </div>
+            </div>
+            <div class="swiper-slide"> 
+                <div class="flex justify-center items-center bg-gray-200 p-[8px] rounded-[8px] w-[304px] h-[100px]">
+                    <img class="w-full h-full object-contain" src="{{ asset('image/logo 2.png') }}" alt="Sponsor">
+                </div>
+            </div>
+        </div>  
+        <div class="swiper-pagination"></div>
+      </div>
+    
+    {{-- <div class="container mx-auto px-6 w-full overflow-x-auto">
+        <div class="flex gap-[16px]">   
             <div class="flex justify-center items-center bg-gray-200 p-[8px] rounded-[8px] w-[304px] h-[100px]">
                 <img class="w-auto h-[60px]" src="{{ asset('image/logo 2.png') }}" alt="Sponsor 2">
             </div>
@@ -40,21 +78,25 @@
                 <img class="w-auto h-[60px]" src="{{ asset('image/logo 2.png') }}" alt="Sponsor 6">
             </div>
         </div>
-    </div>
-    
-         
+    </div>  --}}
 </div>
 
-<div class="flex items-center w-full">
+
+<div class="w-[1312px] flex flex-row my-9 px-16">
+    <span class="text-[20px]">LET’S GET TO KNOW ABOUT INDOAOE</span>
+    <h1 class="text-[60px] leading-[68px] w-[752px] font-satoshi ml-auto">Lörem ipsum ådarade. Lass den kronehugisk tills kyde. Diling rologi lunirat hemigengen. </h1>
+</div>
+
+<div class="flex items-center w-full my-10">
     <img class="w-[640px]" src="{{ asset('image/PHONE MOCKUP.png') }}" alt="Sponsor 3">
         <div class="w-[672px] flex flex-col gap-[8px] ml-[32px]">
-        <h1 class="text-[60px] leading-[68px]">We provide community matchmaking bot</h1>
-        <h1 class="text-[60px] leading-[68px] text-gray-400">to split among players become balance.</h1>
+        <span class="text-[20px] font-satoshi leading-7">WE PROVIDE COMMUNITY MATCHMAKING BOT</span>
+        <h1 class="text-[60px] leading-[68px]">Lörem ipsum ådarade. Lass den kronehugisk tills kyde. </h1>
         <div class="flex items-center">
-            <button class="bg-black rounded-[60px] flex items-center px-[32px] py-[16px] w-[300px]">
-                <span class="text-[20px] leading-[28px] font-satoshi font-bold text-white">Get Started</span>
-                <span class="bg-red-700 w-[60px] h-[60px] rounded-full flex items-center justify-center ml-auto">
-                    <span class="text-white text-[30px]">→</span>
+            <button class="bg-black rounded-[60px] flex items-center pt-[8px] pr-[8px] pb-[8px] pl-[24px] gap-[16px] w-[237px] justify-between">
+                <span class="text-[20px] leading-[28px] font-satoshi text-white">GET STARTED</span>
+                <span class="bg-red-700 w-[48px] h-[48px] rounded-full flex items-center justify-center top-[12px] left[137px]">
+                    <img src="{{ asset('image/Vector.png')}}" class="w-[20px]" alt="">
                 </span>
             </button>
         </div>
@@ -65,91 +107,114 @@
     <h2 class="text-white text-[80px] font-satoshi font-bold text-center">MORE THAN JUST A COMMUNITY</h2>
 </div>
 
-<div class="w-full flex flex-col gap-[120px]">
-    <div class="w-[708px] flex flex-col gap-[8px] ml-[32px] pl-[36px]">
-        <h1 class="text-[60px] leading-[68px] font-satoshi">We’ve hosted BIG local tournaments for years</h1>
-        <h1 class="text-[60px] leading-[68px] text-gray-400 font-satoshi">with multiple players participated.</h1>
-    </div>
-    <div class="w-full flex flex-col gap-[40px]">
-        <img src="{{ asset('image/Frame 124.png')}}" class="w-[940px]" alt="">
-        <div class="w-[708px] pl-[36px] flex gap-[24px] flex-col">
-            <span class="text-[32px] leading-[40px] font-satoshi w-[672px]">King of The Kings Grand Final: Skull Del Rel vs Lord Baut</span>
-            <span class="text-[20px] leading-[28px] font-satoshi w-[672px] text-gray-400">TOURNAMENT | JAN 2024</span>
-        </div>
-    </div>
-<div class="w-full flex justify-end">
-    <div class="w-[940px] flex flex-col gap-[24px]">
-        <img src="{{ asset('image/Frame 122.png') }}" class="w-[940px]" alt="">
-        <div class="w-[708px] flex flex-col gap-[8px]" style="margin-left: -2px;">
-            <span class="text-[32px] leading-[40px] font-satoshi">Gajah Mada Cup: 3v3 Tournament</span>
-            <span class="text-[20px] leading-[28px] font-satoshi text-gray-400">TOURNAMENT | JAN 2022</span>
-        </div>
-    </div>
-</div>
 
-<div class="w-[708px] flex flex-col gap-[8px] ml-[32px] pl-[36px]">
-    <h1 class="text-[60px] leading-[68px] font-satoshi">Our tournaments made us more competitive</h1>
-    <h1 class="text-[60px] leading-[68px] text-gray-400 font-satoshi">with still prioritizing the fun atmosphere.</h1>
-</div>
-
-<div class="w-full flex">
-    <div class="w-[720px] flex flex-col">
-        <img src="{{ asset('image/Group 33.png')}}" class="w-[940px]" alt="">
-        <div class="w-[708px] pl-[36px] flex flex-col gap-[24px]">
-            <span class="text-[32px] leading-[40px] font-satoshi w-[672px]">Gajah Mada Cup: 3v3 Tournament</span>
-            <span class="text-[20px] leading-[28px] font-satoshi w-[672px] text-gray-400">TOURNAMENT | JAN 2022</span>
+<div class="px-16 w-[1312px] flex flex-row py-16 my-10">
+    <div class="w-[640px] relative">
+        <div class="absolute top-[126px] left-[40px] z-30 bg-gray-900 p-[24px] rounded-[24px] w-[488px] border-[1px] border-white gap-[24px]">
+            <div class="flex items-center gap-8 mb-4">
+                <img class="w-auto h-[60px] rounded-[60px]" src="{{ asset('image/Rectangle 40.png') }}" alt="Sponsor 1">
+                <h3 class="text-white font-satoshi font-semibold text-4xl">Nickname</h3>
+            </div>
+            <div class="flex flex-col items-center justify-center mt-auto">
+                <p class="text-lg text-white mb-4 mt-0">
+                    “Lörem ipsum rynade ons däsk. Solig trall, i trer dekakrode, doning olig. Trefoliga henifiera seminetik.”
+                </p>
+                <button class="w-[159px] border-[1px] border-white bg-black text-white rounded-[60px] p-2 pr-[16px] flex gap-[10px] text-base">
+                    <img src="{{asset('image/Vector1.png')}}" alt="">
+                    Steam Profile
+                </button>
+            </div>
         </div>
-    </div>
-    <div class="w-[940px] flex flex-col" style="margin-top: 100px;">
-        <img src="{{ asset('image/Group 43.png') }}" class="w-[940px]" alt="">
-        <div class="w-[708px] flex flex-col gap-[8px]" style="margin-left: -2px;">
-            <span class="text-[32px] leading-[40px] font-satoshi">Gajah Mada Cup: 3v3 Tournament</span>
-            <span class="text-[20px] leading-[28px] font-satoshi text-gray-400">TOURNAMENT | JAN 2022</span>
+        <div class="absolute top-[102px] left-[64px] z-20 bg-gray-900 p-[24px] rounded-[24px] w-[488px] border-[1px] border-white gap-[24px]">
+            <div class="flex items-center gap-8 mb-4">
+                <img class="w-auto h-[60px] rounded-[60px]" src="{{ asset('image/Rectangle 40.png') }}" alt="Sponsor 1">
+                <h3 class="text-white font-satoshi font-semibold text-4xl">Nickname</h3>
+            </div>
+            <div class="flex flex-col items-center justify-center mt-auto">
+                <p class="text-lg text-white mb-4 mt-0">
+                    “Lörem ipsum rynade ons däsk. Solig trall, i trer dekakrode, doning olig. Trefoliga henifiera seminetik.”
+                </p>
+                <button class="w-[159px] border-[1px] border-white bg-black text-white rounded-[60px] p-2 pr-[16px] flex gap-[10px] text-base">
+                    <img src="{{asset('image/Vector1.png')}}" alt="">
+                    Steam Profile
+                </button>
+            </div>
         </div>
-    </div>
-</div>
-
-<div class="w-full flex justify-between pt-[80px] pr-[36px] pb-[80px] pl-[36px] flex-col">
-    <div class="w-[788px] flex gap-40px">
-        <div class="w-[672px] flex flex-col gap-[8px] ml-[32px]">
-            <h1 class="text-[60px] leading-[68px]">We provide community matchmaking bot</h1>
-            <h1 class="text-[60px] leading-[68px] text-gray-400">to split among players become balance.</h1>
-            <div class="flex items-center">
-                <button class="bg-black rounded-[60px] flex items-center px-[32px] py-[16px] w-[300px]">
-                    <span class="text-[20px] leading-[28px] font-satoshi font-bold text-white">DONATE</span>
-                    <span class="bg-red-700 w-[60px] h-[60px] rounded-full flex items-center justify-center ml-auto">
-                        <img src="{{ asset('image/Vector.png')}}" alt="">
-                    </span>
+        <div class="absolute top-[78px] left-[88px] z-10 bg-gray-900 p-[24px] rounded-[24px] w-[488px] border-[1px] border-white gap-[24px]">
+            <div class="flex items-center gap-8 mb-4">
+                <img class="w-auto h-[60px] rounded-[60px]" src="{{ asset('image/Rectangle 40.png') }}" alt="Sponsor 1">
+                <h3 class="text-white font-satoshi font-semibold text-4xl">Nickname</h3>
+            </div>
+            <div class="flex flex-col items-center justify-center mt-auto">
+                <p class="text-lg text-white mb-4 mt-0">
+                    “Lörem ipsum rynade ons däsk. Solig trall, i trer dekakrode, doning olig. Trefoliga henifiera seminetik.”
+                </p>
+                <button class="w-[159px] border-[1px] border-white bg-black text-white rounded-[60px] p-2 pr-[16px] flex gap-[10px] text-base">
+                    <img src="{{asset('image/Vector1.png')}}" alt="">
+                    Steam Profile
+                </button>
+            </div>
+        </div>
+        <div class="absolute top-[54px] left-[112px] z-0 bg-gray-900 p-[24px] rounded-[24px] w-[488px] border-[1px] border-white gap-[24px]">
+            <div class="flex items-center gap-8 mb-4">
+                <img class="w-auto h-[60px] rounded-[60px]" src="{{ asset('image/Rectangle 40.png') }}" alt="Sponsor 1">
+                <h3 class="text-white font-satoshi font-semibold text-4xl">Nickname</h3>
+            </div>
+            <div class="flex flex-col items-center justify-center mt-auto">
+                <p class="text-lg text-white mb-4 mt-0">
+                    “Lörem ipsum rynade ons däsk. Solig trall, i trer dekakrode, doning olig. Trefoliga henifiera seminetik.”
+                </p>
+                <button class="w-[159px] border-[1px] border-white bg-black text-white rounded-[60px] p-2 pr-[16px] flex gap-[10px] text-base">
+                    <img src="{{asset('image/Vector1.png')}}" alt="">
+                    Steam Profile
                 </button>
             </div>
         </div>
     </div>
-    <div class="w-full flex gap-[8px] flex-col items-center">
-        <span class="text-[60px] text-center leading-[68px] font-satoshi">
-            Support Indonesian Age of Empires community to continue to grow and develop by making your donation.       
-        </span>
-        <div class="flex items-center">
-            <button class="bg-black rounded-[60px] flex items-center px-[32px] py-[16px] w-[186px] gap-[16px]">
-                <span class="text-[20px] leading-[28px] font-satoshi text-white">DONATE</span>
-                <span class="bg-red-700 w-[60px] h-[60px] rounded-full flex items-center justify-center ml-auto">
-                    <img src="{{ asset('image/Vector.png')}}" alt="">
-                </span>
-            </button>
+    
+    <div class="flex gap-[40px] flex-col my-10">
+        <div class="w-[528px] flex gap-[24px] flex-col">
+            <span class="text-xl leading-7 font-satoshi">ACTIVE COMMUNITY PLAYERS FOR FUN</span>
+            <p class="text-6xl font-satoshi leading-[68px]">Lörem ipsum ådarade. Lass den kronehugisk tills kyde. </p>
         </div>
+        <button class="bg-black rounded-[60px] flex items-center pt-[8px] pr-[8px] pb-[8px] pl-[24px] gap-[16px] w-[197px] justify-between">
+            <span class="text-[20px] leading-[28px] font-satoshi text-white">VIEW ALL</span>
+            <span class="bg-red-700 w-[48px] h-[48px] rounded-full flex items-center justify-center top-[12px] left[137px]">
+                <img src="{{ asset('image/Vector.png')}}" class="w-[20px]" alt="">
+            </span>
+        </button>
     </div>
 </div>
 
 
 
 
+
+<div class="w-[1312px] flex flex-row gap-[8px] ml-[32px] px-16 mb-10">
+    <h1 class="text-[20px] leading-[68px] font-satoshi w-[416px]">OUR COMMUNITY EVENTS</h1>
+    <h1 class="text-[60px] leading-[68px] font-satoshi w-[752px]">Lörem ipsum ådarade. Lass den kronehugisk tills kyde. Diling rologi lunirat hemigengen.</h1>
+</div>  
+
+
+<div class="w-[1440px] flex gap-[32px] flex-row my-10">
+    <img class="w-[1088px]" src="{{ asset('image/Rectangle 7.png')}}" alt="">
+    <img class="w-[1088px] rounded-[24px]" src="{{ asset('image/Rectangle 6.png')}}" alt="">
+    <img class="w-[1088px]" src="{{ asset('image/Rectangle 8.png')}}" alt="">
 </div>
 
-
-
-
-
-
-
+<div class="w-[1312px] flex flex-col items-center mx-auto mb-40">
+    <h1 class="text-[60px] text-center leading-[68px] font-satoshi">
+        Support Indonesian Age of Empires community to continue to grow and develop by making your donation.
+    </h1>
+    <div class="flex items-center">
+        <button class="bg-black rounded-[60px] flex items-center pt-[8px] pr-[8px] pb-[8px] pl-[24px] gap-[16px] w-[186px] justify-between">
+            <span class="text-[20px] leading-[28px] font-satoshi text-white">DONATE</span>
+            <span class="bg-red-700 w-[56px] h-[56px] rounded-full flex items-center justify-center">
+                <img src="{{ asset('image/Vector.png')}}" class="w-[20px]" alt="">
+            </span>
+        </button>
+    </div>
+</div>
 
 
     

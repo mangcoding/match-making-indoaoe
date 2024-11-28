@@ -1,133 +1,47 @@
 @extends('layouts.frontend')
 @section('content')
-<div class="w-full max-w-[1200px] mx-auto rounded-[12px] bg-black flex flex-col items-start justify-center px-[40px] py-[150px] relative">
-    <h3 class="text-white leading-[40px] text-[36px] font-satoshi font-medium">
+<div class="w-full max-w-[1200px] mx-auto rounded-[12px] bg-black flex flex-col items-start justify-center px-4 sm:px-6 md:px-10 lg:px-[40px] py-8 sm:py-10 md:py-[100px] lg:py-[142px] relative">
+    <h3 class="text-white leading-[40px] text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-satoshi font-medium">
         Arabia Fast Feudal -> Archer Rush
     </h3>
-    <span class="text-red-700 leading-[40px] text-[32px] font-lato font-normal mt-[16px]">
+    <span class="text-red-700 leading-[40px] text-[20px] sm:text-[24px] md:text-[28px] lg:text-[32px] font-lato font-normal mt-[16px]">
         Build by IndoAoe Community
     </span>
-    <img src="{{ asset('image/Rectangle 11.png') }}" class="rounded-[12px] w-[381px] absolute top-[50%] right-[40px] translate-y-[-50%]" alt="">
+    <img src="{{ asset('image/Rectangle 11.png') }}" 
+         class="rounded-[12px] w-[180px] sm:w-[220px] md:w-[280px] lg:w-[350px] max-w-full absolute top-[50%] right-[10px] sm:right-[20px] md:right-[40px] translate-y-[-50%]" 
+         alt="">
 </div>
 
-
-<div class="container w-full flex flex-col top-[480px] pt-[80px] pr-[36px] pb-[80px] pl-[36px] gap-[40px]">
-    <div class="w-full flex gap-[16px]">
-        <button class="bg-white border-[1px] border-black rounded-[60px] w-[79px] flex pt-[12px] pr-[24px] pb-[12px] pl-[24px] gap-[10px] hover:bg-black hover:text-white">
-            <span class="w-[119px] text-[18px] leading-[24px] font-lato font-normal">ALL h</span>
-        </button>
-        <button class="bg-white border-[1px] border-black rounded-[60px] w-[167px] flex pt-[12px] pr-[24px] pb-[12px] pl-[24px] gap-[10px] hover:bg-black hover:text-white">
-            <span class="w-[119px] text-[18px] leading-[24px] font-lato font-normal">BUILD ORDER</span>
-        </button>
-        <button class="bg-white border-[1px] border-black rounded-[60px] w-[157px] flex pt-[12px] pr-[24px] pb-[12px] pl-[24px] gap-[10px] hover:bg-black hover:text-white">
-            <span class="w-[119px] text-[18px] leading-[24px] font-lato font-normal">TIPS & TRICK</span>
-        </button>
-    </div>
-
-
-    <div class="w-full flex gap-[24px]">
-        <div class="w-[672px] rounded-[12px] bg-gray-200 flex gap-[10px] p-[32px]">
-            <div class="w-full max-w-[567px] flex flex-col gap-[32px] justify-start pt-[20px]">
-                <div class="flex gap-[32px] items-center">
-                    <div class="flex-shrink-0">
-                        <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 11.png') }}" alt="Card image">
-                    </div>
-                    <div class="flex flex-col gap-[16px]">
-                        <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">Arabia Fast Feudal -> Archer Rush</h4>
-                        <div class="flex gap-[16px]">
-                            <img src="{{ asset('image/Rectangle 12.png') }}" class="rounded-[8px] w-[24px]" alt="Advanced">
-                            <span class="text-[18px] font-satoshi">Advanced</span>
-                            <img src="{{ asset('image/Rectangle 12 (2).png') }}" class="rounded-[8px] w-[24px]" alt="19 Pop">
-                            <span class="text-[18px] font-satoshi">19 Pop</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full">
-                    <p class="font-satoshi text-[18px] leading-[28px] mb-[16px] text-gray-500">
-                        Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
-                        Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
-                    </p>
-                    <div class="w-[576px] flex gap-[12px]">
-                        <button class="w-[123px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white">
-                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Build Order</span>
-                        </button>
-                        <button class="w-[125px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white">
-                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Generic Civ</span>
-                        </button>
-                        <button class="w-[85px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white">
-                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Archer</span>
-                        </button>
-                        <button class="w-[127px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white">
-                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Team Game</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="w-[672px] rounded-[12px] bg-gray-200 flex gap-[10px] p-[32px]">
-            <div class="w-full max-w-[567px] flex flex-col gap-[32px] justify-start pt-[20px]">
-                <div class="flex gap-[32px] items-center">
-                    <div class="flex-shrink-0">
-                        <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 113.png') }}" alt="Card image">
-                    </div>
-                    <div class="flex flex-col gap-[16px]">
-                        <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">Arabia Fast Feudal -> Scout Rush</h4>
-                        <div class="flex gap-[16px]">
-                            <img src="{{ asset('image/Rectangle 123.png') }}" class="rounded-[8px] w-[24px]" alt="Advanced">
-                            <span class="text-[18px] font-satoshi">Intermediate</span>
-                            <img src="{{ asset('image/Rectangle 12 (2).png') }}" class="rounded-[8px] w-[24px]" alt="19 Pop">
-                            <span class="text-[18px] font-satoshi">20 Pop</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full">
-                    <p class="font-satoshi text-[18px] leading-[28px] mb-[16px] text-gray-500">
-                        Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
-                        Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
-                    </p>
-                    <div class="w-[576px] flex gap-[12px]">
-                        <button class="w-[123px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white">
-                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Build Order</span>
-                        </button>
-                        <button class="w-[125px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white">
-                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Generic Civ</span>
-                        </button>
-                        <button class="w-[85px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white">
-                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Archer</span>
-                        </button>
-                        <button class="w-[127px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white">
-                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Team Game</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-<div class="w-full flex flex-col gap-[32px] left-[64px] mt-8">
+<h2 class="text-[48px] leading-[48px] font-satoshi pl-20 py-6">Arabia Fast Feudal -> Archer Rush</h2>
+{{-- <div class="flex flex-row">
+    <p class="text-gray-400 text-[20px] pl-20 w-[976px]">Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad. Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade. </p>
+    <span class="text-red-600 text-[18px] w-[168px] ml-36">SHARE THIS BUILD!</span>
+</div>
+          
+<div class="w-full flex flex-col gap-[32px] left-[64px] mt-8 pl-20">
     <button class="w-[976px] rounded-[12px] flex items-center pt-[16px] pr-[32px] pb-[16px] pl-[32px] gap-[10px] bg-black">
         <div class="flex gap-[16px] items-center">
-            <img src="{{ asset('image/Rectangle 27.png') }}" class="rounded-[12px] w-[48px]" alt="">
+            <img src="{{ asset('image/Rectangle 26.png') }}" class="rounded-[12px] w-[48px]" alt="">
             <h3 class="leading-[40px] text-[36px] font-satoshi font-bold text-white">Dark Age</h3>
         </div>
-
-        <div class="w-[672px] rounded-[12px] bg-gray-200 flex gap-[10px] p-[32px]">
-            <div class="w-full max-w-[567px] flex flex-col gap-[32px] justify-start pt-[20px]">
-                <div class="flex gap-[32px] items-center">
-                    <div class="flex-shrink-0">
-                        <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 11 (2).png') }}" alt="Card image">
-                    </div>
-                    <div class="flex flex-col gap-[16px]">
-                        <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">Nomad Fast Feudal -> Galley</h4>
-                        <div class="flex gap-[16px]">
-                            <img src="{{ asset('image/Rectangle 123.png') }}" class="rounded-[8px] w-[24px]" alt="Advanced">
-                            <span class="text-[18px] font-satoshi">Intermediate</span>
-                            <img src="{{ asset('image/Rectangle 12 (2).png') }}" class="rounded-[8px] w-[24px]" alt="19 Pop">
-                            <span class="text-[18px] font-satoshi">18 Pop</span>
+    </button>
+    <div class="w-[976px] flex gap-[32px]">
+        <div class="w-[80px] h-[80px] rounded-[12px] bg-gray-200 p-[24px] flex items-center justify-center">
+            <h5 class="text-[24px] leading-[32px]">3</h5>
+        </div>
+        <div class="w-[864px] flex justify-start p-[32px] gap-[40px] rounded-[12px] bg-gray-200">
+            <div class="w-full flex flex-col gap-[32px] justify-start pt-[20px]">
+                <div class="flex flex-col gap-[32px] items-center">
+                    <div class="flex flex-row gap-8">
+                        <div class="flex-shrink-0">
+                            <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 28.png') }}" alt="Card image">
+                        </div>
+                        <div class="flex flex-col gap-[16px] w-full">
+                            <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">Queue Villagers</h4>
+                                <p class="font-satoshi text-[18px] leading-[28px] mb-[16px] text-gray-500">
+                                    Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
+                                    Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
+                                </p>
                         </div>
                     </div>
                     <div class="h-[1px] bg-gray-400 w-full"></div>
@@ -151,7 +65,7 @@
     </div>
     <div class="w-[976px] flex gap-[32px]">
         <div class="w-[80px] h-[80px] rounded-[12px] bg-gray-200 p-[24px] flex items-center justify-center">
-            <span>4-6</span>
+            <h5 class="text-[24px] leading-[32px]">4-6</h5>
         </div>
         <div class="w-[864px] flex justify-start p-[32px] gap-[40px] rounded-[12px] bg-gray-200">
             <div class="w-full flex flex-col gap-[32px] justify-start pt-[20px]">
@@ -174,7 +88,7 @@
     </div>
     <div class="w-[976px] flex gap-[32px]">
         <div class="w-[80px] h-[80px] rounded-[12px] bg-gray-200 p-[24px] flex items-center justify-center">
-            <span>7-8</span>
+            <h5 class="text-[24px] leading-[32px]">7-8</h5>
         </div>
         <div class="w-[864px] flex justify-start p-[32px] gap-[40px] rounded-[12px] bg-gray-200">
             <div class="w-full flex flex-col gap-[32px] justify-start pt-[20px]">
@@ -197,7 +111,7 @@
     </div>
     <div class="w-[976px] flex gap-[32px]">
         <div class="w-[80px] h-[80px] rounded-[12px] bg-gray-200 p-[24px] flex items-center justify-center">
-            <span>9</span>
+            <h5 class="text-[24px] leading-[32px]">9</h5>
         </div>
         <div class="w-[864px] flex justify-start p-[32px] gap-[40px] rounded-[12px] bg-gray-200">
             <div class="w-full flex flex-col gap-[32px] justify-start pt-[20px]">
@@ -220,7 +134,7 @@
     </div>
     <div class="w-[976px] flex gap-[32px]">
         <div class="w-[80px] h-[80px] rounded-[12px] bg-gray-200 p-[24px] flex items-center justify-center">
-            <h5>10-12</h5>
+            <h5 class="text-[24px] leading-[32px]">10-12</h5>
         </div>
         <div class="w-[864px] flex justify-start p-[32px] gap-[40px] rounded-[12px] bg-gray-200">
             <div class="w-full flex flex-col gap-[32px] justify-start pt-[20px]">
@@ -401,7 +315,7 @@
                 <div class="flex flex-col gap-[32px] items-center">
                     <div class="flex flex-row gap-8">
                         <div class="flex-shrink-0">
-                            <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 16 (5).png') }}" alt="Card image">
+                            <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 16 (1).png') }}" alt="Card image">
                         </div>
                         <div class="flex flex-col gap-[16px] w-full">
                             <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">Send 2 Vill to Mining Camp</h4>
@@ -430,10 +344,11 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
-
-<div class="w-full flex flex-col gap-[32px] left-[64px] mt-8">
+   
+   
+<div class="w-full flex flex-col gap-[32px] left-[64px] mt-8 pl-20">
     <button class="w-[976px] rounded-[12px] flex items-center pt-[16px] pr-[32px] pb-[16px] pl-[32px] gap-[10px] bg-black">
         <div class="flex gap-[16px] items-center">
             <img src="{{ asset('image/Rectangle 26.png') }}" class="rounded-[12px] w-[48px]" alt="">
@@ -584,48 +499,49 @@
             </div>
         </div>
     </div>
-    <div class="w-[464px] flex items-center gap-[16px]">
-        <div class="w-[80px] flex items-center]">
-            <img class="w-[32px]" src="{{ asset('image/Rectangle 11 (3).png') }}" alt="Card image">
+    <div class="w-[976px] flex items-center gap-[16px] justify-center">
+        <div class="w-[80px] flex items-center] justify-center">
+            <img class="w-[32px]" src="{{ asset('image/Frame 49.png') }}" alt="Card image">
             <div class="w-[40px] h-[40px] rounded-tr-[8px] rounded-br-[8px] bg-gray-200 p-[4px] flex items-center justify-center">
                 <h4 class="">12</h4>
             </div>
         </div>
-        <div class="w-[80px] flex items-center]">
-            <img class="w-[32px]" src="{{ asset('image/Rectangle 11 (3).png') }}" alt="Card image">
+        <div class="w-[80px] flex items-center] justify-center">
+            <img class="w-[32px]" src="{{ asset('image/Frame 49 (1).png') }}" alt="Card image">
+            <div class="w-[40px] h-[40px] rounded-tr-[8px] rounded-br-[8px] bg-gray-200 p-[4px] flex items-center justify-center">
+                <h4 class="">16+</h4>
+            </div>
+        </div>
+        <div class="w-[80px] flex items-center] justify-center">
+            <img class="w-[32px]" src="{{ asset('image/Frame 49 (2).png') }}" alt="Card image">
             <div class="w-[40px] h-[40px] rounded-tr-[8px] rounded-br-[8px] bg-gray-200 p-[4px] flex items-center justify-center">
                 <h4 class="">12</h4>
             </div>
         </div>
-        <div class="w-[80px] flex items-center]">
-            <img class="w-[32px]" src="{{ asset('image/Rectangle 11 (3).png') }}" alt="Card image">
+        <div class="w-[80px] flex items-center] justify-center">
+            <img class="w-[32px]" src="{{ asset('image/Frame 49 (3).png') }}" alt="Card image">
             <div class="w-[40px] h-[40px] rounded-tr-[8px] rounded-br-[8px] bg-gray-200 p-[4px] flex items-center justify-center">
-                <h4 class="">12</h4>
+                <h4 class="">1</h4>
             </div>
         </div>
-        <div class="w-[80px] flex items-center]">
-            <img class="w-[32px]" src="{{ asset('image/Rectangle 11 (3).png') }}" alt="Card image">
+        <div class="w-[80px] flex items-center] justify-center">
+            <img class="w-[32px]" src="{{ asset('image/Frame 49 (4).png') }}" alt="Card image">
             <div class="w-[40px] h-[40px] rounded-tr-[8px] rounded-br-[8px] bg-gray-200 p-[4px] flex items-center justify-center">
-                <h4 class="">12</h4>
-            </div>
-        </div>
-        <div class="w-[80px] flex items-center]">
-            <img class="w-[32px]" src="{{ asset('image/Rectangle 11 (3).png') }}" alt="Card image">
-            <div class="w-[40px] h-[40px] rounded-tr-[8px] rounded-br-[8px] bg-gray-200 p-[4px] flex items-center justify-center">
-                <h4 class="">12</h4>
+                <h4 class="">0</h4>
             </div>
         </div>
 
     </div>
 </div>
 
-<div class="w-full flex flex-col gap-[32px] left-[64px] mt-9">
-    <button class="w-[976px] rounded-[12px] flex items-center pt-[16px] pr-[32px] pb-[16px] pl-[32px] gap-[10px] bg-black">
+<div class="w-full flex flex-col gap-[32px] mt-9 pl-20 items-center justify-center mx-auto">
+    <button class="w-[976px] rounded-[12px] pt-[16px] pr-[32px] pb-[16px] gap-[10px] bg-black">
         <div class="flex gap-[16px] items-center">
-            <img src="{{ asset('image/Rectangle 24.png') }}" class="rounded-[12px] w-[48px]" alt="">
-            <h3 class="leading-[40px] text-[36px] font-satoshi font-bold text-white">Castle Age</h3>
+            <img src="{{ asset('image/Rectangle 24.png') }}" class="rounded-[12px] w-8 md:w-10 sm:w-11 lg:w-12" alt="">
+            <h3 class="leading-[40px] text-2xl sm:text-3xl lg:text-4xl font-satoshi font-bold text-white">Castle Age</h3>
         </div>
     </button>
+
 
     <div class="w-[976px] flex gap-[32px]">
         <div class="w-[80px] h-[80px] rounded-[12px] bg-gray-200 p-[24px] flex items-center justify-center">
@@ -723,80 +639,83 @@
 
 
 <div class="container w-full flex flex-col top-[480px] pt-[80px] pr-[36px] pb-[80px] pl-[36px] gap-[40px]">
-    <h3 class="w-[460px] text-[56px] leading-[64px] font-lato font-medium">OTHER INSIGHTS</h3>
-    <div class="w-full flex gap-[24px]">
-        <div class="w-[672px] rounded-[12px] bg-gray-200 flex gap-[10px] p-[32px]">
-            <div class="w-full flex flex-col gap-[32px] justify-start pt-[20px]">
+    <h3 class="w-[460px] leading-[64px] font-lato font-medium text-3xl md:text-4xl xl:text-6xl">OTHER INSIGHTS</h3>
+    <div class="w-full flex flex-col md:flex-row lg:flex-row gap-10 md:gap-5">
+        <div class="w-[100%] lg:w-[60%]  rounded-[12px] bg-gray-200 flex gap-[10px] p-[16px] lg:p-[32px]">
+            <div class="w-full max-w-[567px] flex flex-col gap-[32px] justify-start pt-[20px]">
                 <div class="flex gap-[32px] items-center">
                     <div class="flex-shrink-0">
-                        <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 11 (4).png') }}" alt="Card image">
+                        <img class="w-[100px] md:w-[120px] sm:w-[10px] rounded-[12px]" src="{{ asset('image/Rectangle 11 (4).png') }}" alt="Card image">
                     </div>
                     <div class="flex flex-col gap-[16px]">
-                        <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">Arena Fast Imperial -> HC BBC</h4>
-                        <div class="flex gap-[16px]">
-                            <img src="{{ asset('image/Rectangle 12.png') }}" class="rounded-[8px] w-[24px]" alt="Advanced">
-                            <span class="text-[18px] font-satoshi">Advanced</span>
-                            <img src="{{ asset('image/Rectangle 12 (2).png') }}" class="rounded-[8px] w-[24px]" alt="19 Pop">
-                            <span class="text-[18px] font-satoshi">32 Pop</span>
+                        <h4 class="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[30px] leading-[20px] sm:leading-[22px] md:leading-[26px] lg:leading-[30px] xl:leading-[36px] font-satoshi font-medium">
+                            Arena Fast Imperial -> HC BBC
+                        </h4>
+                        <div class="flex gap-2 flex-col md:flex-row lg:flex-row">
+                            <div class="flex gap-1">
+                                <div class="w-6 h-6 bg-red-700 rounded-[8px] flex flex-col md:flex-row lg:flex-row"></div>
+                                <span class="text-[12px] sm:text-[14px] lg:text-[16px] font-satoshi flex flex-col md:flex-row lg:flex-row">Advanced</span>
+                            </div>
+                            <div class="flex gap-1">
+                                <img src="{{ asset('image/Rectangle 28.png') }}" class="rounded-[8px] w-6 h-6 flex flex-col md:flex-row lg:flex-row" alt="19 Pop">
+                                <span class="text-[13px] sm:text-[14px] lg:text-[16px] font-satoshi flex flex-col md:flex-row lg:flex-row">32 Pop</span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="w-full">
-                    <p class="font-satoshi text-[18px] leading-[28px] mb-[16px] text-gray-500">
+                    <p class="font-satoshi text-[16px] lg:text-[18px] leading-[24px] lg:leading-[28px] mb-[16px] text-gray-500">
                         Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
                         Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
                     </p>
-                    <div class="w-[576px] flex gap-[12px]">
-                        <button class="w-[123px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
-                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Build Order</span>
+                    <div class="w-full lg:w-[576px] flex flex-wrap gap-[12px]">
+                        <button class="px-[16px] py-[8px] rounded-[60px] bg-white hover:bg-gray-700 hover:text-white">
+                            <span class="text-[16px] lg:text-[18px] leading-[24px] lg:leading-[28px] font-satoshi">Build Order</span>
                         </button>
-                        <button class="w-[125px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
-                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Generic Civ</span>
-                        </button>
-                        <button class="w-[85px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
-                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Archer</span>
-                        </button>
-                        <button class="w-[127px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
-                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Team Game</span>
-                        </button>
+                        <button class="px-[16px] py-[8px] rounded-[60px] bg-white hover:bg-gray-700 hover:text-white">
+                            <span class="text-[16px] lg:text-[18px] leading-[24px] lg:leading-[28px] font-satoshi">Turks</span>
+                        </button>       
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="w-[672px] rounded-[12px] bg-gray-200 flex gap-[10px] p-[32px]">
-            <div class="w-full flex flex-col gap-[32px] justify-start pt-[20px]">
+        <div class="w-[100%] lg:w-[60%]  rounded-[12px] bg-gray-200 flex gap-[10px] p-[16px] lg:p-[32px]">
+            <div class="w-full max-w-[567px] flex flex-col gap-[32px] justify-start pt-[20px]">
                 <div class="flex gap-[32px] items-center">
                     <div class="flex-shrink-0">
-                        <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 11 (3).png') }}" alt="Card image">
+                        <img class="w-[100px] md:w-[120px] sm:w-[10px] rounded-[12px]" src="{{ asset('image/Rectangle 11 (3).png') }}" alt="Card image">
                     </div>
                     <div class="flex flex-col gap-[16px]">
-                        <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">Land Nomad Fast Castle -> 3 TC Boom</h4>
-                        <div class="flex gap-[16px]">
-                            <img src="{{ asset('image/Rectangle 12 (1).png') }}" class="rounded-[8px] w-[24px]" alt="Advanced">
-                            <span class="text-[18px] font-satoshi">Beginner</span>
-                            <img src="{{ asset('image/Rectangle 12 (2).png') }}" class="rounded-[8px] w-[24px]" alt="19 Pop">
-                            <span class="text-[18px] font-satoshi">25 Pop</span>
+                        <h4 class="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[30px] leading-[20px] sm:leading-[22px] md:leading-[26px] lg:leading-[30px] xl:leading-[36px] font-satoshi font-medium">
+                            Land Nomad Fast Castle -> 3 TC Boom
+                        </h4>
+                        <div class="flex gap-2 flex-col md:flex-row lg:flex-row">
+                            <div class="flex gap-1">
+                                <div class="w-6 h-6 bg-green-500 rounded-[8px] flex flex-col md:flex-row lg:flex-row"></div>
+                                <span class="text-[13px] sm:text-[14px] lg:text-[16px] font-satoshi flex flex-col md:flex-row lg:flex-row">Beginner</span>
+                            </div>
+                            <div class="flex gap-1">
+                            <img src="{{ asset('image/Rectangle 28.png') }}" class="rounded-[8px] w-6 h-6 flex flex-col md:flex-row lg:flex-row" alt="19 Pop">
+                            <span class="text-[13px] sm:text-[14px] lg:text-[16px] font-satoshi flex flex-col md:flex-row lg:flex-row">25 Pop</span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="w-full">
-                    <p class="font-satoshi text-[18px] leading-[28px] mb-[16px] text-gray-500">
+                    <p class="font-satoshi text-[16px] lg:text-[18px] leading-[24px] lg:leading-[28px] mb-[16px] text-gray-500">
                         Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
                         Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
                     </p>
-                    <div class="w-[576px] flex gap-[12px]">
-                        <button class="w-[123px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
-                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Build Order</span>
+                    <div class="w-full lg:w-[576px] flex flex-wrap gap-[12px]">
+                        <button class="px-[16px] py-[8px] rounded-[60px] bg-white hover:bg-gray-700 hover:text-white">
+                            <span class="text-[16px] lg:text-[18px] leading-[24px] lg:leading-[28px] font-satoshi">Build Order</span>
                         </button>
-                        <button class="w-[125px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
-                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Generic Civ</span>
+                        <button class="px-[16px] py-[8px] rounded-[60px] bg-white hover:bg-gray-700 hover:text-white">
+                            <span class="text-[16px] lg:text-[18px] leading-[24px] lg:leading-[28px] font-satoshi">Generic Civ</span>
                         </button>
-                        <button class="w-[85px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
-                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Archer</span>
-                        </button>
-                        <button class="w-[127px] rounded-[60px] pt-[8px] pr-[16px] pb-[8px] pl-[16px] gap-[10px] bg-white hover:bg-gray-700 hover:text-white">
-                            <span class="text-[18px] leading-[28px] font-satoshi w-[91px]">Team Game</span>
+                        <button class="px-[16px] py-[8px] rounded-[60px] bg-white hover:bg-gray-700 hover:text-white">
+                            <span class="text-[16px] lg:text-[18px] leading-[24px] lg:leading-[28px] font-satoshi">Team Game</span>
                         </button>
                     </div>
                 </div>
@@ -810,10 +729,11 @@
         </span>
         <div id="paginationContainer" class="flex items-center gap-[12px]">
         </div>
-        <span id="nextButton" class="text-[60px] leading-[68px] font-satoshi w-[161px] text-black font-medium cursor-pointer">
+        <span id="nextButton" class="text-[60px] leading-[68px] font-satoshi w-[161px] text-black font-medium cursor-pointer -mr-20">
             NEXT
         </span>
     </div>
+    
 </div>
 
 
