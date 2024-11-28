@@ -84,6 +84,8 @@ class MatchController extends Controller
             $data['category'][] = $category->name;
         }
 
+        $getInsight->ages = $getInsight->ages->sortBy('priority');
+
         foreach ($getInsight->ages as $key => $age) {
             $data['body'][$key] = [
                 'name' => $age->name,
@@ -117,9 +119,11 @@ class MatchController extends Controller
         }
 
         $data['insights'] = Insight::paginate(2);
+        dd($data);
 
         return view('insight_detail', compact('data'));
     }
+
 
     public function home()
     {
