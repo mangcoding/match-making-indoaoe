@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Filament\Resources\InsightAgeResource;
 use App\Models\Event;
 use App\Models\Group;
 use App\Models\Insight;
@@ -47,7 +48,6 @@ class MatchController extends Controller
         return $formattedData;
     }
 
-
     public function insight(Request $request)
     {
         $category = $request->query('category', 'all');
@@ -64,60 +64,73 @@ class MatchController extends Controller
 
         $contents = Group::where('page', 'insight')->with('contents')->get();
 
-        $formattedData = MatchController::formattedData($contents);
-        $formattedData['insights'] = $insights;
-        $formattedData['contents'] = $contents;
+        $data = MatchController::formattedData($contents);
+        $data['insights'] = $insights;
 
-        return view('insight', compact('formattedData'));
+        return view('insight', compact('data'));
     }
 
     public function insight_detail(Request $request, Insight $insight)
     {
-        $body = $insight->with('ages', 'build_orders', 'resources', 'category')->first();
+        $getInsight = $insight->with('ages', 'build_orders', 'resources', 'category')->first();
 
-        $groupedData = [];
-        $groupedData['title'] = $body->title;
-        $groupedData['image'] = $body->image;
-        $groupedData['description'] = $body->description;
-        $groupedData['difficulty'] = $body->difficulty;
-        foreach ($body->category as $category) {
-            $groupedData['category'][] = $category->name;
+        $data = [];
+        $data['title'] = $getInsight->title;
+        $data['image'] = $getInsight->image;
+        $data['description'] = $getInsight->description;
+        $data['difficulty'] = $getInsight->difficulty;
+
+        foreach ($getInsight->category as $category) {
+            $data['category'][] = $category->name;
         }
 
-        foreach ($body->ages as $key => $age) {
-            $groupedData['body'][$key] = [
+        foreach ($getInsight->ages as $key => $age) {
+            $data['body'][$key] = [
                 'name' => $age->name,
                 'image' => $age->image,
                 'build_orders' => [],
                 'resources' => []
             ];
 
-            $buildOrders = $body->build_orders->filter(function ($buildOrder) use ($age) {
-                return $buildOrder->age === $age->name;
-            });
-
-            $resources = $body->resources->filter(function ($resource) use ($age) {
+            $insightAgeResources = $getInsight->resources->filter(function ($resource) use ($age) {
                 return $resource->age === $age->name;
             });
 
-            $groupedData['body'][$key]['build_orders'] = $buildOrders->values()->all();
-            $groupedData['body'][$key]['resources'] = $resources->values()->all();
+            $data['body'][$key]['resources'] = $insightAgeResources->map(function ($insightAgeResource) {
+                return [
+                    'id' => $insightAgeResource->id,
+                    'name' => $insightAgeResource->resource->name,
+                    'image' => $insightAgeResource->resource->image ?? null,
+                    'quantity' => $insightAgeResource->quantity,
+                ];
+            });
+
+            $buildOrders = $getInsight->build_orders->filter(function ($buildOrder) use ($age) {
+                return $buildOrder->age === $age->name;
+            });
+
+            $buildOrdersGrouped = $buildOrders->groupBy('step')->map(function ($group) {
+                return $group->sortBy('priority');
+            });
+
+            $data['body'][$key]['build_orders'] = $buildOrdersGrouped;
         }
 
-        dd($groupedData);
-    }
+        $data['insights'] = Insight::paginate(2);
 
+        return view('insight_detail', compact('data'));
+    }
 
     public function home()
     {
-        $data = Group::where('page', 'home')->with('contents')->get();
+        $contents = Group::where('page', 'home')->with('contents')->get();
 
-        $formattedData = MatchController::formattedData($data);
-        $formattedData['sponsors'] = Sponsor::all()->toArray();
-        $formattedData['players'] = Player::all()->toArray();
-        $formattedData['events'] = Event::all()->toArray();
+        $data = MatchController::formattedData($contents);
+        $data['sponsors'] = Sponsor::all()->toArray();
+        $data['players'] = Player::all()->toArray();
+        $data['events'] = Event::all()->toArray();
 
-        return view('home', compact('formattedData'));
+        return view('home', compact('data'));
     }
 
     public function index()
