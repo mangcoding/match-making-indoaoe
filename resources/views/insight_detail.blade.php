@@ -1,14 +1,16 @@
 @extends('layouts.frontend')
 @section('content')
-<div class="w-full max-w-[1200px] mx-auto rounded-[12px] bg-black flex flex-col items-start justify-center px-4 sm:px-6 md:px-10 lg:px-[40px] py-8 sm:py-10 md:py-[100px] lg:py-[142px] relative">
-    <h3 class="text-white leading-[40px] text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-satoshi font-medium">
-        Arabia Fast Feudal -> Archer Rush
-    </h3>
-    <span class="text-red-700 leading-[40px] text-[20px] sm:text-[24px] md:text-[28px] lg:text-[32px] font-lato font-normal mt-[16px]">
-        Build by IndoAoe Community
-    </span>
+<div class="mx-auto rounded-[12px] bg-black flex flex-col lg:flex-row relative">
+    <div class="w-full  lg:w-2/3">
+        <h3 class="text-white leading-[40px] text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-satoshi font-medium">
+            Arabia Fast Feudal -> Archer Rush
+        </h3>
+        <span class="text-red-700 leading-[40px] text-[20px] sm:text-[24px] md:text-[28px] lg:text-[32px] font-lato font-normal mt-[16px]">
+            Build by IndoAoe Community
+        </span>
+    </div>
     <img src="{{ asset('image/Rectangle 11.png') }}" 
-         class="rounded-[12px] w-[180px] sm:w-[220px] md:w-[280px] lg:w-[350px] max-w-full absolute top-[50%] right-[10px] sm:right-[20px] md:right-[40px] translate-y-[-50%]" 
+         class="rounded-[12px] w-full lg:w-1/3" 
          alt="">
 </div>
 
@@ -16,29 +18,136 @@
 {{-- <div class="flex flex-row">
     <p class="text-gray-400 text-[20px] pl-20 w-[976px]">Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad. Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade. </p>
     <span class="text-red-600 text-[18px] w-[168px] ml-36">SHARE THIS BUILD!</span>
-</div>
+</div> --}}
           
-<div class="w-full flex flex-col gap-[32px] left-[64px] mt-8 pl-20">
-    <button class="w-[976px] rounded-[12px] flex items-center pt-[16px] pr-[32px] pb-[16px] pl-[32px] gap-[10px] bg-black">
-        <div class="flex gap-[16px] items-center">
-            <img src="{{ asset('image/Rectangle 26.png') }}" class="rounded-[12px] w-[48px]" alt="">
-            <h3 class="leading-[40px] text-[36px] font-satoshi font-bold text-white">Dark Age</h3>
+<div class="w-full flex flex-col gap-[32px] left-[64px] mt-9 pl-20">
+    <button class="w-[455px] sm:w-full max-w-[976px] rounded-xl flex items-center pt-4 pr-8 pb-4 pl-8 gap-2 bg-black sm:pt-3 sm:pr-6 sm:pb-3 sm:pl-6 sm:gap-2 md:pt-4 md:pr-8 md:pb-4 md:pl-8 md:gap-3">
+        <div class="flex gap-[16px] items-center justify-center">
+            <img src="{{ asset('image/Rectangle 26.png') }}" class="rounded-[12px] w-12 md:w-10 sm:w-7 flex md:flex-row" alt="">
+            <h3 class="leading-[40px] text-2xl font-satoshi font-bold text-white md:text-4xl sm:text-[28px] md:leading-[36px] sm:leading-[32px]">Dark Age</h3>
         </div>
     </button>
+    <div class="w-full flex gap-4 sm:flex-row sm:gap-8">
+        <div class="w-10 h-10 rounded-xl bg-gray-200 p-6 flex items-center justify-center sm:w-20 sm:h-20">
+            <h5>3</h5>
+        </div>
+        <div class="w-[390px] flex justify-start p-4 gap-[16px] rounded-xl bg-gray-200 sm:flex-row sm:w-[864px] sm:p-8 sm:gap-[40px]">
+            <div class="w-full flex flex-col gap-[16px] sm:flex-col pt-0 sm:gap-[32px] sm:pt-5">
+                <div class="flex flex-col gap-[16px] items-center sm:gap-[32px] sm:flex-col">
+                    <div class="flex flex-row gap-4 sm:flex-row sm:gap-8">
+                        <div class="flex-shrink-0">
+                            <img class="w-16 rounded-xl sm:w-28" src="{{ asset('image/Rectangle 28.png') }}" alt="Card image">
+                        </div>
+                        <div class="flex flex-col gap-4 w-full">
+                            <h4 class="text-xl leading-5 font-satoshi font-medium sm:text-3xl sm:leading-9">Queue Villagers</h4>
+                            <p class="font-satoshi text-base leading-2 mb-[16px] text-gray-500 sm:text-lg sm:leading-7">
+                                Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
+                                    Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
+                                </p>
+                        </div>
+                    </div>
+                    <div class="h-[1px] bg-gray-400 w-full"></div>
+                </div>
+                <div class="flex flex-col gap-[16px] items-center sm:gap-[32px] sm:flex-col">
+                    <div class="flex flex-row gap-4 sm:flex-row sm:gap-8">
+                        <div class="flex-shrink-0">
+                            <img class="w-16 rounded-xl sm:w-28" src="{{ asset('image/Rectangle 16 (6).png') }}" alt="Card image">
+                        </div>
+                        <div class="flex flex-col gap-4 w-full">
+                            <h4 class="text-xl leading-5 font-satoshi font-medium sm:text-3xl sm:leading-9">Build 2 Houses</h4>
+                            <p class="font-satoshi text-base leading-2 mb-[16px] text-gray-500 sm:text-lg sm:leading-7">
+                                Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
+                                    Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
+                                </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w-full flex gap-4 sm:flex-row sm:gap-8">
+        <div class="w-10 h-10 rounded-xl bg-gray-200 p-6 flex items-center justify-center sm:w-20 sm:h-20">
+            <h5>4-6</h5>
+        </div>
+        <div class="w-[390px] flex justify-start p-4 gap-[16px] rounded-xl bg-gray-200 sm:flex-row sm:w-[864px] sm:p-8 sm:gap-[40px]">
+            <div class="w-full flex flex-col gap-[16px] sm:flex-col pt-0 sm:gap-[32px] sm:pt-5">
+                <div class="flex flex-col gap-[16px] items-center sm:gap-[32px] sm:flex-col">
+                    <div class="flex flex-row gap-4 sm:flex-row sm:gap-8">
+                        <div class="flex-shrink-0">
+                            <img class="w-16 rounded-xl sm:w-28" src="{{ asset('image/Rectangle 29.png') }}" alt="Card image">
+                        </div>
+                        <div class="flex flex-col gap-4 w-full">
+                            <h4 class="text-xl leading-5 font-satoshi font-medium sm:text-3xl sm:leading-9">6 on Sheep</h4>
+                            <p class="font-satoshi text-base leading-2 mb-[16px] text-gray-500 sm:text-lg sm:leading-7">
+                                Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
+                                Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w-full flex gap-4 sm:flex-row sm:gap-8">
+        <div class="w-10 h-10 rounded-xl bg-gray-200 p-6 flex items-center justify-center sm:w-20 sm:h-20">
+            <h5>7-8</h5>
+        </div>
+        <div class="w-[390px] flex justify-start p-4 gap-[16px] rounded-xl bg-gray-200 sm:flex-row sm:w-[864px] sm:p-8 sm:gap-[40px]">
+            <div class="w-full flex flex-col gap-[16px] sm:flex-col pt-0 sm:gap-[32px] sm:pt-5">
+                <div class="flex flex-col gap-[16px] items-center sm:gap-[32px] sm:flex-col">
+                    <div class="flex flex-row gap-4 sm:flex-row sm:gap-8">
+                        <div class="flex-shrink-0">
+                            <img class="w-16 rounded-xl sm:w-28" src="{{ asset('image/Rectangle 30.png') }}" alt="Card image">
+                        </div>
+                        <div class="flex flex-col gap-4 w-full">
+                            <h4 class="text-xl leading-5 font-satoshi font-medium sm:text-3xl sm:leading-9">2 on Wood</h4>
+                            <p class="font-satoshi text-base leading-2 mb-[16px] text-gray-500 sm:text-lg sm:leading-7">
+                                Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
+                                Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w-full flex gap-4 sm:flex-row sm:gap-8">
+        <div class="w-10 h-10 rounded-xl bg-gray-200 p-6 flex items-center justify-center sm:w-20 sm:h-20">
+            <h5>9</h5>
+        </div>
+        <div class="w-[390px] flex justify-start p-4 gap-[16px] rounded-xl bg-gray-200 sm:flex-row sm:w-[864px] sm:p-8 sm:gap-[40px]">
+            <div class="w-full flex flex-col gap-[16px] sm:flex-col pt-0 sm:gap-[32px] sm:pt-5">
+                <div class="flex flex-col gap-[16px] items-center sm:gap-[32px] sm:flex-col">
+                    <div class="flex flex-row gap-4 sm:flex-row sm:gap-8">
+                        <div class="flex-shrink-0">
+                            <img class="w-16 rounded-xl sm:w-28" src="{{ asset('image/Rectangle 301.png') }}" alt="Card image">
+                        </div>
+                        <div class="flex flex-col gap-4 w-full">
+                            <h4 class="text-xl leading-5 font-satoshi font-medium sm:text-3xl sm:leading-9">Lure Boar</h4>
+                            <p class="font-satoshi text-base leading-2 mb-[16px] text-gray-500 sm:text-lg sm:leading-7">
+                                Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
+                                Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="w-[976px] flex gap-[32px]">
         <div class="w-[80px] h-[80px] rounded-[12px] bg-gray-200 p-[24px] flex items-center justify-center">
-            <h5 class="text-[24px] leading-[32px]">3</h5>
+            <h5>10-12</h5>
         </div>
-        <div class="w-[864px] flex justify-start p-[32px] gap-[40px] rounded-[12px] bg-gray-200">
-            <div class="w-full flex flex-col gap-[32px] justify-start pt-[20px]">
-                <div class="flex flex-col gap-[32px] items-center">
-                    <div class="flex flex-row gap-8">
+        <div class="w-[390px] flex justify-start p-4 gap-[16px] rounded-xl bg-gray-200 sm:flex-row sm:w-[864px] sm:p-8 sm:gap-[40px]">
+            <div class="w-full flex flex-col gap-[16px] sm:flex-col pt-0 sm:gap-[32px] sm:pt-5">
+                <div class="flex flex-col gap-[16px] items-center sm:gap-[32px] sm:flex-col">
+                    <div class="flex flex-row gap-4 sm:flex-row sm:gap-8">
                         <div class="flex-shrink-0">
-                            <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 28.png') }}" alt="Card image">
+                            <img class="w-16 rounded-xl sm:w-28" src="{{ asset('image/Rectangle 301.png') }}" alt="Card image">
                         </div>
-                        <div class="flex flex-col gap-[16px] w-full">
-                            <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">Queue Villagers</h4>
-                                <p class="font-satoshi text-[18px] leading-[28px] mb-[16px] text-gray-500">
+                        <div class="flex flex-col gap-4 w-full">
+                            <h4 class="text-xl leading-5 font-satoshi font-medium sm:text-3xl sm:leading-9">Eat Boar Under TC</h4>
+                                <p class="font-satoshi text-base leading-2 mb-[16px] text-gray-500 sm:text-lg sm:leading-7">
                                     Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
                                     Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
                                 </p>
@@ -46,131 +155,24 @@
                     </div>
                     <div class="h-[1px] bg-gray-400 w-full"></div>
                 </div>
-                <div class="flex flex-col gap-[32px] items-center">
-                    <div class="flex flex-row gap-8">
+                <div class="flex flex-col gap-[16px] items-center sm:gap-[32px] sm:flex-col">
+                    <div class="flex flex-row gap-4 sm:flex-row sm:gap-8">
                         <div class="flex-shrink-0">
-                            <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 16 (6).png') }}" alt="Card image">
+                            <img class="w-16 rounded-xl sm:w-28" src="{{ asset('image/Rectangle 302.png') }}" alt="Card image">
                         </div>
-                        <div class="flex flex-col gap-[16px] w-full">
-                            <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">Build 2 Houses</h4>
-                                <p class="font-satoshi text-[18px] leading-[28px] mb-[16px] text-gray-500">
-                                    Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
-                                    Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
-                                </p>
+                        <div class="flex flex-col gap-4 w-full">
+                            <h4 class="text-xl leading-5 font-satoshi font-medium sm:text-3xl sm:leading-9">Push Deers using Scout</h4>
+                            <p class="font-satoshi text-base leading-2 mb-[16px] text-gray-500 sm:text-lg sm:leading-7">
+                                Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
+                                Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="w-[976px] flex gap-[32px]">
-        <div class="w-[80px] h-[80px] rounded-[12px] bg-gray-200 p-[24px] flex items-center justify-center">
-            <h5 class="text-[24px] leading-[32px]">4-6</h5>
-        </div>
-        <div class="w-[864px] flex justify-start p-[32px] gap-[40px] rounded-[12px] bg-gray-200">
-            <div class="w-full flex flex-col gap-[32px] justify-start pt-[20px]">
-                <div class="flex flex-col gap-[32px] items-center">
-                    <div class="flex flex-row gap-8">
-                        <div class="flex-shrink-0">
-                            <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 29.png') }}" alt="Card image">
-                        </div>
-                        <div class="flex flex-col gap-[16px] w-full">
-                            <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">6 on Sheep</h4>
-                                <p class="font-satoshi text-[18px] leading-[28px] mb-[16px] text-gray-500">
-                                    Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
-                                    Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
-                                </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="w-[976px] flex gap-[32px]">
-        <div class="w-[80px] h-[80px] rounded-[12px] bg-gray-200 p-[24px] flex items-center justify-center">
-            <h5 class="text-[24px] leading-[32px]">7-8</h5>
-        </div>
-        <div class="w-[864px] flex justify-start p-[32px] gap-[40px] rounded-[12px] bg-gray-200">
-            <div class="w-full flex flex-col gap-[32px] justify-start pt-[20px]">
-                <div class="flex flex-col gap-[32px] items-center">
-                    <div class="flex flex-row gap-8">
-                        <div class="flex-shrink-0">
-                            <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 30.png') }}" alt="Card image">
-                        </div>
-                        <div class="flex flex-col gap-[16px] w-full">
-                            <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">2 on Wood</h4>
-                                <p class="font-satoshi text-[18px] leading-[28px] mb-[16px] text-gray-500">
-                                    Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
-                                    Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
-                                </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="w-[976px] flex gap-[32px]">
-        <div class="w-[80px] h-[80px] rounded-[12px] bg-gray-200 p-[24px] flex items-center justify-center">
-            <h5 class="text-[24px] leading-[32px]">9</h5>
-        </div>
-        <div class="w-[864px] flex justify-start p-[32px] gap-[40px] rounded-[12px] bg-gray-200">
-            <div class="w-full flex flex-col gap-[32px] justify-start pt-[20px]">
-                <div class="flex flex-col gap-[32px] items-center">
-                    <div class="flex flex-row gap-8">
-                        <div class="flex-shrink-0">
-                            <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 301.png') }}" alt="Card image">
-                        </div>
-                        <div class="flex flex-col gap-[16px] w-full">
-                            <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">Lure Boar</h4>
-                                <p class="font-satoshi text-[18px] leading-[28px] mb-[16px] text-gray-500">
-                                    Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
-                                    Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
-                                </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="w-[976px] flex gap-[32px]">
-        <div class="w-[80px] h-[80px] rounded-[12px] bg-gray-200 p-[24px] flex items-center justify-center">
-            <h5 class="text-[24px] leading-[32px]">10-12</h5>
-        </div>
-        <div class="w-[864px] flex justify-start p-[32px] gap-[40px] rounded-[12px] bg-gray-200">
-            <div class="w-full flex flex-col gap-[32px] justify-start pt-[20px]">
-                <div class="flex flex-col gap-[32px] items-center">
-                    <div class="flex flex-row gap-8">
-                        <div class="flex-shrink-0">
-                            <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 301.png') }}" alt="Card image">
-                        </div>
-                        <div class="flex flex-col gap-[16px] w-full">
-                            <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">Eat Boar Under TC</h4>
-                                <p class="font-satoshi text-[18px] leading-[28px] mb-[16px] text-gray-500">
-                                    Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
-                                    Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
-                                </p>
-                        </div>
-                    </div>
-                    <div class="h-[1px] bg-gray-400 w-full"></div>
-                </div>
-                <div class="flex flex-col gap-[32px] items-center">
-                    <div class="flex flex-row gap-8">
-                        <div class="flex-shrink-0">
-                            <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 302.png') }}" alt="Card image">
-                        </div>
-                        <div class="flex flex-col gap-[16px] w-full">
-                            <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">Push Deers using Scout</h4>
-                                <p class="font-satoshi text-[18px] leading-[28px] mb-[16px] text-gray-500">
-                                    Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
-                                    Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
-                                </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="w-[976px] flex gap-[32px]">
+    {{-- <div class="w-[976px] flex gap-[32px]">
         <div class="w-[80px] h-[80px] rounded-[12px] bg-gray-200 p-[24px] flex items-center justify-center">
             <h5 class="text-[24px] leading-[32px]">13</h5>
         </div>
@@ -207,21 +209,21 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="w-[976px] flex gap-[32px]">
-        <div class="w-[80px] h-[80px] rounded-[12px] bg-gray-200 p-[24px] flex items-center justify-center">
-            <h5 class="text-[24px] leading-[32px]">14</h5>
+    </div> --}}
+    <div class="w-full flex gap-4 sm:flex-row sm:gap-8">
+        <div class="w-10 h-10 rounded-xl bg-gray-200 p-6 flex items-center justify-center sm:w-20 sm:h-20">
+            <h5>14</h5>
         </div>
-        <div class="w-[864px] flex justify-start p-[32px] gap-[40px] rounded-[12px] bg-gray-200">
-            <div class="w-full flex flex-col gap-[32px] justify-start pt-[20px]">
-                <div class="flex flex-col gap-[32px] items-center">
-                    <div class="flex flex-row gap-8">
+        <div class="w-[390px] flex justify-start p-4 gap-[16px] rounded-xl bg-gray-200 sm:flex-row sm:w-[864px] sm:p-8 sm:gap-[40px]">
+            <div class="w-full flex flex-col gap-[16px] sm:flex-col pt-0 sm:gap-[32px] sm:pt-5">
+                <div class="flex flex-col gap-[16px] items-center sm:gap-[32px] sm:flex-col">
+                    <div class="flex flex-row gap-4 sm:flex-row sm:gap-8">
                         <div class="flex-shrink-0">
-                            <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 301.png') }}" alt="Card image">
+                            <img class="w-16 rounded-xl sm:w-28" src="{{ asset('image/Rectangle 301.png') }}" alt="Card image">
                         </div>
-                        <div class="flex flex-col gap-[16px] w-full">
-                            <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">Lure 2nd Boar</h4>
-                                <p class="font-satoshi text-[18px] leading-[28px] mb-[16px] text-gray-500">
+                        <div class="flex flex-col gap-4 w-full">
+                            <h4 class="text-xl leading-5 font-satoshi font-medium sm:text-3xl sm:leading-9">Lure 2nd Boar</h4>
+                                <p class="font-satoshi text-base leading-2 mb-[16px] text-gray-500 sm:text-lg sm:leading-7">
                                     Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
                                     Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
                                 </p>
@@ -231,7 +233,7 @@
             </div>
         </div>
     </div>
-    <div class="w-[976px] flex gap-[32px]">
+    {{-- <div class="w-[976px] flex gap-[32px]">
         <div class="w-[80px] h-[80px] rounded-[12px] bg-gray-200 p-[24px] flex items-center justify-center">
             <h5 class="text-[24px] leading-[32px]">15-18</h5>
         </div>
@@ -343,32 +345,32 @@
                 </div>
             </div>
         </div>
-    </div>
-</div> --}}
+    </div> --}}
+</div>
 
    
    
-<div class="w-full flex flex-col gap-[32px] left-[64px] mt-8 pl-20">
-    <button class="w-[976px] rounded-[12px] flex items-center pt-[16px] pr-[32px] pb-[16px] pl-[32px] gap-[10px] bg-black">
-        <div class="flex gap-[16px] items-center">
-            <img src="{{ asset('image/Rectangle 26.png') }}" class="rounded-[12px] w-[48px]" alt="">
-            <h3 class="leading-[40px] text-[36px] font-satoshi font-bold text-white">Feudal Age</h3>
+<div class="w-full flex flex-col gap-[32px] left-[64px] mt-9 pl-20">
+    <button class="w-[455px] sm:w-full max-w-[976px] rounded-xl flex items-center pt-4 pr-8 pb-4 pl-8 gap-2 bg-black sm:pt-3 sm:pr-6 sm:pb-3 sm:pl-6 sm:gap-2 md:pt-4 md:pr-8 md:pb-4 md:pl-8  md:gap-3">
+        <div class="flex gap-[16px] items-center justify-center">
+            <img src="{{ asset('image/Rectangle 26.png') }}" class="rounded-[12px] w-12 md:w-10 sm:w-7 flex md:flex-row" alt="">
+            <h3 class="leading-[40px] text-2xl font-satoshi font-bold text-white md:text-4xl sm:text-[28px] md:leading-[36px] sm:leading-[32px]">Feudal Age</h3>
         </div>
     </button>
-    <div class="w-[976px] flex gap-[32px]">
-        <div class="w-[80px] h-[80px] rounded-[12px] bg-gray-200 p-[24px] flex items-center justify-center">
-            <h5 class="text-[24px] leading-[32px]">19-23</h5>
+    <div class="w-full flex gap-4 sm:flex-row sm:gap-8">
+        <div class="w-10 h-10 rounded-xl bg-gray-200 p-6 flex items-center justify-center sm:w-20 sm:h-20">
+            <h5>19-23</h5>
         </div>
-        <div class="w-[864px] flex justify-start p-[32px] gap-[40px] rounded-[12px] bg-gray-200">
-            <div class="w-full flex flex-col gap-[32px] justify-start pt-[20px]">
-                <div class="flex flex-col gap-[32px] items-center">
-                    <div class="flex flex-row gap-8">
+        <div class="w-[390px] flex justify-start p-4 gap-[16px] rounded-xl bg-gray-200 sm:flex-row sm:w-[864px] sm:p-8 sm:gap-[40px]">
+            <div class="w-full flex flex-col gap-[16px] sm:flex-col pt-0 sm:gap-[32px] sm:pt-5">
+                <div class="flex flex-col gap-[16px] items-center sm:gap-[32px] sm:flex-col">
+                    <div class="flex flex-row gap-4 sm:flex-row sm:gap-8">
                         <div class="flex-shrink-0">
-                            <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 16 (5).png') }}" alt="Card image">
+                            <img class="w-16 rounded-xl sm:w-28" src="{{ asset('image/Rectangle 16 (5).png') }}" alt="Card image">
                         </div>
-                        <div class="flex flex-col gap-[16px] w-full">
-                            <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">Queue Villagers to Mining Camp</h4>
-                                <p class="font-satoshi text-[18px] leading-[28px] mb-[16px] text-gray-500">
+                        <div class="flex flex-col gap-4 w-full">
+                            <h4 class="text-xl leading-5 font-satoshi font-medium sm:text-3xl sm:leading-9">Queue Villagers to Mining Camp</h4>
+                                <p class="font-satoshi text-base leading-2 mb-[16px] text-gray-500 sm:text-lg sm:leading-7">
                                     Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
                                     Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
                                 </p>
@@ -376,14 +378,14 @@
                     </div>
                     <div class="h-[1px] bg-gray-400 w-full"></div>
                 </div>
-                <div class="flex flex-col gap-[32px] items-center">
-                    <div class="flex flex-row gap-8">
+                <div class="flex flex-col gap-[16px] items-center sm:gap-[32px] sm:flex-col">
+                    <div class="flex flex-row gap-4 sm:flex-row sm:gap-8">
                         <div class="flex-shrink-0">
-                            <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 16 (4).png') }}" alt="Card image">
+                            <img class="w-16 rounded-xl sm:w-28" src="{{ asset('image/Rectangle 16 (4).png') }}" alt="Card image">
                         </div>
-                        <div class="flex flex-col gap-[16px] w-full">
-                            <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">Upgrade Double-Bit Axe</h4>
-                                <p class="font-satoshi text-[18px] leading-[28px] mb-[16px] text-gray-500">
+                        <div class="flex flex-col gap-4 w-full">
+                            <h4 class="text-xl leading-5 font-satoshi font-medium sm:text-3xl sm:leading-9">Upgrade Double-Bit Axe</h4>
+                                <p class="font-satoshi text-base leading-2 mb-[16px] text-gray-500 sm:text-lg sm:leading-7">
                                     Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
                                     Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
                                 </p>
@@ -391,14 +393,14 @@
                     </div>
                     <div class="h-[1px] bg-gray-400 w-full"></div>
                 </div>
-                <div class="flex flex-col gap-[32px] items-center">
-                    <div class="flex flex-row gap-8">
+                <div class="flex flex-col gap-[16px] items-center sm:gap-[32px] sm:flex-col">
+                    <div class="flex flex-row gap-4 sm:flex-row sm:gap-8">
                         <div class="flex-shrink-0">
-                            <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 16 (9).png') }}" alt="Card image">
+                            <img class="w-16 rounded-xl sm:w-28" src="{{ asset('image/Rectangle 16 (9).png') }}" alt="Card image">
                         </div>
-                        <div class="flex flex-col gap-[16px] w-full">
-                            <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">Build 2 Archery Range</h4>
-                                <p class="font-satoshi text-[18px] leading-[28px] mb-[16px] text-gray-500">
+                        <div class="flex flex-col gap-4 w-full">
+                            <h4 class="text-xl leading-5 font-satoshi font-medium sm:text-3xl sm:leading-9">Build 2 Archery Range</h4>
+                                <p class="font-satoshi text-base leading-2 mb-[16px] text-gray-500 sm:text-lg sm:leading-7">
                                     Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
                                     Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
                                 </p>
@@ -406,14 +408,14 @@
                     </div>
                     <div class="h-[1px] bg-gray-400 w-full"></div>
                 </div>
-                <div class="flex flex-col gap-[32px] items-center">
-                    <div class="flex flex-row gap-8">
+                <div class="flex flex-col gap-[16px] items-center sm:gap-[32px] sm:flex-col">
+                    <div class="flex flex-row gap-4 sm:flex-row sm:gap-8">
                         <div class="flex-shrink-0">
-                            <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 11.png') }}" alt="Card image">
+                            <img class="w-16 rounded-xl sm:w-28" src="{{ asset('image/Rectangle 11.png') }}" alt="Card image">
                         </div>
-                        <div class="flex flex-col gap-[16px] w-full">
-                            <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">Queue Archers and Attack</h4>
-                                <p class="font-satoshi text-[18px] leading-[28px] mb-[16px] text-gray-500">
+                        <div class="flex flex-col gap-4 w-full">
+                            <h4 class="text-xl leading-5 font-satoshi font-medium sm:text-3xl sm:leading-9">Queue Archers and Attack</h4>
+                                <p class="font-satoshi text-base leading-2 mb-[16px] text-gray-500 sm:text-lg sm:leading-7">
                                     Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
                                     Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
                                 </p>
@@ -421,14 +423,14 @@
                     </div>
                     <div class="h-[1px] bg-gray-400 w-full"></div>
                 </div>
-                <div class="flex flex-col gap-[32px] items-center">
-                    <div class="flex flex-row gap-8">
+                <div class="flex flex-col gap-[16px] items-center sm:gap-[32px] sm:flex-col">
+                    <div class="flex flex-row gap-4 sm:flex-row sm:gap-8">
                         <div class="flex-shrink-0">
-                            <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 16 (6).png') }}" alt="Card image">
+                            <img class="w-16 rounded-xl sm:w-28" src="{{ asset('image/Rectangle 16 (6).png') }}" alt="Card image">
                         </div>
-                        <div class="flex flex-col gap-[16px] w-full">
-                            <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">Build Houses and Constantly Build Walls Around Base</h4>
-                                <p class="font-satoshi text-[18px] leading-[28px] mb-[16px] text-gray-500">
+                        <div class="flex flex-col gap-4 w-full">
+                            <h4 class="text-xl leading-5 font-satoshi font-medium sm:text-3xl sm:leading-9">Build Houses and Constantly Build Walls Around Base</h4>
+                                <p class="font-satoshi text-base leading-2 mb-[16px] text-gray-500 sm:text-lg sm:leading-7">
                                     Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
                                     Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
                                 </p>
@@ -438,58 +440,58 @@
             </div>
         </div>
     </div>
-    <div class="w-[976px] flex gap-[32px]">
-        <div class="w-[80px] h-[80px] rounded-[12px] bg-gray-200 p-[24px] flex items-center justify-center">
+    <div class="w-full flex gap-4 sm:flex-row sm:gap-8">
+        <div class="w-10 h-10 rounded-xl bg-gray-200 p-6 flex items-center justify-center sm:w-20 sm:h-20">
             <span>24+</span>
         </div>
-        <div class="w-[864px] flex justify-start p-[32px] gap-[40px] rounded-[12px] bg-gray-200">
-            <div class="w-full flex flex-col gap-[32px] justify-start pt-[20px]">
-                <div class="flex flex-col gap-[32px] items-center">
-                    <div class="flex flex-row gap-8">
+        <div class="w-[390px] flex justify-start p-4 gap-[16px] rounded-xl bg-gray-200 sm:flex-row sm:w-[864px] sm:p-8 sm:gap-[40px]">
+            <div class="w-full flex flex-col gap-[16px] sm:flex-col pt-0 sm:gap-[32px] sm:pt-5">
+                <div class="flex flex-col gap-[16px] items-center sm:gap-[32px] sm:flex-col">
+                    <div class="flex flex-row gap-4 sm:flex-row sm:gap-8">
                         <div class="flex-shrink-0">
-                            <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 16 (7).png') }}" alt="Card image">
+                            <img class="w-16 rounded-xl sm:w-28" src="{{ asset('image/Rectangle 16 (7).png') }}" alt="Card image">
                         </div>
-                        <div class="flex flex-col gap-[16px] w-full">
-                            <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">Queue Villagers and Build Farms</h4>
-                                <p class="font-satoshi text-[18px] leading-[28px] mb-[16px] text-gray-500">
-                                    Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
-                                    Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
-                                </p>
+                        <div class="flex flex-col gap-4 w-full">
+                            <h4 class="text-xl leading-5 font-satoshi font-medium sm:text-3xl sm:leading-9">Queue Villagers and Build Farms</h4>
+                            <p class="font-satoshi text-base leading-2 mb-[16px] text-gray-500 sm:text-lg sm:leading-7">
+                                Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
+                                Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
+                            </p>
                         </div>
                     </div>
                     <div class="h-[1px] bg-gray-400 w-full"></div>
                 </div>
-                <div class="flex flex-col gap-[32px] items-center">
-                    <div class="flex flex-row gap-8">
+                <div class="flex flex-col gap-[16px] items-center sm:gap-[32px] sm:flex-col">
+                    <div class="flex flex-row gap-4 sm:flex-row sm:gap-8">
                         <div class="flex-shrink-0">
-                            <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 16 (8).png') }}" alt="Card image">
+                            <img class="w-16 rounded-xl sm:w-28" src="{{ asset('image/Rectangle 16 (8).png') }}" alt="Card image">
                         </div>
-                        <div class="flex flex-col gap-[16px] w-full">
-                            <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">Build Blacksmith and Upgrade Fletching</h4>
-                                <p class="font-satoshi text-[18px] leading-[28px] mb-[16px] text-gray-500">
-                                    Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
-                                    Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
-                                </p>
+                        <div class="flex flex-col gap-4 w-full">
+                            <h4 class="text-xl leading-5 font-satoshi font-medium sm:text-3xl sm:leading-9">Build Blacksmith and Upgrade Fletching</h4>
+                            <p class="font-satoshi text-base leading-2 mb-[16px] text-gray-500 sm:text-lg sm:leading-7">
+                                Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
+                                Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="w-[976px] flex gap-[32px]">
-        <div class="w-[80px] h-[80px] rounded-[12px] bg-gray-200 p-[24px] flex items-center justify-center">
+    <div class="w-full flex gap-4 sm:flex-row sm:gap-8">
+        <div class="w-10 h-10 rounded-xl bg-gray-200 p-6 flex items-center justify-center sm:w-20 sm:h-20">
             <span>40+</span>
         </div>
-        <div class="w-[864px] flex justify-start p-[32px] gap-[40px] rounded-[12px] bg-gray-200">
-            <div class="w-full flex flex-col gap-[32px] justify-start pt-[20px]">
-                <div class="flex flex-col gap-[32px] items-center">
-                    <div class="flex flex-row gap-8">
+        <div class="w-[390px] flex justify-start p-4 gap-[16px] rounded-xl bg-gray-200 sm:flex-row sm:w-[864px] sm:p-8 sm:gap-[40px]">
+            <div class="w-full flex gap-[16px] pt-0 sm:gap-[32px] sm:pt-5">
+                <div class="flex gap-[16px] items-center sm:gap-[32px]">
+                    <div class="flex flex-row gap-4 sm:flex-row sm:gap-8">
                         <div class="flex-shrink-0">
-                            <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 11 (3).png') }}" alt="Card image">
+                            <img class="w-16 rounded-xl sm:w-28" src="{{ asset('image/Rectangle 11 (3).png') }}" alt="Card image">
                         </div>
-                        <div class="flex flex-col gap-[16px] w-full">
-                            <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">Queue Castle Age</h4>
-                                <p class="font-satoshi text-[18px] leading-[28px] mb-[16px] text-gray-500">
+                        <div class="flex flex-col gap-4 w-full">
+                            <h4 class="text-xl leading-5 font-satoshi font-medium sm:text-3xl sm:leading-9">Queue Castle Age</h4>
+                                <p class="font-satoshi text-base leading-2 mb-[16px] text-gray-500 sm:text-lg sm:leading-7">
                                     Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
                                     Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
                                 </p>
@@ -499,7 +501,7 @@
             </div>
         </div>
     </div>
-    <div class="w-[976px] flex items-center gap-[16px] justify-center">
+    {{-- <div class="w-[976px] flex items-center gap-[16px] justify-center">
         <div class="w-[80px] flex items-center] justify-center">
             <img class="w-[32px]" src="{{ asset('image/Frame 49.png') }}" alt="Card image">
             <div class="w-[40px] h-[40px] rounded-tr-[8px] rounded-br-[8px] bg-gray-200 p-[4px] flex items-center justify-center">
@@ -531,55 +533,56 @@
             </div>
         </div>
 
-    </div>
+    </div> --}}
 </div>
 
-<div class="w-full flex flex-col gap-[32px] mt-9 pl-20 items-center justify-center mx-auto">
-    <button class="w-[976px] rounded-[12px] pt-[16px] pr-[32px] pb-[16px] gap-[10px] bg-black">
-        <div class="flex gap-[16px] items-center">
-            <img src="{{ asset('image/Rectangle 24.png') }}" class="rounded-[12px] w-8 md:w-10 sm:w-11 lg:w-12" alt="">
-            <h3 class="leading-[40px] text-2xl sm:text-3xl lg:text-4xl font-satoshi font-bold text-white">Castle Age</h3>
+<div class="w-full flex flex-col gap-[32px] left-[64px] mt-9 pl-20">
+    <button class="w-[455px] sm:w-full max-w-[976px] rounded-xl flex items-center pt-4 pr-8 pb-4 pl-8 gap-2 bg-black sm:pt-3 sm:pr-6 sm:pb-3 sm:pl-6 sm:gap-2 md:pt-4 md:pr-8 md:pb-4 md:pl-8 md:gap-3">
+        <div class="flex gap-[16px] items-center justify-center">
+            <img src="{{ asset('image/Rectangle 24.png') }}" class="rounded-[12px] w-12 md:w-10 sm:w-7 flex md:flex-row" alt="">
+            <h3 class="leading-[40px] text-2xl font-satoshi font-bold text-white md:text-4xl sm:text-[28px] md:leading-[36px] sm:leading-[32px]">Castle Age</h3>        
         </div>
     </button>
 
 
-    <div class="w-[976px] flex gap-[32px]">
-        <div class="w-[80px] h-[80px] rounded-[12px] bg-gray-200 p-[24px] flex items-center justify-center">
+    <div class="w-full flex gap-4 sm:flex-row sm:gap-8">
+        <div class="w-10 h-10 rounded-xl bg-gray-200 p-6 flex items-center justify-center sm:w-20 sm:h-20">
             <span>?</span>
         </div>
-        <div class="w-[864px] flex justify-start p-[32px] gap-[40px] rounded-[12px] bg-gray-200">
-            <div class="w-full flex flex-col gap-[32px] justify-start pt-[20px]">
-                <div class="flex flex-col gap-[32px] items-center">
-                    <div class="flex flex-row gap-8">
+        <div class="w-[390px] flex justify-start p-4 gap-[16px] rounded-xl bg-gray-200 sm:flex-row sm:w-[864px] sm:p-8 sm:gap-[40px]">
+            <div class="w-full flex gap-[16px] pt-0 sm:gap-[32px] sm:pt-5">
+                <div class="flex gap-[16px] items-center sm:gap-[32px]">
+                    <div class="flex flex-row gap-4 sm:flex-row sm:gap-8">
                         <div class="flex-shrink-0">
-                            <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 11.png') }}" alt="Card image">
+                            <img class="w-16 rounded-xl sm:w-28" src="{{ asset('image/Rectangle 11.png') }}" alt="">
                         </div>
-                        <div class="flex flex-col gap-[16px] w-full">
-                            <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">Keep Producing Archers</h4>
-                                <p class="font-satoshi text-[18px] leading-[28px] mb-[16px] text-gray-500">
-                                    Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
-                                    Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
-                                </p>
+                        <div class="flex flex-col gap-4 w-full">
+                            <h4 class="text-xl leading-5 font-satoshi font-medium sm:text-3xl sm:leading-9">Keep Producing Archers</h4>
+                            <p class="font-satoshi text-base leading-2 mb-[16px] text-gray-500 sm:text-lg sm:leading-7">
+                                Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
+                                Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="w-full flex gap-[32px]">
-        <div class="w-[80px] h-[80px] rounded-[12px] bg-gray-200 p-[24px] flex items-center justify-center">
+    
+    <div class="w-full flex gap-4 sm:flex-row sm:gap-8">
+        <div class="w-10 h-10 rounded-xl bg-gray-200 p-6 flex items-center justify-center sm:w-20 sm:h-20">
             <span>41+</span>
         </div>
-        <div class="w-[864px] flex justify-start p-[32px] gap-[40px] rounded-[12px] bg-gray-200">
-            <div class="w-full flex flex-col gap-[32px] justify-start pt-[20px]">
-                <div class="flex flex-col gap-[32px] items-center">
-                    <div class="flex flex-row gap-8">
+        <div class="w-[390px] flex justify-start p-4 gap-[16px] rounded-xl bg-gray-200 sm:flex-row sm:w-[864px] sm:p-8 sm:gap-[40px]">
+            <div class="w-full flex flex-col gap-[16px] sm:flex-col pt-0 sm:gap-[32px] sm:pt-5">
+                <div class="flex flex-col gap-[16px] items-center sm:gap-[32px] sm:flex-col">
+                    <div class="flex flex-row gap-4 sm:flex-row sm:gap-8">
                         <div class="flex-shrink-0">
-                            <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 16.png') }}" alt="Card image">
+                            <img class="w-16 rounded-xl sm:w-28" src="{{ asset('image/Rectangle 16.png') }}" alt="">
                         </div>
-                        <div class="flex flex-col gap-[16px] w-full">
-                            <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">Research Crossbow and Bodkin Arrow</h4>
-                                <p class="font-satoshi text-[18px] leading-[28px] mb-[16px] text-gray-500">
+                        <div class="flex flex-col gap-4 w-full">
+                            <h4 class="text-xl leading-5 font-satoshi font-medium sm:text-3xl sm:leading-9">Research Crossbow and Bodkin Arrow</h4>
+                                <p class="font-satoshi text-base leading-2 mb-4 text-gray-500 sm:text-lg sm:leading-7">
                                     Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
                                     Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
                                 </p>
@@ -587,14 +590,14 @@
                     </div>
                     <div class="h-[1px] bg-gray-400 w-full"></div>
                 </div>
-                <div class="flex flex-col gap-[32px] items-center">
-                    <div class="flex flex-row gap-8">
+                <div class="flex flex-col gap-[16px] items-center sm:gap-[32px] sm:flex-col">
+                    <div class="flex flex-row gap-4 sm:flex-row sm:gap-8">
                         <div class="flex-shrink-0">
-                            <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 16 (1).png') }}" alt="Card image">
+                            <img class="w-16 rounded-xl sm:w-28" src="{{ asset('image/Rectangle 16 (1).png') }}" alt="Card image">
                         </div>
-                        <div class="flex flex-col gap-[16px] w-full">
-                            <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">Upgrade Bow Saw</h4>
-                                <p class="font-satoshi text-[18px] leading-[28px] mb-[16px] text-gray-500">
+                        <div class="flex flex-col gap-4 w-full">
+                            <h4 class="text-xl leading-5 font-satoshi font-medium sm:text-3xl sm:leading-9">Upgrade Bow Saw</h4>
+                                <p class="font-satoshi text-base leading-2 mb-4 text-gray-500 sm:text-lg sm:leading-7">
                                     Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
                                     Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
                                 </p>
@@ -602,14 +605,14 @@
                     </div>
                     <div class="h-[1px] bg-gray-400 w-full"></div>
                 </div>
-                <div class="flex flex-col gap-[32px] items-center">
-                    <div class="flex flex-row gap-8">
+                <div class="flex flex-col gap-[16px] items-center sm:gap-[32px] sm:flex-col">
+                    <div class="flex flex-row gap-4 sm:flex-row sm:gap-8">
                         <div class="flex-shrink-0">
-                            <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 16 (2).png') }}" alt="Card image">
+                            <img class="w-16 rounded-xl sm:w-28" src="{{ asset('image/Rectangle 16 (2).png') }}" alt="Card image">
                         </div>
-                        <div class="flex flex-col gap-[16px] w-full">
-                            <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">Build University and Research Balistics</h4>
-                                <p class="font-satoshi text-[18px] leading-[28px] mb-[16px] text-gray-500">
+                        <div class="flex flex-col gap-4 w-full">
+                            <h4 class="text-xl leading-5 font-satoshi font-medium sm:text-3xl sm:leading-9">Build University and Research Balistics</h4>
+                                <p class="font-satoshi text-base leading-2 mb-4 text-gray-500 sm:text-lg sm:leading-7">
                                     Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
                                     Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
                                 </p>
@@ -617,14 +620,14 @@
                     </div>
                     <div class="h-[1px] bg-gray-400 w-full"></div>
                 </div>
-                <div class="flex flex-col gap-[32px] items-center">
-                    <div class="flex flex-row gap-8">
+                <div class="flex flex-col gap-[16px] items-center sm:gap-[32px] sm:flex-col">
+                    <div class="flex flex-row gap-4 sm:flex-row sm:gap-8">
                         <div class="flex-shrink-0">
-                            <img class="w-[120px] rounded-[12px]" src="{{ asset('image/Rectangle 16 (3).png') }}" alt="Card image">
+                            <img class="w-16 rounded-xl sm:w-28" src="{{ asset('image/Rectangle 16 (3).png') }}" alt="Card image">
                         </div>
-                        <div class="flex flex-col gap-[16px] w-full">
-                            <h4 class="text-[30px] leading-[36px] font-satoshi font-medium">Optional: Build Extra Town Center</h4>
-                                <p class="font-satoshi text-[18px] leading-[28px] mb-[16px] text-gray-500">
+                        <div class="flex flex-col gap-4 w-full">
+                            <h4 class="text-xl leading-5 font-satoshi font-medium sm:text-3xl sm:leading-9">Optional: Build Extra Town Center</h4>
+                                <p class="font-satoshi text-base leading-2 mb-4 text-gray-500 sm:text-lg sm:leading-7">
                                     Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad.
                                     Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade.
                                 </p>
@@ -639,7 +642,7 @@
 
 
 <div class="container w-full flex flex-col top-[480px] pt-[80px] pr-[36px] pb-[80px] pl-[36px] gap-[40px]">
-    <h3 class="w-[460px] leading-[64px] font-lato font-medium text-3xl md:text-4xl xl:text-6xl">OTHER INSIGHTS</h3>
+    <h3 class="leading-[64px] font-lato font-medium text-3xl md:text-4xl xl:text-6xl">OTHER INSIGHTS</h3>
     <div class="w-full flex flex-col md:flex-row lg:flex-row gap-10 md:gap-5">
         <div class="w-[100%] lg:w-[60%]  rounded-[12px] bg-gray-200 flex gap-[10px] p-[16px] lg:p-[32px]">
             <div class="w-full max-w-[567px] flex flex-col gap-[32px] justify-start pt-[20px]">

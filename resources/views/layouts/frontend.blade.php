@@ -105,7 +105,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-black py-6 mt-auto">
+    {{-- <footer class="bg-black py-6 mt-auto">
         <div class="container mx-auto flex flex-col items-center gap-6">
             <div class="flex justify-between items-center flex-col sm:flex-row">
                 <img src="{{ asset('image/logo 1.png') }}" class="w-[304px] pt-12 pl-0 pr-10" alt="Logo" />
@@ -134,7 +134,7 @@
                 </span>
             </div>
         </div>
-    </footer>
+    </footer> --}}
 
 
    
