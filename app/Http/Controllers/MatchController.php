@@ -119,7 +119,6 @@ class MatchController extends Controller
         }
 
         $data['insights'] = Insight::paginate(2);
-        dd($data);
 
         return view('insight_detail', compact('data'));
     }
@@ -135,6 +134,22 @@ class MatchController extends Controller
         $data['events'] = Event::all()->toArray();
 
         return view('home', compact('data'));
+    }
+
+    public function player () {
+        return view('player');
+    }
+    public function about () {
+        return view('about');
+    }
+    public function matchmaking () {
+        return view('matchmaking');
+    }
+    public function saweria () {
+        return view('saweria');
+    }
+    public function event () {
+        return view('event');
     }
 
     public function index()

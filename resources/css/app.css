@@ -7,3 +7,9 @@
 .dark .ps__rail-x {
     background-color: transparent !important;
 }
+
+@layer components {
+    .btn-primary {
+        @apply bg-white border-[1px] border-black rounded-[60px] flex text-lg font-normal hover:bg-black hover:text-white py-[12px] px-[24px];
+    }
+}
