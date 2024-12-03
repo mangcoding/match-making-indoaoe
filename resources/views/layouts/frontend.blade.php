@@ -105,36 +105,37 @@
     </main>
 
     <!-- Footer -->
-    {{-- <footer class="bg-black py-6 mt-auto">
-        <div class="container mx-auto flex flex-col items-center gap-6">
-            <div class="flex justify-between items-center flex-col sm:flex-row">
-                <img src="{{ asset('image/logo 1.png') }}" class="w-[304px] pt-12 pl-0 pr-10" alt="Logo" />
-                <h1 class="w-[883px] text-center text-[60px] sm:text-6xl text-gray-500 leading-[68px] font-medium">
-                    14! START THE GAME ALREADY!
-                </h1>
-            </div>
-            <div class="flex justify-between px-4 w-full text-gray-500 pt-48">
-                <div class="flex gap-[10px] font-semibold text-[18px]">
-                    <a href="https://www.instagram.com/zsrirahmwti20" class=" hover:text-white">Instagram</a>
-                    <a href="#" class=" hover:text-white">Discord</a>
-                    <a href="https://youtube.com/@jakiasrirahmawati4334" class=" hover:text-white">Youtube</a>
-                </div>
-                <div class="flex gap-[10px] font-semibold text-[18px]">
-                    <a href="#" class=" hover:text-white">About</a>
-                    <a href="#" class=" hover:text-white">Matchmaking</a>
-                    <a href="#" class=" hover:text-white">Insights</a>
-                    <a href="#" class=" hover:text-white">Events</a>
-                    <a href="#" class=" hover:text-white">Players</a>
-                    <a href="#" class=" hover:text-white">Sponsors</a>
-                </div>
-            </div>
-            <div class="w-full">
-                <span class="text-[290px] flex justify-center text-gray-500 font-medium m-0 p-0">
-                    INDOAOE
-                </span>
-            </div>
-        </div>
-    </footer> --}}
+    <footer class="bg-black py-2 md:py-6 mt-auto">
+      <div class="container mx-auto flex flex-col items-center gap-2">
+          <div class="flex justify-between items-center flex-row sm:flex-row">
+              <img src="{{ asset('image/logo 2.png') }}" class="w-[170px] md:w-[304px] md:pt-12 md:pl-4 md:pr-10 pt-5 pl-2 pr-4" alt="Logo" />
+              <h1 class="sm:w-[883px] w-full text-center text-base sm:text-6xl text-gray-500 md:leading-[68px] leading-[28px] font-medium">
+                  14! START THE GAME ALREADY!
+              </h1>
+          </div>
+          <div class="flex justify-between px-4 w-full text-gray-500 md:pt-48 pt-20 flex-col md:flex-row md:gap-0 gap-3">
+              <div class="flex gap-[10px] font-semibold text-xs md:text-[18px]">
+                  <a href="https://www.instagram.com/zsrirahmwti20" class="hover:text-white">Instagram</a>
+                  <a href="#" class="hover:text-white">Discord</a>
+                  <a href="https://youtube.com/@jakiasrirahmawati4334" class="hover:text-white">Youtube</a>
+              </div>
+              <div class="flex gap-[10px] font-semibold text-xs md:text-[18px]">
+                  <a href="#" class="hover:text-white">About</a>
+                  <a href="#" class="hover:text-white">Matchmaking</a>
+                  <a href="#" class="hover:text-white">Insights</a>
+                  <a href="#" class="hover:text-white">Events</a>
+                  <a href="#" class="hover:text-white">Players</a>
+                  <a href="#" class="hover:text-white">Sponsors</a>
+              </div>
+          </div>
+          <div class="w-full">
+              <span class="md:text-[290px] text-[80px] flex justify-center text-gray-500 font-medium m-0 p-0">
+                  INDOAOE
+              </span>
+          </div>
+      </div>
+  </footer>
+  
 
 
    

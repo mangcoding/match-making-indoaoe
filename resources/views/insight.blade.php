@@ -1,8 +1,5 @@
 @extends('layouts.frontend')
 @section('styles')
-    <style>
-
-    </style>
 @endsection
 @section('content')
 <div class="lg:pb-20 lg:pt-5 w-full">
@@ -12,9 +9,9 @@
         </h1>
     </div>
 </div>
-<div class="container w-full flex flex-col top-[480px] pt-[80px] pr-[36px] pb-[80px] pl-[36px] gap-[40px]">
+<div class="w-full flex flex-col top-[480px] pt-20 pr-9 pb-20 pl-9 gap-10">
     <div class="w-full overflow-x-auto">    
-        <ul class="w-max flex gap-[8px]">
+        <ul class="w-max flex gap-2">
             <li class="bg-white border-[1px] text-xs md:text-lg font-lato font-normal border-black rounded-[40px] flex py-1 px-3 md:py-3 md:px-6 hover:bg-black hover:text-white">
                 <a href="#">ALL</a>
             </li>
@@ -27,28 +24,26 @@
         </ul>
     </div>
  
-    <div class="w-full flex flex-col md:flex-row lg:flex-row gap-10 md:gap-5">
-        <!-- Card 1 -->
-        <div class="w-[100%] lg:w-[60%]  rounded-[12px] bg-gray-200 flex gap-[10px] p-[16px] lg:p-[32px]">
+    <div class="w-full grid grid-cols-1 md:grid-cols-2  gap-10 md:gap-5">
+        @for ($i =0; $i < 6; $i++)
+        <div class="w-full rounded-[12px] bg-gray-200 flex gap-[10px] p-[16px] lg:p-[32px]">
             <div class="w-full max-w-[567px] flex flex-col gap-[32px] justify-start pt-[20px]">
-                <div class="flex gap-[32px] items-center">
-                    <div class="flex-shrink-0">
-                        <img class="w-[100px] md:w-[120px] sm:w-[10px] rounded-[12px]" src="{{ asset('image/Rectangle 11.png') }}" alt="Card image">
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <div class="w-full md:w-3/12 flex-shrink-0">
+                        <img class="rounded-xl w-full max-h-40 object-cover object-top md:object-center" src="{{ asset('image/Rectangle 11.png') }}" alt="">
                     </div>
-                    <div class="flex flex-col gap-[16px]">
-                        <h4 class="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[30px] leading-[20px] sm:leading-[22px] md:leading-[26px] lg:leading-[30px] xl:leading-[36px] font-satoshi font-medium">
-                            Arabia Fast Feudal -> Archer Rush
-                        </h4>                        
-                        <div class="flex gap-2 flex-col md:flex-row lg:flex-row">
-                            <div class="flex gap-1">
-                                <div class="w-6 h-6 bg-red-700 rounded-[8px] flex flex-col md:flex-row lg:flex-row"></div>
-                                <span class="text-[13px] sm:text-[14px] lg:text-[16px] font-satoshi flex flex-col md:flex-row lg:flex-row">Advanced</span>
+                    <div class="flex flex-col gap-4 md:w-full">
+                        <h4 class="text-lg sm:text-2xl md:text-3xl font-satoshi font-medium">Arabia Fast Feudal -> Archer Rush</h4>               
+                        <div class="flex flex-wrap gap-2">
+                            <div class="flex items-center gap-2">
+                                <div class="w-6 h-6 bg-red-700 rounded-md"></div>
+                                <span class="text-sm sm:text-base lg:text-lg font-satoshi">Advanced</span>
                             </div>
-                            <div class="flex gap-1">
-                                <img src="{{ asset('image/Rectangle 28.png') }}" class="rounded-[8px] w-6 h-6 flex flex-col md:flex-row lg:flex-row" alt="">
-                                <span class="text-[13px] sm:text-[14px] lg:text-[16px] font-satoshi flex flex-col md:flex-row lg:flex-row">19 Pop</span>
+                            <div class="flex items-center gap-2">
+                                <img src="{{ asset('image/Rectangle 28.png') }}" class="rounded-md w-6 h-6" alt="">
+                                <span class="text-sm sm:text-base lg:text-lg font-satoshi">19 Pop</span>
                             </div>
-                        </div>                                               
+                        </div>
                     </div>
                 </div>
                 <div class="w-full">
@@ -71,11 +66,12 @@
                         </button>
                     </div>
                 </div>
-            </div>
         </div>
+    </div>
+        @endfor
     
         <!-- Card 2 -->
-        <div class="w-[100%] lg:w-[60%]  rounded-[12px] bg-gray-200 flex gap-[10px] p-[16px] lg:p-[32px]">
+        {{-- <div class="w-[100%] lg:w-[60%]  rounded-[12px] bg-gray-200 flex gap-[10px] p-[16px] lg:p-[32px]">
             <div class="w-full max-w-[567px] flex flex-col gap-[32px] justify-start pt-[20px]">
                 <div class="flex gap-[32px] items-center">
                     <div class="flex-shrink-0">
@@ -118,10 +114,10 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </div> --}}
+</div>
     
-    <div class="w-full flex flex-col md:flex-row lg:flex-row gap-10 md:gap-5">
+    {{-- <div class="w-full flex flex-col md:flex-row lg:flex-row gap-10 md:gap-5">
         <div class="w-[100%] lg:w-[60%]  rounded-[12px] bg-gray-200 flex gap-[10px] p-[16px] lg:p-[32px]">
             <div class="w-full max-w-[567px] flex flex-col gap-[32px] justify-start pt-[20px]">
                 <div class="flex gap-[32px] items-center">
@@ -303,9 +299,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
-    <div class="w-full flex justify-between items-center flex-row md:flex-row lg:flex-row">
+    {{-- <div class="w-full flex justify-between items-center flex-row md:flex-row lg:flex-row">
         <span id="prevButton" class="text-2xl md:text-2xl xl:text-6xl leading-[68px] font-satoshi w-[161px] text-gray-400 font-medium cursor-pointer">
             PREV
         </span> 
@@ -314,7 +310,7 @@
         <span id="nextButton" class="text-2xl md:text-2xl xl:text-6xl leading-[68px] font-satoshi w-[161px] text-black font-medium cursor-pointer  -mr-20">
             NEXT
         </span>
-    </div>
+    </div> --}}
 
 </div> 
 
