@@ -16,12 +16,12 @@
         @import url('https://fonts.googleapis.com/css2?family=Satoshi:wght@100;300;400;700;900&display=swap');
     </style> --}}
     <style>
-  
+
       .swiper {
         width: 100%;
         height: 100%;
       }
-  
+
       .swiper-slide {
         text-align: center;
         font-size: 18px;
@@ -30,7 +30,7 @@
         justify-content: center;
         align-items: center;
       }
-  
+
       .swiper-slide img {
         display: block;
         width: 100%;
@@ -43,7 +43,7 @@
 <body class="">
     <!-- Header atau Navbar -->
     <header class="bg-white">
-      <div class="container p-4 sm:p-6 w-full flex justify-between items-center">
+      <div class="container mx-auto p-4 sm:p-6 w-full flex justify-between items-center">
         <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse pl-14">
           <img src="{{ asset('image/logo-1 1.png') }}" class="h-8" alt="Logo" />
         </a>
@@ -67,7 +67,7 @@
           </button>
         </div>
       </div>
-    
+
       <!-- Dropdown Menu for Mobile -->
       <div id="dropdownMenu" class="absolute hidden bg-white border-2 border-gray-200 rounded-lg shadow-lg mt-2 w-32 transition-all duration-200 ease-in-out opacity-0 scale-95 pt-2 pb-2 pl-2 pr-4">
         <div class="flex items-center space-x-2 cursor-pointer py-2 hover:bg-gray-100">
@@ -80,7 +80,7 @@
         </div>
       </div>
 
-    
+
       <!-- Mobile Navigation -->
       <nav id="mobileNav" class="absolute left-0 top-0 w-full bg-white border-b-2 border-gray-200 md:hidden hidden">
         <div class="flex flex-col items-center py-4 space-y-4">
@@ -97,7 +97,7 @@
       </nav>
 
     </header>
-    
+
 
     <!-- Konten spesifik halaman -->
     <main class="flex-grow">
@@ -105,14 +105,17 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-black py-2 md:py-6 mt-auto">
+    <footer class="bg-black py-2 md:py-6 mt-auto mx-auto">
       <div class="container mx-auto flex flex-col items-center gap-2">
-          <div class="flex justify-between items-center flex-row sm:flex-row">
+
+         <div class="flex justify-between items-center flex-row sm:flex-row">
               <img src="{{ asset('image/logo 2.png') }}" class="w-[170px] md:w-[304px] md:pt-12 md:pl-4 md:pr-10 pt-5 pl-2 pr-4" alt="Logo" />
               <h1 class="sm:w-[883px] w-full text-center text-base sm:text-6xl text-gray-500 md:leading-[68px] leading-[28px] font-medium">
                   14! START THE GAME ALREADY!
               </h1>
           </div>
+
+
           <div class="flex justify-between px-4 w-full text-gray-500 md:pt-48 pt-20 flex-col md:flex-row md:gap-0 gap-3">
               <div class="flex gap-[10px] font-semibold text-xs md:text-[18px]">
                   <a href="https://www.instagram.com/zsrirahmwti20" class="hover:text-white">Instagram</a>
@@ -128,17 +131,15 @@
                   <a href="#" class="hover:text-white">Sponsors</a>
               </div>
           </div>
-          <div class="w-full">
-              <span class="md:text-[290px] text-[80px] flex justify-center text-gray-500 font-medium m-0 p-0">
-                  INDOAOE
-              </span>
-          </div>
+          <p class="w-full text-7xl sm:text-8xl md:text-[10rem] xl:text-[18.125rem] flex justify-center text-gray-500 font-medium m-0 p-0">
+              INDOAOE
+          </p>
       </div>
-  </footer>
-  
+   </footer>
 
 
-   
+
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
@@ -158,18 +159,18 @@
       const mobileLanguageButton = document.getElementById('mobileLanguageButton');
 
       hamburgerButton.addEventListener('click', function() {
-        mobileNav.classList.toggle('hidden'); 
-        dropdownMenu.classList.add('hidden'); 
+        mobileNav.classList.toggle('hidden');
+        dropdownMenu.classList.add('hidden');
       });
 
       mobileLanguageButton.addEventListener('click', function() {
-        dropdownMenu.classList.add('hidden'); 
+        dropdownMenu.classList.add('hidden');
       });
 
       document.addEventListener('click', function(event) {
         if (!dropdownMenu.contains(event.target) && !mobileLanguageButton.contains(event.target) && !hamburgerButton.contains(event.target)) {
           dropdownMenu.classList.add('hidden');
-          mobileNav.classList.add('hidden'); 
+          mobileNav.classList.add('hidden');
         }
       });
     </script>
