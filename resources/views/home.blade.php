@@ -14,7 +14,7 @@
         style="background-image: url('/image/Hero21.png'); background-size: 100% 100%; background-position: center; background-repeat: no-repeat;">
     </div>
 </div>
-
+    
 
 <div class="flex flex-col items-center gap-[32px] w-full mt-[80px]">
     <div class="flex justify-center items-center">

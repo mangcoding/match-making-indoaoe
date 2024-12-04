@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+\<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
     <!-- Link ke CSS dan JS -->
     {{-- <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <script src="{{ mix('js/app.js') }}" defer></script> --}}
-
+\
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@100;300;400;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -42,12 +42,12 @@
 </head>
 <body class="">
     <!-- Header atau Navbar -->
-    <header class="bg-white">
-      <div class="container p-4 sm:p-6 w-full flex justify-between items-center">
-        <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse pl-14">
-          <img src="{{ asset('image/logo-1 1.png') }}" class="h-8" alt="Logo" />
+    <header>
+      <div class="p-4 sm:p-3 w-full flex justify-between">
+        <a href="#" class="space-x-3 rtl:space-x-reverse pl-14 w-1/12">
+          <img src="{{ asset('image/logo-1 1.png') }}" alt=""/>
         </a>
-        <nav class="justify-end items-center space-x-4 hidden md:flex">
+        <nav class="justify-end items-center space-x-4 hidden md:flex w-11/12">
           <a href="{{ route('about') }}" class="hover:text-gray-200 p-2 rounded leading-[28px] text-center text-[18px] font-[700] font-satoshi">About</a>
           <a href="{{ route('matchmaking') }}" class="hover:text-gray-200 p-2 rounded leading-[28px] text-center text-[18px] font-[700] font-satoshi">Matchmaking</a>
           <a href="{{ route('insight') }}" class="hover:text-gray-200 p-2 rounded leading-[28px] text-center text-[18px] font-[700] font-satoshi">Insights</a>
@@ -69,7 +69,7 @@
       </div>
     
       <!-- Dropdown Menu for Mobile -->
-      <div id="dropdownMenu" class="absolute hidden bg-white border-2 border-gray-200 rounded-lg shadow-lg mt-2 w-32 transition-all duration-200 ease-in-out opacity-0 scale-95 pt-2 pb-2 pl-2 pr-4">
+      <button id="dropdownMenu" class="absolute hidden bg-white border-2 border-gray-200 rounded-lg shadow-lg mt-2 w-32 transition-all duration-200 ease-in-out opacity-0 scale-95 pt-2 pb-2 pl-2 pr-4">
         <div class="flex items-center space-x-2 cursor-pointer py-2 hover:bg-gray-100">
             <img src="{{ asset('image/Flag.png') }}" class="h-8" alt="Flag" />
             <span class="text-lg font-semibold">EN</span>
@@ -78,7 +78,7 @@
             <img src="{{ asset('image/Flag (1).png') }}" class="h-8" alt="Flag" />
             <span class="text-lg font-semibold">ID</span>
         </div>
-      </div>
+      </button>
 
     
       <!-- Mobile Navigation -->
