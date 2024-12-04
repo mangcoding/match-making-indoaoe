@@ -1,9 +1,5 @@
-<title>Home</title>
-
 @extends('layouts.frontend')
-
 @section('content')
-<h2>ini home page</h2>
 <div class="relative w-full h-[500px]">
     <div
         class="w-full h-full"
