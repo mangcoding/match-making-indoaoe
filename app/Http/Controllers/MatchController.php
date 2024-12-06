@@ -53,9 +53,9 @@ class MatchController extends Controller
         $category = $request->query('category', 'all');
 
         if ($category == 'all') {
-            $insights = Insight::paginate(8);
+            $insights = Insight::with('category')->paginate(8);
         } else {
-            $insights = Insight::with('categoryInsights')
+            $insights = Insight::with('category')
                 ->whereHas('categoryInsights', function ($query) use ($category) {
                     $query->where('category_id', $category);
                 })
@@ -67,6 +67,7 @@ class MatchController extends Controller
         $data = MatchController::formattedData($contents);
         $data['insights'] = $insights;
 
+        return $data;
         return view('insight', compact('data'));
     }
 
@@ -119,6 +120,8 @@ class MatchController extends Controller
         }
 
         $data['insights'] = Insight::paginate(2);
+
+        return $data;
 
         return view('insight_detail', compact('data'));
     }

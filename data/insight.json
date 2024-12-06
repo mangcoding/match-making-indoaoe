@@ -1,0 +1,353 @@
+// 20241206113646
+// http://localhost:8000/insight
+
+{
+    "hero": {
+      "title": "INSIGHT",
+      "description": null,
+      "links": [
+
+      ]
+    },
+    "insights": {
+      "current_page": 1,
+      "data": [
+        {
+          "id": 1,
+          "title": "Arabia Fast Feudal -> Archer Rush",
+          "image": "images/insights/01JE5NGN5D2Z5M2TJEWTYWG806.png",
+          "description": "Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad. Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade. ",
+          "difficulty": "Advanced",
+          "population": 19,
+          "deleted_at": null,
+          "created_at": "2024-12-03T07:07:22.000000Z",
+          "updated_at": "2024-12-03T07:07:22.000000Z",
+          "category": [
+            {
+              "id": 4,
+              "name": "Archer",
+              "deleted_at": null,
+              "created_at": "2024-12-03T07:04:48.000000Z",
+              "updated_at": "2024-12-03T07:04:48.000000Z",
+              "pivot": {
+                "insights_id": 1,
+                "category_insights_id": 4
+              }
+            },
+            {
+              "id": 1,
+              "name": "Build Order",
+              "deleted_at": null,
+              "created_at": "2024-12-03T07:04:11.000000Z",
+              "updated_at": "2024-12-03T07:04:11.000000Z",
+              "pivot": {
+                "insights_id": 1,
+                "category_insights_id": 1
+              }
+            },
+            {
+              "id": 3,
+              "name": "Generic Civ",
+              "deleted_at": null,
+              "created_at": "2024-12-03T07:04:37.000000Z",
+              "updated_at": "2024-12-03T07:04:37.000000Z",
+              "pivot": {
+                "insights_id": 1,
+                "category_insights_id": 3
+              }
+            },
+            {
+              "id": 5,
+              "name": "Team Game",
+              "deleted_at": null,
+              "created_at": "2024-12-03T07:05:01.000000Z",
+              "updated_at": "2024-12-03T07:05:01.000000Z",
+              "pivot": {
+                "insights_id": 1,
+                "category_insights_id": 5
+              }
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Arabia Fast Feudal -> Scout Rush",
+          "image": "images/insights/01JE69V78BBB1VTDMHN6DCJE8M.png",
+          "description": "Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad. Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade. ",
+          "difficulty": "Intermediate",
+          "population": 20,
+          "deleted_at": null,
+          "created_at": "2024-12-03T13:02:39.000000Z",
+          "updated_at": "2024-12-03T13:02:39.000000Z",
+          "category": [
+            {
+              "id": 1,
+              "name": "Build Order",
+              "deleted_at": null,
+              "created_at": "2024-12-03T07:04:11.000000Z",
+              "updated_at": "2024-12-03T07:04:11.000000Z",
+              "pivot": {
+                "insights_id": 2,
+                "category_insights_id": 1
+              }
+            },
+            {
+              "id": 3,
+              "name": "Generic Civ",
+              "deleted_at": null,
+              "created_at": "2024-12-03T07:04:37.000000Z",
+              "updated_at": "2024-12-03T07:04:37.000000Z",
+              "pivot": {
+                "insights_id": 2,
+                "category_insights_id": 3
+              }
+            },
+            {
+              "id": 6,
+              "name": "Scout",
+              "deleted_at": null,
+              "created_at": "2024-12-03T07:05:12.000000Z",
+              "updated_at": "2024-12-03T07:05:12.000000Z",
+              "pivot": {
+                "insights_id": 2,
+                "category_insights_id": 6
+              }
+            },
+            {
+              "id": 7,
+              "name": "1v1",
+              "deleted_at": null,
+              "created_at": "2024-12-03T07:05:17.000000Z",
+              "updated_at": "2024-12-03T07:05:17.000000Z",
+              "pivot": {
+                "insights_id": 2,
+                "category_insights_id": 7
+              }
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Land Nomad Fast Castle -> Knight Rush",
+          "image": "images/insights/01JE69YGVWDXCRY5WHMB6S6XEM.png",
+          "description": "Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad. Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade. ",
+          "difficulty": "Beginner",
+          "population": 23,
+          "deleted_at": null,
+          "created_at": "2024-12-03T13:04:28.000000Z",
+          "updated_at": "2024-12-03T13:04:28.000000Z",
+          "category": [
+            {
+              "id": 1,
+              "name": "Build Order",
+              "deleted_at": null,
+              "created_at": "2024-12-03T07:04:11.000000Z",
+              "updated_at": "2024-12-03T07:04:11.000000Z",
+              "pivot": {
+                "insights_id": 3,
+                "category_insights_id": 1
+              }
+            },
+            {
+              "id": 3,
+              "name": "Generic Civ",
+              "deleted_at": null,
+              "created_at": "2024-12-03T07:04:37.000000Z",
+              "updated_at": "2024-12-03T07:04:37.000000Z",
+              "pivot": {
+                "insights_id": 3,
+                "category_insights_id": 3
+              }
+            },
+            {
+              "id": 8,
+              "name": "Knight",
+              "deleted_at": null,
+              "created_at": "2024-12-03T07:05:26.000000Z",
+              "updated_at": "2024-12-03T07:05:26.000000Z",
+              "pivot": {
+                "insights_id": 3,
+                "category_insights_id": 8
+              }
+            },
+            {
+              "id": 5,
+              "name": "Team Game",
+              "deleted_at": null,
+              "created_at": "2024-12-03T07:05:01.000000Z",
+              "updated_at": "2024-12-03T07:05:01.000000Z",
+              "pivot": {
+                "insights_id": 3,
+                "category_insights_id": 5
+              }
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "Nomad Fast Feudal -> Galley",
+          "image": "images/insights/01JE6BAP2AJFFEB235XNNXTKTW.png",
+          "description": "Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad. Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade. ",
+          "difficulty": "Intermediate",
+          "population": 18,
+          "deleted_at": null,
+          "created_at": "2024-12-03T13:28:35.000000Z",
+          "updated_at": "2024-12-03T13:28:49.000000Z",
+          "category": [
+            {
+              "id": 1,
+              "name": "Build Order",
+              "deleted_at": null,
+              "created_at": "2024-12-03T07:04:11.000000Z",
+              "updated_at": "2024-12-03T07:04:11.000000Z",
+              "pivot": {
+                "insights_id": 4,
+                "category_insights_id": 1
+              }
+            },
+            {
+              "id": 3,
+              "name": "Generic Civ",
+              "deleted_at": null,
+              "created_at": "2024-12-03T07:04:37.000000Z",
+              "updated_at": "2024-12-03T07:04:37.000000Z",
+              "pivot": {
+                "insights_id": 4,
+                "category_insights_id": 3
+              }
+            },
+            {
+              "id": 9,
+              "name": "Water",
+              "deleted_at": null,
+              "created_at": "2024-12-03T07:05:34.000000Z",
+              "updated_at": "2024-12-03T07:05:34.000000Z",
+              "pivot": {
+                "insights_id": 4,
+                "category_insights_id": 9
+              }
+            },
+            {
+              "id": 5,
+              "name": "Team Game",
+              "deleted_at": null,
+              "created_at": "2024-12-03T07:05:01.000000Z",
+              "updated_at": "2024-12-03T07:05:01.000000Z",
+              "pivot": {
+                "insights_id": 4,
+                "category_insights_id": 5
+              }
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "title": "Arena Fast Imperial -> HC BBC",
+          "image": "images/insights/01JE6BCV6EE171MQ02FKY6QZA4.png",
+          "description": "Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad. Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade. ",
+          "difficulty": "Advanced",
+          "population": 32,
+          "deleted_at": null,
+          "created_at": "2024-12-03T13:29:45.000000Z",
+          "updated_at": "2024-12-03T13:29:45.000000Z",
+          "category": [
+            {
+              "id": 1,
+              "name": "Build Order",
+              "deleted_at": null,
+              "created_at": "2024-12-03T07:04:11.000000Z",
+              "updated_at": "2024-12-03T07:04:11.000000Z",
+              "pivot": {
+                "insights_id": 5,
+                "category_insights_id": 1
+              }
+            },
+            {
+              "id": 10,
+              "name": "Turks",
+              "deleted_at": null,
+              "created_at": "2024-12-03T07:05:45.000000Z",
+              "updated_at": "2024-12-03T07:05:45.000000Z",
+              "pivot": {
+                "insights_id": 5,
+                "category_insights_id": 10
+              }
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "title": "Land Nomad Fast Castle -> 3 TC Boom",
+          "image": "images/insights/01JE6BF8AEWWD7AP4JCT8PZV06.png",
+          "description": "Lörem ipsum kron pineren. Planat ditesade begen förutom parasöligt kontratism. Du kan vara drabbad. Traböliga ren och spotifiera kropesade för kora. Föjont poras, tul, hess tinera ossade. ",
+          "difficulty": "Beginner",
+          "population": 25,
+          "deleted_at": null,
+          "created_at": "2024-12-03T13:31:04.000000Z",
+          "updated_at": "2024-12-03T13:31:04.000000Z",
+          "category": [
+            {
+              "id": 1,
+              "name": "Build Order",
+              "deleted_at": null,
+              "created_at": "2024-12-03T07:04:11.000000Z",
+              "updated_at": "2024-12-03T07:04:11.000000Z",
+              "pivot": {
+                "insights_id": 6,
+                "category_insights_id": 1
+              }
+            },
+            {
+              "id": 3,
+              "name": "Generic Civ",
+              "deleted_at": null,
+              "created_at": "2024-12-03T07:04:37.000000Z",
+              "updated_at": "2024-12-03T07:04:37.000000Z",
+              "pivot": {
+                "insights_id": 6,
+                "category_insights_id": 3
+              }
+            },
+            {
+              "id": 5,
+              "name": "Team Game",
+              "deleted_at": null,
+              "created_at": "2024-12-03T07:05:01.000000Z",
+              "updated_at": "2024-12-03T07:05:01.000000Z",
+              "pivot": {
+                "insights_id": 6,
+                "category_insights_id": 5
+              }
+            }
+          ]
+        }
+      ],
+      "first_page_url": "http://localhost:8000/insight?page=1",
+      "from": 1,
+      "last_page": 1,
+      "last_page_url": "http://localhost:8000/insight?page=1",
+      "links": [
+        {
+          "url": null,
+          "label": "&laquo; Previous",
+          "active": false
+        },
+        {
+          "url": "http://localhost:8000/insight?page=1",
+          "label": "1",
+          "active": true
+        },
+        {
+          "url": null,
+          "label": "Next &raquo;",
+          "active": false
+        }
+      ],
+      "next_page_url": null,
+      "path": "http://localhost:8000/insight",
+      "per_page": 8,
+      "prev_page_url": null,
+      "to": 6,
+      "total": 6
+    }
+  }
