@@ -116,7 +116,7 @@
 
 
           <div class="flex justify-between px-4 w-full text-gray-500 md:pt-48 pt-20 flex-col md:flex-row md:gap-0 gap-3">
-              <div class="flex gap-[10px] font-semibold text-xs md:text-[18px]">
+              <div class="flex flex-col md:flex-row gap-[10px] font-semibold text-xs md:text-[18px]">
                   <a href="https://www.instagram.com/zsrirahmwti20" class="hover:text-white">Instagram</a>
                   <a href="#" class="hover:text-white">Discord</a>
                   <a href="https://youtube.com/@jakiasrirahmawati4334" class="hover:text-white">Youtube</a>

@@ -1,5 +1,5 @@
 services:
-  idkibackend:
+  indoaoe:
     image: indoaoe-img
     container_name: indoaoe-container
     build:
